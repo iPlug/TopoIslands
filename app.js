@@ -5,10 +5,10 @@ var app = express()
   , io = require('socket.io').listen(server);
 
 
-var port=5000;
-server.listen(port);
-console.info('listening on port ' + port);
-
+var port = process.env.PORT || 5000;
+server.listen(port, function() {
+  console.log("Listening on " + port);
+});
 
 app.configure(function(){
 	app.use(express.static(__dirname + '/static'));
