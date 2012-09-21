@@ -10,13 +10,12 @@ $(document).ready(function() {
             $(this).attr("src", src);
         });
 
-	$("#bldA").hover(function(){
-	  $("#bldA").css("background-image","url(media/image/building/windmillh.png)");
+/*	$("#bldA").hover(function(){
+	  $("#bldA").css("background-image","url(media/image/building/icehome1h.png)");
 	  },function(){
-	  $("#bldA").css("background-image","url(media/image/building/windmill.png)");
+	  $("#bldA").css("background-image","url(media/image/building/icehome1.png)");
 	});
-
-/*	
+	
 	$("#bldB").hover(function(){
 	  $("#bldB").css("background-image","url(media/image/building/store1h.png)");
 	  },function(){

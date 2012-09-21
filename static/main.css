@@ -178,7 +178,7 @@ body {
 }
 
 #bldA{
-	background-image:url('media/image/building/windmill.png');
+	/*background-image:url('media/image/building/icehome1.png');*/
 	position: relative;
 	display: block;
 	background-repeat:no-repeat;
