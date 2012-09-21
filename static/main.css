@@ -1,0 +1,299 @@
+body, h2, p {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #F5F5F5;
+	color: Black;
+	font-family: Helvetica, sans-serif;
+	overflow: hidden;
+}
+
+#A{
+	display:inline;
+}
+#B{
+	display:none;
+}
+
+#loginBox{
+	width: 400px;
+	height: 300px;
+	top: 200px;
+	border: black solid 2px;
+}
+
+#wrapper{
+	display: none;
+}
+
+.ui{
+	z-index:109;
+	float:left;
+	background: #FFFFFF;
+	position: relative;
+    height:900px;
+    width:78%;
+	left:285px;
+	top: 125px;
+	border:1px solid #E5E5E5;
+	-moz-border-radius-topleft: 5px;
+	border-radius-topleft: 5px;
+}
+
+#board{
+	margin-top:10px;
+	margin-left:20px;
+	position: relative;
+    height:590px;
+    width:900px;
+	border:1px solid #999999;
+	background: #1589FF;
+	background-image: url("media/image/bg/bus.png");
+	
+}
+
+.buildBoard{
+	margin-top:10px;
+	margin-left:20px;
+	position: relative;
+    height:590px;
+    width:900px;
+	/*border:1px solid #999999;*/
+}
+
+#mainInfo{
+	position: fixed;
+	float: left;
+	display: block;
+	z-index: 109;
+	width: 100%;
+	height: 125px;
+	background: #F5F5F5;
+	background-repeat:no-repeat;
+}
+
+#profileWrap{
+	float: left;
+	display: block;
+	width: 400px;
+	height: 120px;
+	margin-left:10px;
+}
+
+#profileImg{
+	position: relative;
+	float: left;
+	width: 100px;
+	height: 118px;
+}
+
+#profileInfo{
+	position: relative;
+	float: left;
+	width: 295px;
+	height: 118px;
+	text-align: center;
+}
+
+#mainMenu{
+	top:125px;
+	right: -135px;
+	z-index:110;
+	position: fixed;
+    height:900px;
+    width:170px;
+	background: #F5F5F5;
+	border:1px solid #E5E5E5;
+	/*    background: #3366CC; */
+}
+#mainMenu:hover{
+	right: 0px;
+}
+
+
+
+#chatBox{
+	left: 1px;
+	position: fixed;
+	float: left;
+	display: block;
+	z-index: 109;
+	width: 275px;
+	height: 100%;
+	top:125px;
+	background: #F5F5F5;
+	background-repeat:no-repeat;
+}
+
+#friendBox{
+	left: 1px;
+	position: fixed;
+	float: left;
+	display: none;
+	z-index: 109;
+	width: 275px;
+	height: 100%;
+	top:125px;
+	background: #F5F5F5;
+	background-repeat:no-repeat;
+}
+
+#chatBoard{
+	margin-top:20px;
+	margin-bottom:5px;
+	z-index: 110;
+	width: 260px;
+	height: 60%;
+	background: white;
+	background-repeat:no-repeat;
+	border: 1px solid black;
+	overflow: auto;
+	text-align: left;
+}
+
+#friendBoard{
+	margin-top:20px;
+	margin-bottom:5px;
+	left: 0px;
+	z-index: 110;
+	width: 260px;
+	height: 70%;
+	background: white;
+	background-repeat:no-repeat;
+	border: 1px solid black;
+	overflow: auto;
+	text-align: left;
+}
+
+.bld{
+	position: relative;
+	float: left;
+	display: block;
+	z-index: 99;
+	width: 120px;
+	height: 120px;
+	border: 1px solid transparent;
+}
+
+#bldA{
+	/*background-image:url('media/image/building/icehome1.png');*/
+	position: relative;
+	display: block;
+	background-repeat:no-repeat;
+	cursor: pointer;
+	top: 55px;
+	left: 75px;
+}
+
+#bldB{
+	/*background-image:url('media/image/building/store1.png');*/
+	position: relative;
+	display: block;
+	background-repeat:no-repeat;
+	cursor: pointer;
+	top: 380px;
+	left: 75px;	
+}
+
+#bldC{
+	/*background-image:url('media/image/building/icehome1.png');*/
+	position: relative;
+	display: block;
+	background-repeat:no-repeat;
+	cursor: pointer;
+	top: 55px;
+	left: 65px;
+}
+
+#bldD{
+	/*background-image:url('media/image/building/icehome1.png');*/
+	position: relative;
+	display: block;
+	background-repeat:no-repeat;
+	cursor: pointer;
+	top: 380px;
+	left: 75px;
+}
+
+#bldE{
+	/*background-image:url('media/image/building/icehome1.png');*/
+	position: relative;
+	display: block;
+	background-repeat:no-repeat;
+	cursor: pointer;
+	top: 55px;
+	left: 65px;
+}
+
+.imgBuilding{
+	position: relative;
+	float: left;
+	display: block;
+	z-index: 99;
+	width: 250px;
+	height: 250px;
+	background:white;
+	//border:1px black solid;
+	top: 100px;
+	left: 100px;	
+}
+
+.detBuilding{
+	position: relative;
+	float: left;
+	display: block;
+	z-index: 99;
+	width: 420px;
+	height: 250px;
+	background:white;
+	
+	top: 100px;
+	left: 110px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.back{
+	position: relative;
+	float: left;
+	display: block;
+	z-index: 99;
+
+	top: 100px;
+	left: 100px;	
+	
+	
+	
+	width: 126px;
+
+	/*
+	background:#CCCCCC;
+	border:1px #BEBEBE solid;
+	cursor: pointer;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	*/
+}
+
+.buy{
+	color: white;
+	clear: both;
+	position: relative;
+	float: left;
+	display: block;
+	z-index: 99;
+
+	top: 100px;
+	left: 100px;	
+	
+	
+	width: 126px;
+	/*
+	background-color: #4787ED;
+    background-image: -moz-linear-gradient(center top , #4D90FE, #4787ED);
+	border: 1px solid #3079ED;
+	cursor: pointer;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);	
+	*/
+}

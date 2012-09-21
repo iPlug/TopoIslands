@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang=en>
+<head>
+<meta charset="utf-8">
+<title></title>
+
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+<link href="main.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="bubbles.css" rel="stylesheet" type="text/css" media="screen" />
+
+<script src="socket.io/socket.io.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/declare.js"></script>
+<script src="js/ioconf.js"></script>
+<script src="js/gameplay.js"></script>
+
+</head>
+
+<body>
+<div align=center style="top:100px;position:relative;">
+<div id=loginBox>
+<div style="top:100px;position:relative;">
+<label>Username : <input type=text id=uname /></label>
+<label>Guild : <input type=text id=guild /></label>
+<label>Password : <input type=password id=passw /></label>
+<button class='btn btn-success' id=signin>Sign In</button>
+</div>
+</div>
+</div>
+<div id=wrapper>
+<div id=chatBox  align=center>
+<br />
+<button class='btn btn-disabled disabled'><i class='icon-retweet'></i> Pusat Barter</button> 
+<button id=butTeman class='btn btn-success'><i class='icon-white icon-user'></i> Teman Guild</button>
+	<div id=chatBoard>
+	</div>
+	
+	<input id=txtChat type=text maxlength="150" class="span3 input-xlarge" placeholder='Ketikan isi pesan...'>
+	<button id=butSend class='btn btn-success'><i class='icon-white icon-bullhorn'></i> Teriak </button>
+	<button id=butMarket class='btn btn-primary'><i class='icon-white icon-comment'></i> ke Pasar </button>
+</div>
+<div id=friendBox  align=center>
+<br />
+<button id=butBarter class='btn btn-success'><i class='icon-white icon-retweet'></i> Pusat Barter</button> 
+<button class='btn btn-disabled disabled'><i class='icon-user'></i> Teman Guild</button>
+<div id=friendBoard>
+</div>
+	
+</div>
+<div id=mainInfo>
+	<div id=profileWrap>
+		<div id=profileImg><img src='media/image/profile/15.png' width=99px height=118px /></div>
+		<div id=profileInfo>
+			<br />
+			<strong>
+			<div id=labName>Unknown</div></strong>
+			Title
+			<b><div id=labTitle>Untitled</div></b>
+			Guild
+			<b><div id=labGuild>None</div></b>
+		</div>
+	</div>
+</div>
+<div id=mainMenu>
+	<ul class="nav nav-list">
+	  <li class="active">
+		
+		<a href="#"><i class='icon-white icon-home'></i>&nbsp; Peta</a>
+	  </li>
+	  <li>
+		
+		<a href="library"><i class=icon-book></i>&nbsp; Perpustakaan</a>
+	  </li>
+		<li>
+		
+		<a href="#"><i class=icon-comment></i>&nbsp; Ruang Chat</a>
+	  </li>
+	</ul>
+	<hr />
+	<ul class="nav nav-list">
+	  <li >
+		<a href="#"><i class='icon-wrench'></i>&nbsp; Tampilan</a>
+	  </li>
+	  <li>
+		<a href="#"><i class=icon-user></i>&nbsp; Profil</a>
+	  </li>
+	  <li>
+		<a href="#"><i class=icon-headphones></i>&nbsp; Suara</a>
+	  </li>
+	</ul>
+	<hr />
+	<ul class="nav nav-list">
+	  <li >
+		<a href="#"><i class='icon-thumbs-up'></i>&nbsp; Feedback</a>
+	  </li>
+	</ul>
+</div>
+<section id=A>
+<div class=ui id=map>
+<div id=board>
+	<div id=wraperA>
+		<div class=bld id=bldA>
+			<img class=hvr src='media/image/building/windmill.png' />
+		</div>
+	</div>
+	<div id=wraperB>
+		<div class=bld id=bldB>		
+		<img class=hvr src='media/image/building/home1.png' />
+		</div>
+	</div>
+	<div id=wraperC>
+		<div class=bld id=bldC>		
+		<img class=hvr src='media/image/building/icehome1.png' />
+		</div>
+	</div>
+	<div id=wraperD>
+		<div class=bld id=bldD>		
+		<img class=hvr src='media/image/building/store1.png' />
+		</div>
+	</div>
+	<div id=wraperE>
+		<div class=bld id=bldE>		
+		<img class=hvr src='media/image/building/rockery.png' />
+		</div>
+	</div>	
+</div>
+</div>
+</section>
+<section id=B>
+<div class=ui id=building>
+	<div class=buildBoard id=B1>
+		<div class=imgBuilding align=right>
+			<img src='media/image/people/woody.jpg' width=170px height=250px />
+		</div>
+		<div class=detBuilding id=txtWood>
+		
+		</div>
+		<div    >
+			<button class='buy btn btn-success'>
+			<i class="icon-search icon-white icon-briefcase"></i>
+			Bekerja
+			</button>
+		</div>
+		<div    >
+			<button class='back btn btn-success'>
+			<i class="icon-white icon-question-sign"></i>
+			Tanya
+			</button>
+		</div>
+		<div    >
+			<button class='buy btn btn-success'>
+			<i class="icon-white icon-info-sign"></i>
+			Informasi
+			</button>
+		</div>
+		<div    >
+			<button class='back btn btn-info'>
+			<i class="icon-white icon-circle-arrow-left"></i>
+			Keluar
+			</button>
+		</div>
+		
+	</div>
+	
+	<div class=buildBoard id=B2>
+		<div class=imgBuilding align=right>
+			<img src='media/image/people/doug.jpg' width=170px height=250px />
+		</div>
+		<div class=detBuilding id=txtHome>
+		
+		</div>
+		<div    >
+			<button class='buy btn btn-success disabled' disabled>
+			<i class="icon-search icon-white icon-shopping-cart"></i>
+			Bekerja
+			</button>
+		</div>
+		<div    >
+			<button class='back btn btn-info'>
+			<i class="icon-search icon-white icon-home"></i>
+			Kembali
+			</button>
+		</div>
+	</div>
+	
+	<div class=buildBoard id=B3>
+		<div class=imgBuilding align=right>
+			<img src='media/image/people/saibara.jpg' width=170px height=250px />
+		</div>
+		<div class=detBuilding id=txtMine>
+		
+		</div>
+		<div    >
+			<button class='buy btn btn-success disabled' disabled>
+			<i class="icon-search icon-white icon-shopping-cart"></i>
+			Bekerja
+			</button>
+		</div>
+		<div    >
+			<button class='back btn btn-info'>
+			<i class="icon-search icon-white icon-home"></i>
+			Kembali
+			</button>
+		</div>
+	</div>
+
+	<div class=buildBoard id=B4>
+		<div class=imgBuilding align=right>
+			<img src='media/image/people/gourmetchef.jpg' width=170px height=250px />
+		</div>
+		<div class=detBuilding id=txtShop>
+		
+		</div>
+		<div    >
+			<button class='buy btn btn-success disabled' disabled>
+			<i class="icon-search icon-white icon-shopping-cart"></i>
+			Bekerja
+			</button>
+		</div>
+		<div    >
+			<button class='back btn btn-info'>
+			<i class="icon-search icon-white icon-home"></i>
+			Kembali
+			</button>
+		</div>
+	</div>
+	
+	<div class=buildBoard id=B5>
+		<div class=imgBuilding align=right>
+			<img src='media/image/people/tai.jpg' width=170px height=250px />
+		</div>
+		<div class=detBuilding id=txtRock>
+		
+		</div>
+		<div    >
+			<button class='buy btn btn-success disabled' disabled>
+			<i class="icon-search icon-white icon-shopping-cart"></i>
+			Bekerja
+			</button>
+		</div>
+		<div    >
+			<button class='back btn btn-info'>
+			<i class="icon-search icon-white icon-home"></i>
+			Kembali
+			</button>
+		</div>
+	</div>
+	
+	<div class=buildBoard id=B6>
+		<div class=imgBuilding align=right>
+			<img src='media/image/people/woody.jpg' width=170px height=250px />
+		</div>
+		<div class=detBuilding id=txtWindmill>
+		
+		</div>
+		<div    >
+			<button class='buy btn btn-success disabled' disabled>
+			<i class="icon-search icon-white icon-shopping-cart"></i>
+			Bekerja
+			</button>
+		</div>
+		<div    >
+			<button class='back btn btn-info'>
+			<i class="icon-search icon-white icon-home"></i>
+			Kembali
+			</button>
+		</div>
+	</div>
+</div>
+</section>
+<section id=C>
+<center>
+<div class=ui>
+<br />
+<h1>Pasar TopoIslands</h1>
+<br />
+<button id=butHome class='btn btn-primary'><i class='icon-white icon-home'></i> Kembali </button>
+</div>
+</center>
+</section>
+</div>
+<audio id="beep" preload="auto">
+	<source src="media/audio/textnoise.wav" controls></source>
+	
+	Your browser isn't invited for super fun audio time.
+</audio>
+<script>var textNoise = $("#beep")[0];</script>
+</body>
+</html>
