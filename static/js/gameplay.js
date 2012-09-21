@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 	$("#uname").focus();
-	$(".hvr").hover(function(){
+	$("#hvr").hover(function(){
             var src = $(this).attr("src").match(/[^\.]+/) + "h.png";
             $(this).attr("src", src);
 			textNoise.play();
