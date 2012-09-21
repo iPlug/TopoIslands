@@ -5,7 +5,7 @@ var app = express()
   , io = require('socket.io').listen(server);
 
 
-var port=14055;
+var port=5000;
 server.listen(port);
 console.info('listening on port ' + port);
 
