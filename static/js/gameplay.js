@@ -5,6 +5,7 @@ $(document).ready(function() {
 	$(".hvr").hover(function(){
             var src = $(this).attr("src").match(/[^\.]+/) + "h.png";
             $(this).attr("src", src);
+			textNoise.play();
         },function(){
             var src = $(this).attr("src").replace("h.png", ".png");
             $(this).attr("src", src);
