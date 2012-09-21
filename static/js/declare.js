@@ -1,6 +1,6 @@
 //	DECLARE VARIABLE AND FUNCTION
 	//	var socket = io.connect('http://10.250.214.130');
-	var socket = io.connect('http://localhost');
+	var socket = io.connect(window.location.hostname);
 	var time= new Date();
 	var newMsg=-1;
 	var temp='';
