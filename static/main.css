@@ -178,13 +178,19 @@ body {
 }
 
 #bldA{
-	/*background-image:url('media/image/building/icehome1.png');*/
+	background:url('media/image/building/windmillfull.png') bottom;
 	position: relative;
 	display: block;
 	background-repeat:no-repeat;
 	cursor: pointer;
 	top: 55px;
 	left: 75px;
+	width:125px;
+	height:125px;
+}
+
+#bldA:hover{
+	background-position: 0 0;
 }
 
 #bldB{

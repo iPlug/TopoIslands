@@ -2,7 +2,13 @@
 
 $(document).ready(function() {
 	$("#uname").focus();
+
 	$(".hvr").hover(function(){
+			textNoise.play();
+        },function(){
+            
+        });
+	/*	$(".hvr").hover(function(){
             var src = $(this).attr("src").match(/[^\.]+/) + "h.png";
             $(this).attr("src", src);
 			textNoise.play();
@@ -11,7 +17,7 @@ $(document).ready(function() {
             $(this).attr("src", src);
         });
 
-/*	$("#bldA").hover(function(){
+	$("#bldA").hover(function(){
 	  $("#bldA").css("background-image","url(media/image/building/icehome1h.png)");
 	  },function(){
 	  $("#bldA").css("background-image","url(media/image/building/icehome1.png)");
