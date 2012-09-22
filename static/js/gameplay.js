@@ -6,17 +6,26 @@ $(document).ready(function() {
 	// setting tentang hover menghover
 	
 	$(".hvr").hover(function(e){
-			$('#popup').fadeIn(900)
-			.css('top', e.pageY + 20)
+			clearTimeout(popTimer);
+    
+		    popTimer = setTimeout(function(){
+		        $('#popup').fadeOut(900);
+		    }, 4000);
+		    
+		    $('#popup').fadeIn(900);
+			
+			$('#popup').css('top', e.pageY + 20)
 			.css('left', e.pageX + 20)
 			.appendTo('body');
+			
         },function(){
-            $('#popup').fadeOut(100)
+            $('#popup').fadeOut(500)
         });
 	
 
 	$('.hvr').mousemove(function(e) {
 		$("#popup").css('top', e.pageY + 20).css('left', e.pageX + 20);
+		//$('#popup').fadeOut(1000)
 	});
 
 	
