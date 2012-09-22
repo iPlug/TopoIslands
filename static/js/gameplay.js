@@ -6,15 +6,15 @@ $(document).ready(function() {
 	// setting tentang hover menghover
 	
 	$(".hvr").hover(function(e){
-			$('#popup').show()
+			$('#popup').fadeIn(900)
 			.css('top', e.pageY + 20)
 			.css('left', e.pageX + 20)
 			.appendTo('body');
         },function(){
-            $('#popup').hide()
+            $('#popup').fadeOut(100)
         });
 	
-/*
+
 	$('.hvr').mousemove(function(e) {
 		$("#popup").css('top', e.pageY + 20).css('left', e.pageX + 20);
 	});
