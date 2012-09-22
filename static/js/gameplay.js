@@ -14,6 +14,7 @@ $(document).ready(function() {
             $('#popup').hide()
         });
 	
+/*
 	$('.hvr').mousemove(function(e) {
 		$("#popup").css('top', e.pageY + 20).css('left', e.pageX + 20);
 	});
