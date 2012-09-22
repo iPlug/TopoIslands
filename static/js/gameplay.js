@@ -3,19 +3,24 @@
 $(document).ready(function() {
 	$("#uname").focus();
 
-	$(".hvr").hover(function(){
-			textNoise.play();
+	// setting tentang hover menghover
+	
+	$(".hvr").hover(function(e){
+			$('#popup').show()
+			.css('top', e.pageY + 20)
+			.css('left', e.pageX + 20)
+			.appendTo('body');
         },function(){
-            
+            $('#popup').hide()
         });
-	/*	$(".hvr").hover(function(){
-            var src = $(this).attr("src").match(/[^\.]+/) + "h.png";
-            $(this).attr("src", src);
-			textNoise.play();
-        },function(){
-            var src = $(this).attr("src").replace("h.png", ".png");
-            $(this).attr("src", src);
-        });
+	
+	$('.hvr').mousemove(function(e) {
+		$("#popup").css('top', e.pageY + 20).css('left', e.pageX + 20);
+	});
+
+	
+		
+	/*
 
 	$("#bldA").hover(function(){
 	  $("#bldA").css("background-image","url(media/image/building/icehome1h.png)");

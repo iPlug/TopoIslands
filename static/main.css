@@ -10,6 +10,18 @@ body {
 	overflow: hidden;
 }
 
+#popup{
+	display: none;
+	position: absolute;
+	width: 280px;
+	padding: 10px;
+	background: #eeeeee;
+	color: #000000;
+	border: 1px solid #1a1a1a;
+	font-size: 90%;
+	z-index: 2000;
+}
+
 #A{
 	display:inline;
 }
@@ -178,7 +190,7 @@ body {
 }
 
 #bldA{
-	background:url('media/image/building/windmillfull.png') bottom;
+	background:url('media/image/building/full.png') -500px -125px;
 	position: relative;
 	display: block;
 	background-repeat:no-repeat;
@@ -190,11 +202,11 @@ body {
 }
 
 #bldA:hover{
-	background-position: 0 0;
+	background-position: -500px 0;
 }
 
 #bldB{
-	/*background-image:url('media/image/building/store1.png');*/
+	background:url('media/image/building/full.png') 0px -125px;
 	position: relative;
 	display: block;
 	background-repeat:no-repeat;
@@ -203,8 +215,12 @@ body {
 	left: 75px;	
 }
 
+#bldB:hover{
+	background-position: 0 0;
+}
+
 #bldC{
-	/*background-image:url('media/image/building/icehome1.png');*/
+	background:url('media/image/building/full.png') -250px -125px;
 	position: relative;
 	display: block;
 	background-repeat:no-repeat;
@@ -213,8 +229,11 @@ body {
 	left: 65px;
 }
 
+#bldC:hover{
+	background-position: -250px 0;
+}
 #bldD{
-	/*background-image:url('media/image/building/icehome1.png');*/
+	background:url('media/image/building/full.png') -125px -125px;
 	position: relative;
 	display: block;
 	background-repeat:no-repeat;
@@ -223,8 +242,11 @@ body {
 	left: 75px;
 }
 
+#bldD:hover{
+	background-position: -125px 0;
+}
 #bldE{
-	/*background-image:url('media/image/building/icehome1.png');*/
+	background:url('media/image/building/full.png') -375px -125px;
 	position: relative;
 	display: block;
 	background-repeat:no-repeat;
@@ -233,6 +255,9 @@ body {
 	left: 65px;
 }
 
+#bldE:hover{
+	background-position: -375px 0;
+}
 .imgBuilding{
 	position: relative;
 	float: left;
