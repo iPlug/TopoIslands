@@ -17,9 +17,8 @@ $(document).ready(function() {
 			$('#popup').css('top', e.pageY + 20)
 			.css('left', e.pageX + 20)
 			.appendTo('body');
-			
         },function(){
-            $('#popup').fadeOut(500)
+            $('#popup').fadeOut(100)
         });
 	
 
@@ -49,63 +48,62 @@ $(document).ready(function() {
 
 	$(".back").click(function(event) {
 		hideAll();
-		$("#A").css("display","inline");
+		$("#A").show();
 	  });
 
 	  $("#bldA").click(function(event) {
 	    hideAll();
-	    $("#B").css("display","inline");
-		$("#B1").css("display","inline");
+	    $("#B").show();
+		$("#B1").show();
 		fillText('1', 'Woody', 'Cuaca yang bagus untuk menebang pohon, oh ada apa ' + uname + '?');
 		});
 	  
 	  $("#bldB").click(function(event) {
 	    hideAll();
-		$("#B").css("display","inline");
-		$("#B2").css("display","inline");
+		$("#B").show();
+		$("#B2").show();
 		fillText('2', 'Doug', 'Apa ada yang bisa ku bantu, ' + uname + '?');
 	  });
 	  
 	  $("#bldC").click(function(event) {
 	    hideAll();
-		$("#B").css("display","inline");
-		$("#B3").css("display","inline");
+		$("#B").show();
+		$("#B3").show();
 		fillText('3', 'Saibara', 'Hai ' + uname + ', apa yang kau butuhkan dariku?');
 	  });
 	  
 	  $("#bldD").click(function(event) {
 	    hideAll();
-		$("#B").css("display","inline");
-		$("#B4").css("display","inline");
+		$("#B").show();
+		$("#B4").show();
 		fillText('4', 'Gourmetchef', 'Hari ini sangat panas, apa bisnismu hari ini ' + uname + '?');
 	  });
 	  
 	  $("#bldE").click(function(event) {
 	    hideAll();
-		$("#B").css("display","inline");
-		$("#B5").css("display","inline");
+		$("#B").show();
+		$("#B5").show();
 		fillText('5', 'Thai', 'Apa yang kau lakukan di kantor ku, ' + uname + '?');
 	  });
 	  
 	  $("#butTeman").click(function(event) {
 		//$("#chatBox").css("display","none");
-		$("#friendBox").css("display","inline");
+		$("#friendBox").show();
 		
 	  });
 	  
 	  $("#butBarter").click(function(event) {
 		$("#friendBox").css("display","none");
-		$("#chatBox").css("display","inline");
+		$("#chatBox").show();
 	  });
 	  
 	  $("#butMarket").click(function(event) {
-		hideAll();
-		$("#C").css("display","inline");
+		//startTutorial();
 	  });
 	  
 	  $("#butHome").click(function(event) {
 		hideAll();
-		$("#A").css("display","inline");
+		$("#A").show();
 	  });
 
 // ------------------

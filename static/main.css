@@ -40,6 +40,15 @@ body {
 	display: none;
 }
 
+.intro{
+	color: white;
+	position: absolute;
+	z-index:3000;
+	height: 100%;
+	width: 100%;
+	background: black;
+}
+
 .ui{
 	z-index:109;
 	float:left;
