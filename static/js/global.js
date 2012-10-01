@@ -86,6 +86,7 @@ function fillNow(no, name, text){
 
 function fillAns(no){
 	switch(no){
+		
 		case "1":
 			$('#boxWoody').show();
 			if(QCount==1){
@@ -226,12 +227,14 @@ function ansHandler(no, data){
 			case '+':
 				ConvCount++;
 				$("#txtWoody").html('');
-				$(".ansBox").hide('');
+				$(".ansBox").hide();
+				
 				fillText(no, 'Woody', May[ConvCount]);
 			break;
 			case '=':
 				$("#txtWoody").html('');
-				$(".ansBox").hide('');
+				$(".ansBox").hide();
+				
 				fillText(no, 'Woody', May[ConvCount]);
 			break;
 			case '_':
@@ -251,7 +254,8 @@ function ansHandler(no, data){
 			case '+':
 				ConvCount++;
 				$("#txtMayor").html('');
-				$(".ansBox").hide('');
+				$(".ansBox").hide();
+				
 				fillText('6', 'Thomas', May[ConvCount]);
 			break;
 			case '=':
@@ -282,10 +286,12 @@ function woodyHandler(){
 	switch(QCount){
 		case 1:
 			$(".ansBox").hide();
+			
 			fillText('1', 'Woody', May[ConvCount]);
 		break;
 		default:
 			$(".ansBox").hide();
+			
 			fillText('1', 'Woody', 'Hai ' + uname + ', hari yang cerah untuk menebang pohon kan?');
 		break;
 	}

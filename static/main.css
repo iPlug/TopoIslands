@@ -295,40 +295,10 @@ body {
 	padding: 10px;
 }
 
-.ansBox{
-	position: relative;
-	float: left;
-	clear: both;
-	display: none;
-	width: 420px;
-	height: 75px;
-	background:white;
-	border: 1px solid red;
-	top: 100px;
-	left: 400px;
-	margin-bottom: 10px;
-	padding: 10px;
-}
+
 
 .back{
-	position: relative;
-	float: left;
-	display: block;
-	z-index: 99;
 
-	top: 100px;
-	left: 100px;	
-	
-	
-	
-	width: 126px;
-
-	/*
-	background:#CCCCCC;
-	border:1px #BEBEBE solid;
-	cursor: pointer;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-	*/
 }
 
 .buy{
@@ -352,3 +322,31 @@ body {
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);	
 	*/
 }
+
+.ansBox{
+	position: relative;
+	float: left;
+	clear: both;
+	display: none;
+	width: 420px;
+	height: 95px;
+	background:white;
+	top: 90px;
+	left: 200px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.ansBut{
+	width: 100%;
+	float: left;
+	clear: both;
+	margin-bottom: 5px;
+}
+
+.playerImg{
+	display: inline-block;
+	position: relative;
+	top: 375px;
+}
+
