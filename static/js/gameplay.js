@@ -52,10 +52,7 @@ $(document).ready(function() {
 	  });
 
 	  $("#bldA").click(function(event) {
-	    hideAll();
-	    $("#B").show();
-		$("#B1").show();
-		fillText('1', 'Woody', 'Cuaca yang bagus untuk menebang pohon, oh ada apa ' + uname + '?');
+	    woodyHandler();
 		});
 	  
 	  $("#bldB").click(function(event) {
@@ -85,20 +82,22 @@ $(document).ready(function() {
 		$("#B5").show();
 		fillText('5', 'Thai', 'Apa yang kau lakukan di kantor ku, ' + uname + '?');
 	  });
+
+	  // deklarasi event tombol-tombol ui
 	  
 	  $("#butTeman").click(function(event) {
-		//$("#chatBox").css("display","none");
+		$("#chatBox").hide();
 		$("#friendBox").show();
 		
 	  });
 	  
 	  $("#butBarter").click(function(event) {
-		$("#friendBox").css("display","none");
+		$("#friendBox").hide();
 		$("#chatBox").show();
 	  });
 	  
 	  $("#butMarket").click(function(event) {
-		//startTutorial();
+		
 	  });
 	  
 	  $("#butHome").click(function(event) {
@@ -106,6 +105,38 @@ $(document).ready(function() {
 		$("#A").show();
 	  });
 
+	  //----------- quest system here
+	  
+	  //----------- Mayor Session
+	  
+	  $("#aMay1").click(function(event) {
+		ansHandler('6', aMay1[ConvCount]);	
+	  });
+	  
+	  $("#aMay2").click(function(event) {
+		ansHandler('6', aMay2[ConvCount]);	
+	  });
+	  
+	  $("#aMay3").click(function(event) {
+		ansHandler('6', aMay3[ConvCount]);	
+	  });
+	  
+	  // ------------ Woody Session
+	  
+	  $("#aWoo1").click(function(event) {
+		ansHandler('1', aMay1[ConvCount]);	
+	  });
+	  
+	  $("#aWoo2").click(function(event) {
+		ansHandler('1', aMay2[ConvCount]);	
+	  });
+	  
+	  $("#aWoo3").click(function(event) {
+		ansHandler('1', aMay3[ConvCount]);	
+	  });
+	  
+	  
+	  
 // ------------------
 
 	  

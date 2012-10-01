@@ -81,7 +81,7 @@ body {
 	position: relative;
     height:590px;
     width:900px;
-	/*border:1px solid #999999;*/
+	border:1px solid #999999;
 }
 
 #mainInfo{
@@ -291,6 +291,21 @@ body {
 	
 	top: 100px;
 	left: 110px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.ansBox{
+	position: relative;
+	float: left;
+	clear: both;
+	display: none;
+	width: 420px;
+	height: 75px;
+	background:white;
+	border: 1px solid red;
+	top: 100px;
+	left: 400px;
 	margin-bottom: 10px;
 	padding: 10px;
 }

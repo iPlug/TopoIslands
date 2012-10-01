@@ -12,6 +12,8 @@
 <script src="socket.io/socket.io.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/declare.js"></script>
+<script src="js/conv.js"></script>
+<script src="js/global.js"></script>
 <script src="js/ioconf.js"></script>
 <script src="js/gameplay.js"></script>
 
@@ -21,8 +23,8 @@
 <div align=center style="top:100px;position:relative;">
 <div id=loginBox>
 <div style="top:100px;position:relative;">
-<label>Username : <input type=text id=uname /></label>
-<label>Guild : <input type=text id=guild /></label>
+<label>Username : <input type=text id=uname value=Kirito /></label>
+<label>Guild : <input type=text id=guild value=Solaris /></label>
 <label>Password : <input type=password id=passw /></label>
 <button class='btn btn-success' id=signin>Sign In</button>
 </div>
@@ -136,31 +138,14 @@
 		<div class=detBuilding id=txtWood>
 		
 		</div>
-		<div    >
-			<button class='buy btn btn-success'>
-			<i class="icon-search icon-white icon-briefcase"></i>
-			Bekerja
-			</button>
+		<div class='ansBox triangle-border right' id=boxWoody>
+			<button class='btn btn-info' id=aWoo1></button>
+			<button class='btn btn-info' id=aWoo2></button> 
+			<button class='btn btn-info' id=aWoo3></button>
+			<button class='btn btn-info' id=aWoo4></button>
+			<button class='btn btn-info' id=aWoo5></button> 
+			<button class='btn btn-info' id=aWoo6></button>
 		</div>
-		<div    >
-			<button class='back btn btn-success'>
-			<i class="icon-white icon-question-sign"></i>
-			Tanya
-			</button>
-		</div>
-		<div    >
-			<button class='buy btn btn-success'>
-			<i class="icon-white icon-info-sign"></i>
-			Informasi
-			</button>
-		</div>
-		<div    >
-			<button class='back btn btn-info'>
-			<i class="icon-white icon-circle-arrow-left"></i>
-			Keluar
-			</button>
-		</div>
-		
 	</div>
 	
 	<div class=buildBoard id=B2>
@@ -254,6 +239,7 @@
 		<div class=detBuilding id=txtMayor>
 		
 		</div>
+		
 		<div    >
 			<button class='buy btn btn-success disabled' disabled>
 			<i class="icon-search icon-white icon-shopping-cart"></i>
@@ -265,6 +251,11 @@
 			<i class="icon-search icon-white icon-home"></i>
 			Kembali
 			</button>
+		</div>
+		<div class='ansBox triangle-border right' id=boxMayor>
+			<button class='btn btn-info' id=aMay1></button>
+			<button class='btn btn-info' id=aMay2></button> 
+			<button class='btn btn-info' id=aMay3></button>
 		</div>
 	</div>
 </div>
