@@ -56,31 +56,19 @@ $(document).ready(function() {
 		});
 	  
 	  $("#bldB").click(function(event) {
-	    hideAll();
-		$("#B").show();
-		$("#B2").show();
-		fillText('2', 'Doug', 'Apa ada yang bisa ku bantu, ' + uname + '?');
+	    dougHandler();
 	  });
 	  
 	  $("#bldC").click(function(event) {
-	    hideAll();
-		$("#B").show();
-		$("#B3").show();
-		fillText('3', 'Saibara', 'Hai ' + uname + ', apa yang kau butuhkan dariku?');
+	    saiHandler();
 	  });
 	  
 	  $("#bldD").click(function(event) {
-	    hideAll();
-		$("#B").show();
-		$("#B4").show();
-		fillText('4', 'Gourmetchef', 'Hari ini sangat panas, apa bisnismu hari ini ' + uname + '?');
+	    gourHandler();
 	  });
 	  
 	  $("#bldE").click(function(event) {
-	    hideAll();
-		$("#B").show();
-		$("#B5").show();
-		fillText('5', 'Thai', 'Apa yang kau lakukan di kantor ku, ' + uname + '?');
+	    thaiHandler();
 	  });
 
 	  // deklarasi event tombol-tombol ui
@@ -97,7 +85,7 @@ $(document).ready(function() {
 	  });
 	  
 	  $("#butMarket").click(function(event) {
-		
+		mayorHandler();
 	  });
 	  
 	  $("#butHome").click(function(event) {
@@ -135,7 +123,61 @@ $(document).ready(function() {
 		ansHandler('1', aMay3[ConvCount]);	
 	  });
 	  
+	  //------------- Doug Session
 	  
+	  $("#aD1").click(function(event){
+		ansHandler('2', aMay1[ConvCount]);	
+	  });
+	  
+	  $("#aD2").click(function(event){
+		ansHandler('2', aMay2[ConvCount]);	
+	  });
+	  
+	  $("#aD3").click(function(event){
+		ansHandler('2', aMay3[ConvCount]);	
+	  });
+	  
+	  //------------- Saibara Session
+	  
+	  $("#aS1").click(function(event){
+		ansHandler('3', aMay1[ConvCount]);	
+	  });
+	  
+	  $("#aS2").click(function(event){
+		ansHandler('3', aMay2[ConvCount]);	
+	  });
+	  
+	  $("#aS3").click(function(event){
+		ansHandler('3', aMay3[ConvCount]);	
+	  });
+	  
+	  //------------- Gourmetchef Session
+	  
+	  $("#aG1").click(function(event){
+		ansHandler('4', aMay1[ConvCount]);	
+	  });
+	  
+	  $("#aG2").click(function(event){
+		ansHandler('4', aMay2[ConvCount]);	
+	  });
+	  
+	  $("#aG3").click(function(event){
+		ansHandler('4', aMay3[ConvCount]);	
+	  });
+	  
+	  //------------- Thai Session
+	  
+	  $("#aT1").click(function(event){
+		ansHandler('5', aMay1[ConvCount]);	
+	  });
+	  
+	  $("#aT2").click(function(event){
+		ansHandler('5', aMay2[ConvCount]);	
+	  });
+	  
+	  $("#aT3").click(function(event){
+		ansHandler('5', aMay3[ConvCount]);	
+	  });
 	  
 // ------------------
 
