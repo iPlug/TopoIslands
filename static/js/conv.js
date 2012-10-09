@@ -37,18 +37,18 @@ function initConv(){
 	aMay1[h]="_ Senang bertemu Anda, Pak Doug."; aMay2[h]="x Maaf, salah masuk rumah (==')."; aMay3[h]="";
 	
 	h++;//8
-	May[h]="Kau pasti " + uname + " kan? Namaku adalah <code> Gourmetchef - Pemilik Toko </code>. Datanglah padaku jika kau ingin <code> Menjaga Toko </code>.";
+	May[h]="Kau pasti " + uname + " kan? Namaku adalah <code> Gourmetchef - Pemilik Toko </code>. Datanglah padaku jika kau ingin <code> Berbelanja </code>.";
 	aMay1[h]="_ Senang bertemu Anda, Pak Gourmetchef."; aMay2[h]="x Maaf, salah masuk rumah (==')."; aMay3[h]="";
 	
 	h++;//9
-	May[h]="Aku telah mendengar dari penduduk, kau telah berkenalan dengan mereka semua. Kerja bagus " + uname + ". Tapi masih banyak yang harus kau lakukan untuk <code> Kota Bus </code> ini.";
+	May[h]="（＾_＾） Aku telah mendengar dari penduduk, kau telah berkenalan dengan mereka semua. Kerja bagus " + uname + ". Tapi masih banyak yang harus kau lakukan untuk <code>Kota Bus</code> ini.";
 	aMay1[h]="+ Apapun akan kulakukan, asal aku bisa pulang."; aMay2[h]="+ Terserahlah..."; aMay3[h]="";
 	
 	h++;//10
-	May[h]="Maaf " + uname + ", aku terpaksa melakukan semua ini. Kau harus bekerja untuk bertahan hidup disini. Tugasmu selanjutnya adalah <code> Bekerja - Menebang Pohon </code>";
-	aMay1[h]="+ Dimana aku bisa menebang pohon?"; aMay2[h]=""; aMay3[h]="";
+	May[h]="(⌣_ ⌣!!) " + uname + ", kau harus bekerja untuk bertahan hidup disini. Tugasmu selanjutnya adalah <code>Bekerja - Menebang Pohon</code>";
+	aMay1[h]="+ Dimana aku bisa menebang pohon? ƪ(‾.‾“)┐"; aMay2[h]=""; aMay3[h]="";
 	
 	h++;//11
 	May[h]="Pergilah ke <code> Woody - Penebang Pohon </code> untuk bekerja menebang pohon. Kau akan mendapat Uang saat selesai bekerja. Bekerjalah yang rajin!";
-	aMay1[h]="_ Baiklah, Tuan Mayor yang terhormat... Huh..."; aMay2[h]=""; aMay3[h]="";
+	aMay1[h]="_ Baiklah, Tuan Mayor yang terhormat... Huh... (~‾ ▽‾)~"; aMay2[h]=""; aMay3[h]="";
 }
