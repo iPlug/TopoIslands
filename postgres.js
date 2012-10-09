@@ -1,5 +1,5 @@
 var pg = require('pg'); //native libpq bindings = `var pg = require('pg').native`
-var conString = process.env.DATABASE_URL;
+var conString = 'postgres://nijegwbjqbuihp:my6WheKVlqtm3UHFV4NKgu5nov@ec2-54-243-247-55.compute-1.amazonaws.com:5432/d6imoto5c8i6ej';
 //var conString = "tcp://postgres:fariqorik@localhost:5432/postgres";
 //postgres://username:password@host:port/database_name
 
