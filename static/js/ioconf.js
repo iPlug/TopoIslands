@@ -55,3 +55,13 @@
 		$("#labGuild").html(guild);
 	}
 	});
+	
+	socket.on('authed', function(g){
+		guild = g;
+		Signed();
+	});
+	
+	socket.on('notauthed', function(g){
+		$('#warnBoard').html('Username / Password Anda Salah');
+		$('#uname').focus();
+	});

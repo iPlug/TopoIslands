@@ -35,13 +35,13 @@ function Signed(){
 			//$('.ansBox').hide();
 			
 			
-			//$('#B').show();
-			//$('#B6').show();
-			//fillText('6', 'Thomas', May[ConvCount]);
+			$('#B').show();
+			$('#B6').show();
+			fillText('6', 'Thomas', May[ConvCount]);
 			
-			hideAll();
-			$("#D").show();
-			$("#D1").show();
+			//hideAll();
+			//$("#D").show();
+			//$("#D1").show();
 		}else{
 			
 		}
@@ -372,7 +372,7 @@ function startTutorial(){
 					$('#txtTut').fadeOut(3000);
 					popTimer = setTimeout(function(){
 						popTimer = setTimeout(function(){
-							fillText('6', 'Thomas', Mayor[ConvCount]);
+							fillText('6', 'Thomas', May[ConvCount]);
 						}, 2100);
 						$('#C').fadeOut(900);
 						$('#wrapper').hide();

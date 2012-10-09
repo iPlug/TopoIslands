@@ -4,11 +4,17 @@ var app = express()
   , server = http.createServer(app)
   , io = require('socket.io').listen(server);
 
+var pg = require('pg'); //native libpq bindings = `var pg = require('pg').native`
+var conString = "postgres://postgres:fariqorik@localhost:5432/postgres";
+//var conString = 'postgres://nijegwbjqbuihp:my6WheKVlqtm3UHFV4NKgu5nov@ec2-54-243-247-55.compute-1.amazonaws.com:5432/d6imoto5c8i6ej';
 
 var port = process.env.PORT || 5000;
 server.listen(port, function() {
   console.log("Listening on " + port);
 });
+
+var client = new pg.Client(conString);
+client.connect();
 
 app.configure(function(){
 	app.use(express.static(__dirname + '/static'));
@@ -45,7 +51,18 @@ io.sockets.on('connection', function (socket) {
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.emit('updatechat', socket.username, data);
 	});
-
+	
+	// when user sign in
+	socket.on('signin', function(name, pass){
+		var searching = client.query("SELECT * FROM player WHERE name = $1", [name]);
+		searching.on('row', function(row) {
+			if(pass==row.pass){
+				socket.emit('authed',row.guild);
+			}else{
+				socket.emit('notauthed');
+			}
+		});
+	});
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username, guild){
 		// we store the username in the socket session for this client

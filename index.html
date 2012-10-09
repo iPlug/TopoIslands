@@ -25,9 +25,9 @@
 <div id=loginBox>
 <div style="top:100px;position:relative;">
 <label>Username : <input type=text id=uname value=Kirito /></label>
-<label>Guild : <input type=text id=guild value=Solaris /></label>
-<label>Password : <input type=password id=passw /></label>
+<label>Password : <input type=password id=passw value=asuna /></label>
 <button class='btn btn-success' id=signin>Sign In</button>
+<label id=warnBoard></label>
 </div>
 </div>
 </div>
@@ -55,6 +55,7 @@
 	<div id=profileWrap>
 		<div id=profileImg><img src='media/image/profile/profile.jpg' width=100px height=100px /></div>
 		<div id=profileInfo>
+			<div style="position:relative;float:left;width:200px;">
 			<br />
 			<strong>
 			<div id=labName>Unknown</div></strong>
@@ -62,11 +63,14 @@
 			<b><div id=labTitle>Untitled</div></b>
 			Guild
 			<b><div id=labGuild>None</div></b>
-		</div>
-		<div>
+			</div>
+			<div style="position:relative;float:left;">
+			<br /><br />
 			Uang : Rp. <a id=rUang>0</a>,-<br />
 			Kayu : <a id=rWood>0</a>
+			</div>
 		</div>
+		
 	</div>
 </div>
 <div id=mainMenu>

@@ -278,7 +278,6 @@ $(".ptr6").click(function(event) {
 		$('#signin').click( function(){
 			uname = $('#uname').val();
 			passw = $('#passw').val();
-			guild = $('#guild').val();
-			Signed();
+			socket.emit('signin',uname,passw);
 		});
  });
