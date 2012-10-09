@@ -2,6 +2,7 @@ function hideAll(){
 		$("#A").hide();
 		$("#B").hide();
 		$("#C").hide();
+		$("#D").hide();
 		
 		$("#B1").hide();
 		$("#B2").hide();
@@ -9,6 +10,10 @@ function hideAll(){
 		$("#B4").hide();
 		$("#B5").hide();
 		$("#B6").hide();
+		
+		$("#D1").hide();
+		$("#D2").hide();
+		$("#D3").hide();
 		
 	}
 	
@@ -30,9 +35,13 @@ function Signed(){
 			//$('.ansBox').hide();
 			
 			
-			$('#B').show();
-			$('#B6').show();
-			fillText('6', 'Thomas', May[ConvCount]);
+			//$('#B').show();
+			//$('#B6').show();
+			//fillText('6', 'Thomas', May[ConvCount]);
+			
+			hideAll();
+			$("#D").show();
+			$("#D1").show();
 		}else{
 			
 		}
@@ -313,8 +322,8 @@ function fillAns(no){
 				$('.pil1').hide();
 				$('.pil2').hide();
 				$('.pil3').hide();
-				$('.pil4').show();
-				$('.pil5').show();
+				$('.pil4').hide();
+				$('.pil5').hide();
 				$('.pil6').show();
 				$('.pil4').html('Aku ingin Mengumpulkan Batu!');
 				$('.pil5').html('Aku ingin bertanya tentang...');

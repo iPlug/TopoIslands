@@ -31,3 +31,21 @@
 	var aMay1 =  new Array;
 	var aMay2 =  new Array;
 	var aMay3 =  new Array;
+	
+	// resource player
+	var rUang=0;
+	var rKayu=0;
+	
+	//mini game
+	var isPlaying=0;
+	var gT=60;
+	var gS=0;
+	var stopwatch;
+	var ptrTimer1;
+	var ptrTimer2;
+	var ptrTimer3;
+	var ptrTimer4;
+	var ptrTimer5;
+	var ptrTimer6;
+	
+	

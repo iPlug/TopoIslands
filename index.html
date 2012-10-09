@@ -15,6 +15,7 @@
 <script src="js/conv.js"></script>
 <script src="js/global.js"></script>
 <script src="js/ioconf.js"></script>
+<script src="js/wood.js"></script>
 <script src="js/gameplay.js"></script>
 
 </head>
@@ -61,6 +62,10 @@
 			<b><div id=labTitle>Untitled</div></b>
 			Guild
 			<b><div id=labGuild>None</div></b>
+		</div>
+		<div>
+			Uang : Rp. <a id=rUang>0</a>,-<br />
+			Kayu : <a id=rWood>0</a>
 		</div>
 	</div>
 </div>
@@ -253,6 +258,73 @@
 <h1 id=txtTut></h1>
 </div>
 </center>
+</section>
+<section id=D>
+<div class=ui id=miniGame>
+<div class=gameBoard id=D1>
+	<div class='pointer ptr1' id=wptr1>
+	
+	</div>
+	<div class='pointer ptr2' id=wptr2>
+	
+	</div>
+	<div class='pointer ptr3' id=wptr3>
+	
+	</div>
+	<div class='pointer ptr4' id=wptr4>
+	
+	</div>
+	<div class='pointer ptr5' id=wptr5>
+	
+	</div>
+	<div class='pointer ptr6' id=wptr6>
+	
+	</div>
+	<div class='storeBag'>
+	
+	</div>
+	<div class='winBoard'>
+		<center>
+			Kayu :<h2 class=gGain>0</h2>
+			<button class='btn btn-info' id=wAmbil>Ambil</button>
+			<button class='btn btn-info' id=wJual>Jual</button>
+		</center>
+	</div>
+	<button id=woodSt>Mulai</button>
+	<center>Time :<h2 class=gTimer>0</h2>
+	Score :<h2 class=gScore>0</h2></center>
+</div>
+<div class=gameBoard id=D2>
+		<div class='pointer ptr1' id=mptr1>
+	
+	</div>
+	<div class='pointer ptr2' id=mptr2>
+	
+	</div>
+	<div class='pointer ptr3' id=mptr3>
+	
+	</div>
+	<div class='pointer ptr4' id=mptr4>
+	
+	</div>
+	<div class='pointer ptr5' id=mptr5>
+	
+	</div>
+	<div class='pointer ptr6' id=mptr6>
+	
+	</div>
+	<div class='storeBag' id=miner>
+	
+	</div>
+	<button id=mineSt>Mulai</button>
+	<center>Time :<h2 id=mtimer></h2>
+	Score :<h2 id=mscore></h2></center>
+</div>
+<div class=gameBoard id=D3>
+	Rock Game
+</div>
+
+<div>
 </section>
 </div>
 <audio id="beep" preload="auto">

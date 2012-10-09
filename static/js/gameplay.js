@@ -123,6 +123,12 @@ $(document).ready(function() {
 		ansHandler('1', aMay3[ConvCount]);	
 	  });
 	  
+	  $("#aWoo4").click(function(event) {
+		preMn('1');
+	  });
+	  
+	  
+	  
 	  //------------- Doug Session
 	  
 	  $("#aD1").click(function(event){
@@ -181,7 +187,44 @@ $(document).ready(function() {
 	  
 // ------------------
 
-	  
+// --------- mini game ----------
+//------ wood session ---------
+$("#wAmbil").click(function(event) {
+		mnAmbil('w');
+	  });
+
+$("#wJual").click(function(event) {
+		mnJual('w');
+	  });
+
+$("#woodSt").click(function(event) {
+		startMini();
+	  });
+
+$(".ptr1").click(function(event) {
+		hidePtr('w',1);
+	});
+
+$(".ptr2").click(function(event) {
+		hidePtr('w',2);
+	});
+
+$(".ptr3").click(function(event) {
+		hidePtr('w',3);
+	});
+
+$(".ptr4").click(function(event) {
+		hidePtr('w',4);
+	});
+
+$(".ptr5").click(function(event) {
+		hidePtr('w',5);
+	});
+
+$(".ptr6").click(function(event) {
+		hidePtr('w',6);
+	});
+//------------------------------------	
 	$('#butSend').click( function() {
 			var message = $('#txtChat').val();
 			$('#txtChat').val('');

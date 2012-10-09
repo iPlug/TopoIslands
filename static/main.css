@@ -28,6 +28,14 @@ body {
 #B{
 	display:none;
 }
+#C{
+	display:none;
+}
+
+#D{
+	display:none;
+}
+
 
 #loginBox{
 	width: 400px;
@@ -76,6 +84,15 @@ body {
 }
 
 .buildBoard{
+	margin-top:10px;
+	margin-left:20px;
+	position: relative;
+    height:590px;
+    width:900px;
+	border:1px solid #999999;
+}
+
+.gameBoard{
 	margin-top:10px;
 	margin-left:20px;
 	position: relative;
@@ -348,5 +365,69 @@ body {
 	display: inline-block;
 	position: relative;
 	top: 375px;
+	
 }
 
+/* mini game css */
+
+.pointer{
+	display: inline-block;
+	position: absolute;
+	width:100px;
+	height:200px;
+	border: 1px red solid;
+	cursor: pointer;
+}
+
+.ptr1{
+	top: 50px;
+	left: 100px;
+}
+
+.ptr2{
+	top: 50px;
+	left: 300px;
+}
+
+.ptr3{
+	top: 50px;
+	left: 500px;
+}
+
+.ptr4{
+	top: 50px;
+	left: 700px;
+}
+
+.ptr5{
+	top: 350px;
+	left: 150px;
+}
+
+.ptr6{
+	top: 350px;
+	left: 350px;
+}
+
+.storeBag{
+	display: inline-block;
+	position: absolute;
+	width:200px;
+	height:200px;
+	border: 1px blue solid;
+	top: 350px;
+	left:550px;
+	cursor: pointer;
+}
+
+.winBoard{
+	display: inline-block;
+	position: absolute;
+	width:200px;
+	height:200px;
+	border: 3px black solid;
+	top: 250px;
+	left:350px;
+	cursor: pointer;
+	z-index:1000;
+}
