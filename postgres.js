@@ -1,6 +1,6 @@
 var pg = require('pg'); //native libpq bindings = `var pg = require('pg').native`
-var conString = process.env.DATABASE_URL || "tcp://postgres:fariqorik@localhost:5432/postgres";
-var conString = "tcp://postgres:fariqorik@localhost:5432/postgres";
+var conString = process.env.DATABASE_URL;
+//var conString = "tcp://postgres:fariqorik@localhost:5432/postgres";
 //postgres://username:password@host:port/database_name
 
 var client = new pg.Client(conString);
