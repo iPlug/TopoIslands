@@ -1,13 +1,9 @@
-var pg = require('pg'); 
-//or native libpq bindings
-//var pg = require('pg').native
+var pg = require('pg');
 
-var conString = process.env.DATABASE_URL || "tcp://postgres:fariqorik@localhost/postgres";
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+  var query = client.query('SELECT * FROM your_table');
 
-//error handling omitted
-pg.connect(conString, function(err, client) {
-  client.query("SELECT NOW() as when", function(err, result) {
-    console.log("Row count: %d",result.rows.length);  // 1
-    console.log("Current year: %d", result.rows[0].when.getYear());
+  query.on('row', function(row) {
+    console.log(JSON.stringify(row));
   });
 });
