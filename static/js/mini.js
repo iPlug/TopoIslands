@@ -1,22 +1,34 @@
+function doTidur(){
+	pHP=mHP;
+	rUang-=tarifTidur;
+	hideAll();
+	$("#A").show();
+	resetR();
+}
 
 function resetR(){
 	$("#rUang").html(rUang);
 	$("#rWood").html(rKayu);
+	$("#rMine").html(rLogam);
+	$("#rRock").html(rBatu);
+	$("#pHP").html(pHP);
 }
 
 function preMn(no){
 	hideAll();
 	$("#D").show();
 	$("#D" + no).show();
+	$(".stBoard").show();
 	$(".pointer").hide();
 	$(".storeBag").hide();
 	$(".winBoard").hide();
 	$(".gScore").hide();
 	$(".gTimer").hide();
-	
 }
 
 function startMini(){
+	pHP-=100;
+	$(".stBoard").hide();
 	$(".winBoard").hide();
 	$(".pointer").show();
 	$(".storeBag").show();
@@ -58,6 +70,12 @@ function mnAmbil(tipe){
 		case 'w':
 			rKayu+=gS*4;
 		break;
+		case 'm':
+			rLogam+=gS*4;
+		break;
+		case 'r':
+			rBatu+=gS*4;
+		break;
 	}
 	hideAll();
 	$("#A").show();
@@ -65,11 +83,8 @@ function mnAmbil(tipe){
 }
 
 function mnJual(tipe){
-	switch(tipe){
-		case 'w':
-			rUang+=gS*400;
-		break;
-	}
+	rUang+=gS*400;
+	hideAll();
 	$("#A").show();
 	resetR();
 }

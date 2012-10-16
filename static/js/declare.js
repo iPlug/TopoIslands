@@ -32,10 +32,18 @@
 	var aMay2 =  new Array;
 	var aMay3 =  new Array;
 	
+	// player
+	var mHP=1000;
+	var pHP=1000;
+	
 	// resource player
 	var rUang=0;
 	var rKayu=0;
+	var rLogam=0;
+	var rBatu=0;
 	
+	//tarif
+	var tarifTidur=1000;
 	//mini game
 	var isPlaying=0;
 	var gT=60;

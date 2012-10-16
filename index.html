@@ -16,6 +16,9 @@
 <script src="js/global.js"></script>
 <script src="js/ioconf.js"></script>
 <script src="js/mini.js"></script>
+<script src="js/sysText.js"></script>
+<script src="js/sysAnswer.js"></script>
+<script src="js/npcHandler.js"></script>
 <script src="js/gameplay.js"></script>
 
 </head>
@@ -53,9 +56,8 @@
 </div>
 <div id=mainInfo>
 	<div id=profileWrap>
-		<div id=profileImg><img src='media/image/profile/profile.jpg' width=100px height=100px /></div>
+		<div id=profileImg><img src='media/image/profile/profile.jpg' width=100px height=100px /><b>HP: <a id=pHP>0</a>/1000</b></div>
 		<div id=profileInfo>
-			<div style="position:relative;float:left;width:200px;">
 			<br />
 			<strong>
 			<div id=labName>Unknown</div></strong>
@@ -63,12 +65,13 @@
 			<b><div id=labTitle>Untitled</div></b>
 			Guild
 			<b><div id=labGuild>None</div></b>
-			</div>
-			<div style="position:relative;float:left;">
-			<br /><br />
-			Uang : Rp. <a id=rUang>0</a>,-<br />
-			Kayu : <a id=rWood>0</a>
-			</div>
+		</div>
+		<div id=resourceInfo>
+				<br />
+				Uang : Rp. <a id=rUang>0</a>,-<br />
+				Kayu : <a id=rWood>0</a> <br />
+				Logam : <a id=rMine>0</a> <br />
+				Batu : <a id=rRock>0</a>			
 		</div>
 		
 	</div>
@@ -175,6 +178,23 @@
 			<button class='btn btn-info ansBut pil5' id=aD5></button> 
 			<button class='btn btn-info ansBut pil6 back' id=aD6></button>
 		</div>
+		<div class='playerImg'>
+			<img src='media/image/profile/profile.jpg' width=175px height=175px />
+		</div>
+		<div class=msgBox>
+			<br />
+			Beristirahat akan <code>mengembalikan seluruh HP-mu</code>, tetapi membutuhkan <code>50,000 IDR</code>. Ingin melanjutkan? <br />
+			<br />
+			<button class='btn btn-info' id=sleepYa>Ya</button> <button class='btn btn-warning' id=sleepTdk>Tidak</button>
+		</div>
+		<div class=infoBox>
+			<br />
+			Beristirahat akan <code>mengembalikan seluruh HP-mu</code>, tetapi membutuhkan <code>50,000 IDR</code>
+			<br />
+			Maaf, uang tidak cukup... Bekerjalah yang giat!<br />
+			<br />
+			<button class='btn btn-info' id=infOK> OK </button>
+		</div>
 	</div>
 	
 	<div class=buildBoard id=B3>
@@ -191,6 +211,9 @@
 			<button class='btn btn-info ansBut pil4' id=aS4></button>
 			<button class='btn btn-info ansBut pil5' id=aS5></button> 
 			<button class='btn btn-info ansBut pil6 back' id=aS6></button>
+		</div>
+		<div class='playerImg'>
+			<img src='media/image/profile/profile.jpg' width=175px height=175px />
 		</div>
 	</div>
 
@@ -209,6 +232,30 @@
 			<button class='btn btn-info ansBut pil5' id=aG5></button> 
 			<button class='btn btn-info ansBut pil6 back' id=aG6></button>
 		</div>
+		<div class='playerImg'>
+			<img src='media/image/profile/profile.jpg' width=175px height=175px />
+		</div>
+		<div id=shopBoard>
+		<div style='float:left;width:200px;'>
+		<b>Barang</b> <br />
+		[Normal] Tas Ransel <br /><br />
+		[Normal] Kotak Peralatan <br /><br />
+		[Normal] Sepatu Boot
+		</div>
+		<div style='float:left;width:300px;'>
+		<b>Keterangan</b> <br />
+		Dapat membawa hingga 6 barang. <br /><br />
+		Dapat memanen dalam waktu 2.5 detik. <br /><br />
+		Dapat berlari 10 meter/detik.
+		</div>
+		<div style='float:left;width:300px;'>
+		<b>Harga</b> <br />
+		100.000 IDR <button id=beliA class='btn btn-primary'>Beli</button><br /><br />
+		200.000 IDR <button id=beliB class='btn btn-primary'>Beli</button><br /><br />
+		150.000 IDR <button id=beliC class='btn btn-primary'>Beli</button>
+		</div>
+		<button id=closeShop class='btn btn-warning'>Selesai</button>
+		</div>
 	</div>
 	
 	<div class=buildBoard id=B5>
@@ -225,6 +272,9 @@
 			<button class='btn btn-info ansBut pil4' id=aT4></button>
 			<button class='btn btn-info ansBut pil5' id=aT5></button> 
 			<button class='btn btn-info ansBut pil6 back' id=aT6></button>
+		</div>
+		<div class='playerImg'>
+			<img src='media/image/profile/profile.jpg' width=175px height=175px />
 		</div>
 	</div>
 	
@@ -294,12 +344,19 @@
 			<button class='btn btn-info' id=wJual>Jual</button>
 		</center>
 	</div>
-	<button id=woodSt>Mulai</button>
+	<div class=stBoard>
+	<center>
+		<br /><br />
+		<button class='mnSt btn btn-primary'>Mulai Bekerja</button>
+	</center>
+	</div>
+	<div class='scoreBoard'>
 	<center>Time :<h2 class=gTimer>0</h2>
 	Score :<h2 class=gScore>0</h2></center>
+	</div>
 </div>
 <div class=gameBoard id=D2>
-		<div class='pointer ptr1' id=mptr1>
+	<div class='pointer ptr1' id=mptr1>
 	
 	</div>
 	<div class='pointer ptr2' id=mptr2>
@@ -320,12 +377,63 @@
 	<div class='storeBag' id=miner>
 	
 	</div>
-	<button id=mineSt>Mulai</button>
-	<center>Time :<h2 id=mtimer></h2>
-	Score :<h2 id=mscore></h2></center>
+	<div class='winBoard'>
+		<center>
+			Logam :<h2 class=gGain>0</h2>
+			<button class='btn btn-info' id=mAmbil>Ambil</button>
+			<button class='btn btn-info' id=mJual>Jual</button>
+		</center>
+	</div>
+	<div class=stBoard>
+	<center>
+		<br /><br />
+		<button class='mnSt btn btn-primary'>Mulai Bekerja</button>
+	</center>
+	</div>
+	<div class='scoreBoard'>
+	<center>Time :<h2 class=gTimer>0</h2>
+	Score :<h2 class=gScore>0</h2></center>
+	</div>
 </div>
 <div class=gameBoard id=D3>
-	Rock Game
+	<div class='pointer ptr1' id=mptr1>
+	
+	</div>
+	<div class='pointer ptr2' id=mptr2>
+	
+	</div>
+	<div class='pointer ptr3' id=mptr3>
+	
+	</div>
+	<div class='pointer ptr4' id=mptr4>
+	
+	</div>
+	<div class='pointer ptr5' id=mptr5>
+	
+	</div>
+	<div class='pointer ptr6' id=mptr6>
+	
+	</div>
+	<div class='storeBag' id=miner>
+	
+	</div>
+	<div class='winBoard'>
+		<center>
+			Batu :<h2 class=gGain>0</h2>
+			<button class='btn btn-info' id=rAmbil>Ambil</button>
+			<button class='btn btn-info' id=rJual>Jual</button>
+		</center>
+	</div>
+	<div class=stBoard>
+	<center>
+		<br /><br />
+		<button class='mnSt btn btn-primary'>Mulai Bekerja</button>
+	</center>
+	</div>
+	<div class='scoreBoard'>
+	<center>Time :<h2 class=gTimer>0</h2>
+	Score :<h2 class=gScore>0</h2></center>
+	</div>
 </div>
 
 <div>

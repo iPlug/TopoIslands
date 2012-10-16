@@ -49,6 +49,6 @@ function initConv(){
 	aMay1[h]="+ Dimana aku bisa menebang pohon? ƪ(‾.‾“)┐"; aMay2[h]=""; aMay3[h]="";
 	
 	h++;//11
-	May[h]="Pergilah ke <code> Woody - Penebang Pohon </code> untuk bekerja menebang pohon. Kau akan mendapat Uang saat selesai bekerja. Bekerjalah yang rajin!";
+	May[h]="Pergilah ke <code>Woody - Penebang Pohon</code> untuk bekerja menebang pohon. Kau akan mendapat Uang saat selesai bekerja. Bekerjalah yang rajin!";
 	aMay1[h]="_ Baiklah, Tuan Mayor yang terhormat... Huh... (~‾ ▽‾)~"; aMay2[h]=""; aMay3[h]="";
 }

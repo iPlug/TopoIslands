@@ -115,9 +115,10 @@ body {
 #profileWrap{
 	float: left;
 	display: block;
-	width: 400px;
+	width: 900px;
 	height: 120px;
 	margin-left:10px;
+	border: red 1px solid;
 }
 
 #profileImg{
@@ -125,6 +126,8 @@ body {
 	float: left;
 	width: 100px;
 	height: 118px;
+	border: blue 1px solid;
+	text-align: center;
 }
 
 #profileInfo{
@@ -133,6 +136,18 @@ body {
 	width: 295px;
 	height: 118px;
 	text-align: center;
+	border: green 1px solid;
+	margin-left:10px;
+}
+
+#resourceInfo{
+	position:relative;
+	float:left;
+	width: 295px;
+	height: 118px;
+	text-align: center;
+	border: black 1px solid;
+	margin-left:10px;
 }
 
 #mainMenu{
@@ -371,42 +386,44 @@ body {
 /* mini game css */
 
 .pointer{
+	background-image:url('media/image/bg/check.png');
+	background-repeat:no-repeat;
 	display: inline-block;
 	position: absolute;
 	width:100px;
 	height:200px;
-	border: 1px red solid;
+	border: 1px red transparent;
 	cursor: pointer;
 }
 
 .ptr1{
-	top: 50px;
-	left: 100px;
+	top: 25px;
+	left: 75px;
 }
 
 .ptr2{
-	top: 50px;
+	top: 25px;
 	left: 300px;
 }
 
 .ptr3{
-	top: 50px;
-	left: 500px;
+	top: 25px;
+	left: 520px;
 }
 
 .ptr4{
-	top: 50px;
-	left: 700px;
+	top: 25px;
+	left: 740px;
 }
 
 .ptr5{
-	top: 350px;
-	left: 150px;
+	top: 325px;
+	left: 110px;
 }
 
 .ptr6{
-	top: 350px;
-	left: 350px;
+	top: 325px;
+	left: 335px;
 }
 
 .storeBag{
@@ -421,6 +438,7 @@ body {
 }
 
 .winBoard{
+	background: white;
 	display: inline-block;
 	position: absolute;
 	width:200px;
@@ -428,6 +446,72 @@ body {
 	border: 3px black solid;
 	top: 250px;
 	left:350px;
-	cursor: pointer;
 	z-index:1000;
+}
+
+.stBoard{
+	background: white;
+	display: inline-block;
+	position: absolute;
+	width:200px;
+	height:200px;
+	border: 3px black solid;
+	top: 250px;
+	left:350px;
+	z-index:1000;
+}
+
+.msgBox{
+	display:none;
+	background: white;
+	position: absolute;
+	text-align:center;
+	width:350px;
+	height:150px;
+	border: 3px black solid;
+	top: 250px;
+	left:350px;
+	z-index:1000;
+	padding:2px;
+}
+
+.infoBox{
+	display:none;
+	background: white;
+	position: absolute;
+	text-align:center;
+	width:350px;
+	height:150px;
+	border: 3px black solid;
+	top: 250px;
+	left:350px;
+	z-index:1000;
+	padding:2px;
+}
+
+#shopBoard{
+	display:none;
+	background: white;
+	position:absolute;
+	width:890px;
+	height:580px;
+	top:0px;
+	left:2px;
+	z-index:1000;
+	border:black solid 1px;
+}
+
+#D1{
+	background: #899037;
+	background-image:url('media/image/bg/hutan.png');
+}
+
+#D2{
+	background: #899037;
+	background-image:url('media/image/bg/tambang.png');
+}
+
+#D3{
+	background: #899037;
+	background-image:url('media/image/bg/bebatuan.png');
 }

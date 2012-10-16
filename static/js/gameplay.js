@@ -4,7 +4,7 @@ $(document).ready(function() {
 	$("#uname").focus();
 
 	// setting tentang hover menghover
-	
+/*	
 	$(".hvr").hover(function(e){
 			clearTimeout(popTimer);
     
@@ -48,6 +48,8 @@ $(document).ready(function() {
 
 	$(".back").click(function(event) {
 		hideAll();
+		$(".msgBox").hide();
+		$(".infoBox").hide();
 		$("#A").show();
 	  });
 
@@ -92,7 +94,7 @@ $(document).ready(function() {
 		hideAll();
 		$("#A").show();
 	  });
-
+	  
 	  //----------- quest system here
 	  
 	  //----------- Mayor Session
@@ -138,9 +140,29 @@ $(document).ready(function() {
 	  $("#aD2").click(function(event){
 		ansHandler('2', aMay2[ConvCount]);	
 	  });
-	  
+	  	  
 	  $("#aD3").click(function(event){
 		ansHandler('2', aMay3[ConvCount]);	
+	  });
+	  
+	  $("#aD4").click(function(event) {
+		if(rUang>=tarifTidur){
+			$(".msgBox").show();
+		}else{
+			$(".infoBox").show();
+		}
+	  });
+	  
+	  $("#sleepYa").click(function(event) {
+		doTidur();
+	  });
+	  
+	  $("#sleepTdk").click(function(event) {
+		$(".msgBox").hide();
+	  });
+	  
+	  $("#infOK").click(function(event) {
+		$(".infoBox").hide();
 	  });
 	  
 	  //------------- Saibara Session
@@ -157,6 +179,9 @@ $(document).ready(function() {
 		ansHandler('3', aMay3[ConvCount]);	
 	  });
 	  
+	  $("#aS4").click(function(event) {
+		preMn('2');
+	  });
 	  //------------- Gourmetchef Session
 	  
 	  $("#aG1").click(function(event){
@@ -171,6 +196,13 @@ $(document).ready(function() {
 		ansHandler('4', aMay3[ConvCount]);	
 	  });
 	  
+	  $("#aG4").click(function(event){
+		$("#shopBoard").show();
+	  });
+	  
+	  $("#closeShop").click(function(event){
+		$("#shopBoard").hide();
+	  });
 	  //------------- Thai Session
 	  
 	  $("#aT1").click(function(event){
@@ -185,6 +217,10 @@ $(document).ready(function() {
 		ansHandler('5', aMay3[ConvCount]);	
 	  });
 	  
+	  $("#aT4").click(function(event) {
+		preMn('3');
+	  });
+	  
 // ------------------
 
 // --------- mini game ----------
@@ -196,8 +232,23 @@ $("#wAmbil").click(function(event) {
 $("#wJual").click(function(event) {
 		mnJual('w');
 	  });
+	  
+$("#mAmbil").click(function(event) {
+		mnAmbil('m');
+	  });
 
-$("#woodSt").click(function(event) {
+$("#mJual").click(function(event) {
+		mnJual('m');
+	  });
+$("#rAmbil").click(function(event) {
+		mnAmbil('r');
+	  });
+
+$("#rJual").click(function(event) {
+		mnJual('r');
+	  });
+	  
+$(".mnSt").click(function(event) {
 		startMini();
 	  });
 
