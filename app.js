@@ -5,8 +5,8 @@ var app = express()
   , io = require('socket.io').listen(server);
 
 var pg = require('pg'); //native libpq bindings = `var pg = require('pg').native`
-//var conString = "postgres://postgres:fariqorik@localhost:5432/postgres";
-var conString = 'postgres://nijegwbjqbuihp:my6WheKVlqtm3UHFV4NKgu5nov@ec2-54-243-247-55.compute-1.amazonaws.com:5432/d6imoto5c8i6ej';
+var conString = "postgres://postgres:fariqorik@localhost:5432/postgres";
+//var conString = 'postgres://nijegwbjqbuihp:my6WheKVlqtm3UHFV4NKgu5nov@ec2-54-243-247-55.compute-1.amazonaws.com:5432/d6imoto5c8i6ej';
 
 var port = process.env.PORT || 5000;
 server.listen(port, function() {
