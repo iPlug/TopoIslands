@@ -383,84 +383,6 @@ body {
 	
 }
 
-/* mini game css */
-
-.pointer{
-	background-image:url('media/image/bg/check.png');
-	background-repeat:no-repeat;
-	display: inline-block;
-	position: absolute;
-	width:100px;
-	height:200px;
-	border: 1px red transparent;
-	cursor: pointer;
-}
-
-.ptr1{
-	top: 25px;
-	left: 75px;
-}
-
-.ptr2{
-	top: 25px;
-	left: 300px;
-}
-
-.ptr3{
-	top: 25px;
-	left: 520px;
-}
-
-.ptr4{
-	top: 25px;
-	left: 740px;
-}
-
-.ptr5{
-	top: 325px;
-	left: 110px;
-}
-
-.ptr6{
-	top: 325px;
-	left: 335px;
-}
-
-.storeBag{
-	display: inline-block;
-	position: absolute;
-	width:200px;
-	height:200px;
-	border: 1px blue solid;
-	top: 350px;
-	left:550px;
-	cursor: pointer;
-}
-
-.winBoard{
-	background: white;
-	display: inline-block;
-	position: absolute;
-	width:200px;
-	height:200px;
-	border: 3px black solid;
-	top: 250px;
-	left:350px;
-	z-index:1000;
-}
-
-.stBoard{
-	background: white;
-	display: inline-block;
-	position: absolute;
-	width:200px;
-	height:200px;
-	border: 3px black solid;
-	top: 250px;
-	left:350px;
-	z-index:1000;
-}
-
 .msgBox{
 	display:none;
 	background: white;
@@ -499,19 +421,4 @@ body {
 	left:2px;
 	z-index:1000;
 	border:black solid 1px;
-}
-
-#D1{
-	background: #899037;
-	background-image:url('media/image/bg/hutan.png');
-}
-
-#D2{
-	background: #899037;
-	background-image:url('media/image/bg/tambang.png');
-}
-
-#D3{
-	background: #899037;
-	background-image:url('media/image/bg/bebatuan.png');
 }

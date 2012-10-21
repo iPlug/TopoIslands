@@ -36,13 +36,13 @@ function Signed(){
 			//$('.ansBox').hide();
 			
 			
-			$('#B').show();
-			$('#B6').show();
-			fillText('6', 'Thomas', May[ConvCount]);
+			//$('#B').show();
+			//$('#B6').show();
+			//fillText('6', 'Thomas', May[ConvCount]);
 			
-			//hideAll();
-			//$("#D").show();
-			//$("#D1").show();
+			hideAll();
+			$("#D").show();
+			$("#D1").show();
 		}else{
 			
 		}
