@@ -3,47 +3,6 @@
 $(document).ready(function() {
 	$("#uname").focus();
 
-	// setting tentang hover menghover
-/*	
-	$(".hvr").hover(function(e){
-			clearTimeout(popTimer);
-    
-		    popTimer = setTimeout(function(){
-		        $('#popup').fadeOut(900);
-		    }, 4000);
-		    
-		    $('#popup').fadeIn(900);
-			
-			$('#popup').css('top', e.pageY + 20)
-			.css('left', e.pageX + 20)
-			.appendTo('body');
-        },function(){
-            $('#popup').fadeOut(100)
-        });
-	
-
-	$('.hvr').mousemove(function(e) {
-		$("#popup").css('top', e.pageY + 20).css('left', e.pageX + 20);
-		//$('#popup').fadeOut(1000)
-	});
-
-	
-		
-	/*
-
-	$("#bldA").hover(function(){
-	  $("#bldA").css("background-image","url(media/image/building/icehome1h.png)");
-	  },function(){
-	  $("#bldA").css("background-image","url(media/image/building/icehome1.png)");
-	});
-	
-	$("#bldB").hover(function(){
-	  $("#bldB").css("background-image","url(media/image/building/store1h.png)");
-	  },function(){
-	  $("#bldB").css("background-image","url(media/image/building/store1.png)");
-	});
-*/
-
 // declarasi event bangunan
 
 	$(".back").click(function(event) {
@@ -275,6 +234,47 @@ $(".ptr5").click(function(event) {
 $(".ptr6").click(function(event) {
 		hidePtr('w',6);
 	});
+
+$(".ptr7").click(function(event) {
+		hidePtr('w',7);
+	});
+	
+$(".ptr8").click(function(event) {
+		hidePtr('w',8);
+	});
+
+$(".ptr9").click(function(event) {
+		hidePtr('w',9);
+	});
+
+$(".ptr10").click(function(event) {
+		hidePtr('w',10);
+	});
+
+$(".ptr11").click(function(event) {
+		hidePtr('w',11);
+	});
+
+$(".ptr12").click(function(event) {
+		hidePtr('w',12);
+	});
+
+$(".ptr13").click(function(event) {
+		hidePtr('w',13);
+	});
+
+$(".ptr14").click(function(event) {
+		hidePtr('w',14);
+	});
+	
+$(".ptr15").click(function(event) {
+		hidePtr('w',15);
+	});
+
+$(".ptr16").click(function(event) {
+		hidePtr('w',16);
+	});
+
 //------------------------------------	
 	$('#butSend').click( function() {
 			var message = $('#txtChat').val();

@@ -7,6 +7,7 @@
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
 <link href="main.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="miniGame.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="bubbles.css" rel="stylesheet" type="text/css" media="screen" />
 
 <script src="socket.io/socket.io.js"></script>
@@ -316,12 +317,12 @@
 <section id=D>
 <div class=ui id=miniGame>
 <div class=gameBoard id=D1>
-	<div class=midBot id=treeBot>
+	<div class=midBot1 id=treeBot1></div>
+	<div class=midBot2 id=treeBot2></div>
+	<div class=midUp1 id=treeUp1></div>
+	<div class=midUp2 id=treeUp2></div>
+	<div class=midUp3 id=treeUp3></div>
 	
-	</div>
-	<div class=midUp id=treeUp>
-	
-	</div>
 	<div class='ptr1 pointer tree'></div>
 	<div class='ptr2 pointer tree'></div>
 	<div class='ptr3 pointer tree'></div>
@@ -336,6 +337,7 @@
 	<div class='ptr12 pointer tree'></div>
 	<div class='ptr13 pointer tree'></div>
 	<div class='ptr14 pointer tree'></div>
+	<div class='ptr15 pointer tree'></div>
 	<div class='ptr15 pointer tree'></div>
 	<div class='winBoard'>
 		<center>
@@ -440,11 +442,17 @@
 </section>
 </div>
 <audio id="beep" preload="auto">
-	<source src="media/audio/typewriter.ogg" controls></source>
-	
+	<source src="media/audio/typewriter.ogg" type="audio/ogg" controls></source>
 	Your browser isn't invited for super fun audio time.
 </audio>
-<script>var textNoise = $("#beep")[0];</script>
+<audio id="chop" preload="auto">
+	<source src="media/audio/chop.ogg" type="audio/ogg"  controls></source>
+	Your browser isn't invited for super fun audio time.
+</audio>
+<script>
+var textNoise = $("#beep")[0];
+var chop = $("#chop")[0];
+</script>
 <div id=popup>
 This is <code>Description</code> of the building. It will change on another version. :)
 </div>

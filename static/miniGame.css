@@ -43,27 +43,70 @@
 
 /* aksesoris */
 
-.midUp{
+.midUp1{
 	position: absolute;
-	width:676px;
-	height:198px;
+	width:142px;
+	height:196px;
 	top:75px;
-	left:100px;
+	left:90px;
+	cursor: pointer;
 }
 
-.midBot{
+.midUp2{
 	position: absolute;
-	width:668px;
-	height:184px;
+	width:323px;
+	height:196px;
+	top:75px;
+	left:280px;
+	cursor: pointer;
+}
+
+.midUp3{
+	position: absolute;
+	width:146px;
+	height:195px;
+	top:75px;
+	left:650px;
+	cursor: pointer;
+}
+
+.midBot1{
+	position: absolute;
+	width:315px;
+	height:182px;
 	top:250px;
 	left:100px;
+	z-index: 10;
+	cursor: pointer;
 }
 
-#treeUp{
-	background-image:url('media/image/bg/treeUp.png');
+.midBot2{
+	position: absolute;
+	width:315px;
+	height:182px;
+	top:250px;
+	left:470px;
+	z-index: 10;
+	cursor: pointer;
 }
 
-#treeBot{
+#treeUp1{
+	background-image:url('media/image/bg/treeUp1.png');
+}
+
+#treeUp2{
+	background-image:url('media/image/bg/treeUp2.png');
+}
+
+#treeUp3{
+	background-image:url('media/image/bg/treeUp3.png');
+}
+
+#treeBot1{
+	background-image:url('media/image/bg/treeBot.png');
+}
+
+#treeBot2{
 	background-image:url('media/image/bg/treeBot.png');
 }
 
@@ -72,51 +115,108 @@
 .pointer{
 	display: inline-block;
 	position: absolute;
-	width:100px;
-	height:200px;
-	border: 1px red transparent;
+	width:76px;
+	height:120px;
+	border: 1px solid transparent;
 	cursor: pointer;
+	z-index: 9;
 }
 
 .pointer:hover{
-	border: 2px red solid;
+	border: 1px solid white;
 }
 
 .tree{
-	background-image:url('media/image/bg/tree.png');
+	background-image:url('media/image/bg/treeOne.png');
 	background-repeat:no-repeat;
 }
 
 /* item location */
 
 .ptr1{
-	top: 25px;
+	top: 200px;
 	left: 75px;
 }
 
 .ptr2{
-	top: 25px;
-	left: 300px;
+	top: 200px;
+	left: 150px;
 }
 
 .ptr3{
-	top: 25px;
-	left: 520px;
+	top: 200px;
+	left: 225px;
 }
 
 .ptr4{
-	top: 25px;
-	left: 740px;
+	top: 150px;
+	left: 225px;
+	z-index:8;
 }
 
 .ptr5{
-	top: 325px;
-	left: 110px;
+	top: 100px;
+	left: 225px;
+	z-index:7;
 }
 
 .ptr6{
-	top: 325px;
-	left: 335px;
+	top: 200px;
+	left: 300px;
+}
+
+.ptr7{
+	top: 200px;
+	left: 375px;
+}
+
+.ptr8{
+	top: 250px;
+	left: 400px;
+	z-index:10;
+}
+
+.ptr9{
+	top: 300px;
+	left: 400px;
+	z-index:11;
+}
+
+.ptr10{
+	top: 200px;
+	left: 450px;
+}
+
+.ptr11{
+	top: 200px;
+	left: 525px;
+}
+
+.ptr12{
+	top: 200px;
+	left: 600px;
+}
+
+.ptr13{
+	top: 150px;
+	left: 585px;
+	z-index:8;
+}
+
+.ptr14{
+	top: 100px;
+	left: 585px;
+	z-index:7;
+}
+
+.ptr15{
+	top: 200px;
+	left: 675px;
+}
+
+.ptr16{
+	top: 200px;
+	left: 750px;
 }
 
 .storeBag{

@@ -35,6 +35,8 @@
 	// player
 	var mHP=1000;
 	var pHP=1000;
+	var mTool=2;
+	var sharpLvl=3;
 	
 	// resource player
 	var rUang=0;
@@ -46,11 +48,12 @@
 	var tarifTidur=1000;
 	//mini game
 	var isPlaying=0;
+	var pTool=0;
 	var gT=60;
 	var gS=0;
 	var stopwatch;
-	var ptrTimer1;
-	var ptrTimer2;
+	var ptrTimer;
+	var chopTimer;
 	var ptrTimer3;
 	var ptrTimer4;
 	var ptrTimer5;
