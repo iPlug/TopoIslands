@@ -46,21 +46,41 @@ background-image: -ms-linear-gradient(bottom, #2542FA 0%, #151238 70%, #FFFFFF 7
         var list = new Array();
         var x=100;
         list = [
-                'media/image/bg/bus.png',
-				'media/image/building/full.png',
-				'media/image/bg/hutan.png',
-				'media/image/bg/tambang.png',
-				'media/image/bg/bebatuan.png'
+                'img/bg/bus.png',
+				'img/bg/ring.png',
+				'img/bg/star.png',
+				'img/bg/intro.png',
+				'img/bg/rTreeUp.png',
+				'img/bg/rTreeMid.png',
+				'img/bg/rTreeBot.png',
+				'img/bg/rTreeLeft.png',
+				'img/bg/rTreeRight.png',
+				'img/bg/sTreeUp.png',
+				'img/bg/sTreeBot.png',
+				'img/bg/sTreeLeft.png',
+				'img/bg/rTreeRight.png',
+				'img/bg/trees2.png',
+				'img/bg/trees3.png',
+				'img/bg/trees4.png',
+				'img/bg/stage1.png',
+				'img/bg/stage2.png',
+				'img/bg/stage3.png',
+				'img/bg/stage4.png',
+				'img/bg/stage5.png',
+				'img/bg/stage6.png',
+				'img/bg/tree.png',
+				'img/bg/stone.png',
+				'img/bg/bush.png'
                 ];
         
         function handleOnload(){
             numLoad++;
             console.log(image[numLoad-1].src + ' has been Loaded...')
-            x=150*(numLoad+1);
+            x=50*(numLoad+1);
             $("#perahu").stop().animate({ width:x },3500);
             $("#moveShip").html(numLoad + "/" + list.length);
             if(numLoad==list.length){
-                console.log("Finished")
+                window.location.href = "/play";
             }
         }
        
@@ -80,21 +100,16 @@ background-image: -ms-linear-gradient(bottom, #2542FA 0%, #151238 70%, #FFFFFF 7
                     }
                 } 
             ); 
-		setInterval(function () {  
-			if($('#perahu').css('width')=='900px'){
-				window.location.href = "/play";
-			}
-        }, 1000);
         });  
     </script>
 </head>
 
 <body>
 
-<img id=logo src=media/image/bg/topoislands.png width=600px height=200px/>
+<img id=logo src=img/acc/topoislands.png width=600px height=200px/>
 <div id=perahu>&nbsp;</div>
 <div id=boat>
-<img src=media/image/sailboat2.png width=150px height=150px />
+<img src=img/acc/sailboat.png width=150px height=150px />
 <div id=moveShip></div>
 </div>
 
