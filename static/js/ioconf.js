@@ -28,7 +28,37 @@
 			}
 			
 			//adding chat item
-			 $('#chatBoard').append('<b>'+username + ' ('+time.getHours()+':'+time.getMinutes()+')'+':</b> ' + data + '<br>');
+			 //$('#chatBoard').append('<b>'+username + ' ('+time.getHours()+':'+time.getMinutes()+')'+':</b> ' + data + '<br>');
+			 $('#chatBoard').append('<b>'+username + ':</b> ' + data + '<br>');
+			//scroll down the chatBox
+			$("#chatBoard").animate({ scrollTop: $("#chatBoard").prop("scrollHeight") - $('#chatBoard').height() }, 1);  
+			//beepOne.play();	
+		}
+		
+	});
+	
+	socket.on('updatechatG', function (username, data) {
+		if(username!=uname){
+			//set new message = true
+			newMsg=1;
+
+			temp=username;
+			msg=data;	
+			
+			//inserting emoticon
+			for(var face in myEmo){
+				data=data.replace('/'+ myEmo[face],' <img src=emoticon/' + myEmo[face] + '.gif width=50 height=50>');
+			}
+			
+			//adding chat item
+			 $('#chatBoardG').append('<font color=purple><b>'+username + ':</b> ' + data + '</font><br>');
+			 
+			//scroll down the chatBox
+			$("#chatBoardG").animate({ scrollTop: $("#chatBoardG").prop("scrollHeight") - $('#chatBoardG').height() }, 1);  
+			//beepOne.play();	
+			
+			//adding chat item
+			 $('#chatBoard').append('<font color=purple><b>'+username + ':</b> ' + data + '</font><br>');
 			 
 			//scroll down the chatBox
 			$("#chatBoard").animate({ scrollTop: $("#chatBoard").prop("scrollHeight") - $('#chatBoard').height() }, 1);  

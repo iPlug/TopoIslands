@@ -2,7 +2,18 @@
 
 $(document).ready(function() {
 	$("#uname").focus();
-
+	$('.item').hover(function(event){
+		//console.log($(this)[0].style.border);
+		if(($(this).css('border')=='1px solid rgba(0, 0, 0, 0)') || ($(this)[0].style.border=='1px solid transparent')){
+			$(this).css('border','1px solid white');
+		}
+	},
+	function(){
+		if(($(this).css('border')=='1px solid rgb(255, 255, 255)') || ($(this)[0].style.border=='1px solid white')){
+			$(this).css('border','1px solid transparent');
+		}
+	});
+	
 // declarasi event bangunan
 
 	$(".back").click(function(event) {
@@ -12,21 +23,6 @@ $(document).ready(function() {
 		$("#A").show();
 	  });
 
-	  $("#bldA").click(function(event) {
-	    woodyHandler();
-		});
-	  
-	  $("#bldB").click(function(event) {
-	    dougHandler();
-	  });
-	  
-	  $("#bldC").click(function(event) {
-	    saiHandler();
-	  });
-	  
-	  $("#bldD").click(function(event) {
-	    gourHandler();
-	  });
 	  
 	  $("#bldE").click(function(event) {
 	    thaiHandler();
@@ -53,228 +49,93 @@ $(document).ready(function() {
 		hideAll();
 		$("#A").show();
 	  });
-	  
-	  //----------- quest system here
-	  
-	  //----------- Mayor Session
-	  
-	  $("#aMay1").click(function(event) {
-		ansHandler('6', aMay1[ConvCount]);	
-	  });
-	  
-	  $("#aMay2").click(function(event) {
-		ansHandler('6', aMay2[ConvCount]);	
-	  });
-	  
-	  $("#aMay3").click(function(event) {
-		ansHandler('6', aMay3[ConvCount]);	
-	  });
-	  
-	  // ------------ Woody Session
-	  
-	  $("#aWoo1").click(function(event) {
-		ansHandler('1', aMay1[ConvCount]);	
-	  });
-	  
-	  $("#aWoo2").click(function(event) {
-		ansHandler('1', aMay2[ConvCount]);	
-	  });
-	  
-	  $("#aWoo3").click(function(event) {
-		ansHandler('1', aMay3[ConvCount]);	
-	  });
-	  
-	  $("#aWoo4").click(function(event) {
-		preMn('1');
-	  });
-	  
-	  
-	  
-	  //------------- Doug Session
-	  
-	  $("#aD1").click(function(event){
-		ansHandler('2', aMay1[ConvCount]);	
-	  });
-	  
-	  $("#aD2").click(function(event){
-		ansHandler('2', aMay2[ConvCount]);	
-	  });
+
+
+// system text
+	$("#introNext").click(function(event){
+		introHandler();
+	});
+	
+	$("#tutsNext").click(function(event){
+		tutsHandler();
+	});
+	
+	$("#st2Next").click(function(event){
+		woodyHandler();
+	});
+	
+	$("#st3Next").click(function(event){
+		shopHandler();
+	});
+	
+	$("#busFinish").click(function(event){
+		ringHandler();
+	});
+	
+	$("#ringNext").click(function(event){
+		ringHandler2();
+	});
+	
+	$("#ringFinish").click(function(event){
+		ringHandler3();
+	});
+	
+	$("#starNext").click(function(event){
+		starHandler();
+	});
+	$("#starFinish").click(function(event){
+		starHandler2();
+	});
+	
+// game here
 	  	  
-	  $("#aD3").click(function(event){
-		ansHandler('2', aMay3[ConvCount]);	
-	  });
-	  
-	  $("#aD4").click(function(event) {
-		if(rUang>=tarifTidur){
-			$(".msgBox").show();
-		}else{
-			$(".infoBox").show();
-		}
-	  });
-	  
-	  $("#sleepYa").click(function(event) {
-		doTidur();
-	  });
-	  
-	  $("#sleepTdk").click(function(event) {
-		$(".msgBox").hide();
-	  });
-	  
-	  $("#infOK").click(function(event) {
-		$(".infoBox").hide();
-	  });
-	  
-	  //------------- Saibara Session
-	  
-	  $("#aS1").click(function(event){
-		ansHandler('3', aMay1[ConvCount]);	
-	  });
-	  
-	  $("#aS2").click(function(event){
-		ansHandler('3', aMay2[ConvCount]);	
-	  });
-	  
-	  $("#aS3").click(function(event){
-		ansHandler('3', aMay3[ConvCount]);	
-	  });
-	  
-	  $("#aS4").click(function(event) {
-		preMn('2');
-	  });
-	  //------------- Gourmetchef Session
-	  
-	  $("#aG1").click(function(event){
-		ansHandler('4', aMay1[ConvCount]);	
-	  });
-	  
-	  $("#aG2").click(function(event){
-		ansHandler('4', aMay2[ConvCount]);	
-	  });
-	  
-	  $("#aG3").click(function(event){
-		ansHandler('4', aMay3[ConvCount]);	
-	  });
-	  
-	  $("#aG4").click(function(event){
-		$("#shopBoard").show();
-	  });
-	  
-	  $("#closeShop").click(function(event){
-		$("#shopBoard").hide();
-	  });
-	  //------------- Thai Session
-	  
-	  $("#aT1").click(function(event){
-		ansHandler('5', aMay1[ConvCount]);	
-	  });
-	  
-	  $("#aT2").click(function(event){
-		ansHandler('5', aMay2[ConvCount]);	
-	  });
-	  
-	  $("#aT3").click(function(event){
-		ansHandler('5', aMay3[ConvCount]);	
-	  });
-	  
-	  $("#aT4").click(function(event) {
-		preMn('3');
-	  });
-	  
-// ------------------
-
-// --------- mini game ----------
-//------ wood session ---------
-$("#wAmbil").click(function(event) {
-		mnAmbil('w');
-	  });
-
-$("#wJual").click(function(event) {
-		mnJual('w');
-	  });
-	  
-$("#mAmbil").click(function(event) {
-		mnAmbil('m');
-	  });
-
-$("#mJual").click(function(event) {
-		mnJual('m');
-	  });
-$("#rAmbil").click(function(event) {
-		mnAmbil('r');
-	  });
-
-$("#rJual").click(function(event) {
-		mnJual('r');
-	  });
-	  
 $(".mnSt").click(function(event) {
 		startMini();
 	  });
 
-$(".ptr1").click(function(event) {
-		hidePtr('w',1);
+$(".tree").click(function(event) {
+		hidePtr(this,axeLvl);
 	});
 
-$(".ptr2").click(function(event) {
-		hidePtr('w',2);
-	});
-
-$(".ptr3").click(function(event) {
-		hidePtr('w',3);
-	});
-
-$(".ptr4").click(function(event) {
-		hidePtr('w',4);
-	});
-
-$(".ptr5").click(function(event) {
-		hidePtr('w',5);
-	});
-
-$(".ptr6").click(function(event) {
-		hidePtr('w',6);
-	});
-
-$(".ptr7").click(function(event) {
-		hidePtr('w',7);
+$(".stone").click(function(event) {
+		hidePtr(this,hamLvl);
 	});
 	
-$(".ptr8").click(function(event) {
-		hidePtr('w',8);
-	});
-
-$(".ptr9").click(function(event) {
-		hidePtr('w',9);
-	});
-
-$(".ptr10").click(function(event) {
-		hidePtr('w',10);
-	});
-
-$(".ptr11").click(function(event) {
-		hidePtr('w',11);
-	});
-
-$(".ptr12").click(function(event) {
-		hidePtr('w',12);
-	});
-
-$(".ptr13").click(function(event) {
-		hidePtr('w',13);
-	});
-
-$(".ptr14").click(function(event) {
-		hidePtr('w',14);
+$(".bush").click(function(event) {
+		hidePtr(this,sicLvl);
 	});
 	
-$(".ptr15").click(function(event) {
-		hidePtr('w',15);
+$("#cont1").click(function(event) {
+		preStage2();
+	});	
+$("#re1").click(function(event) {
+		doStage1();
 	});
-
-$(".ptr16").click(function(event) {
-		hidePtr('w',16);
+$("#cont2").click(function(event) {
+		preStage3();
+	});	
+$("#re2").click(function(event) {
+		doStage2();
 	});
-
+$("#cont3").click(function(event) {
+		preRing();
+	});	
+$("#re3").click(function(event) {
+		doStage3();
+	});
+$("#cont4").click(function(event) {
+		ringFin();
+	});	
+$("#re4").click(function(event) {
+		doStageRing();
+	});
+$("#cont5").click(function(event) {
+		starFin();
+	});	
+$("#re5").click(function(event) {
+		doStageStar();
+	});
+	
 //------------------------------------	
 	$('#butSend').click( function() {
 			var message = $('#txtChat').val();
@@ -289,7 +150,7 @@ $(".ptr16").click(function(event) {
 				}
 				
 				//adding chat item
-				 $('#chatBoard').append('<b>' + uname + '('+time.getHours()+':'+time.getMinutes()+')'+':</b> ' + message + '<br>');
+				 $('#chatBoard').append('<b>' + uname + ':</b> ' + message + '<br>');
 				 
 				//scroll down the chatBox
 				$("#chatBoard").animate({ scrollTop: $("#chatBoard").prop("scrollHeight") - $('#chatBoard').height() }, 1);  
@@ -303,6 +164,36 @@ $(".ptr16").click(function(event) {
 				$(this).blur();
 				$('#butSend').focus().click();
 				$('#txtChat').focus();
+			}
+		});
+		
+		$('#butSendG').click( function() {
+			var message = $('#txtChatG').val();
+			$('#txtChatG').val('');
+			//if message not null
+			// tell server to execute 'sendchat' and send along one parameter
+			if(message!=''){
+				socket.emit('sendchatG', message);
+				//inserting emoticon
+				for(var face in myEmo){
+					message=message.replace('/'+ myEmo[face],' <img src=emoticon/' + myEmo[face] + '.gif width=50 height=50>');
+				}
+				
+				//adding chat item
+				 $('#chatBoardG').append('<font color=purple><b>' + uname + ':</b> ' + message + '</font><br />');
+				 
+				//scroll down the chatBox
+				$("#chatBoardG").animate({ scrollTop: $("#chatBoardG").prop("scrollHeight") - $('#chatBoardG').height() }, 1);  
+			}
+			if(newMsg!=-1) newMsg=-1;
+		});
+
+		// when the client hits ENTER on their keyboard
+		$('#txtChatG').keypress(function(e) {
+			if(e.which == 13) {
+				$(this).blur();
+				$('#butSendG').focus().click();
+				$('#txtChatG').focus();
 			}
 		});
 		

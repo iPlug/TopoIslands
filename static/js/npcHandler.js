@@ -1,101 +1,104 @@
+function introHandler(){
+	if(CC!=5){
+		CC++;
+		cleanTxt();
+		fillText('Chef',intro[CC][lang]);
+		if(CC==5) $('#introNext').html('Mulai Tutorial!');
+	}else{
+		doTuts();
+	}
+}
+
+function tutsHandler(){
+	if(CC!=2){
+		CC++;
+		cleanTxt();
+		fillText('Chef',tuts[CC][lang]);
+		if(CC==1) $('.stage1').css('border','1px solid white');
+		if(CC==2) $('#tutsNext').html('Mulai Bekerja!');
+	}else{
+		doStage1();
+	}
+}
+
+
 function woodyHandler(){
-	hideAll();
-	$("#B").show();
-	$("#B1").show();
-
-	switch(QCount){
-		case 1:
-			$(".ansBox").hide();			
-			fillText('1', 'Woody', May[ConvCount]);
-		break;
-		default:
-			$(".ansBox").hide();
-			fillText('1', 'Woody', 'Hai ' + uname + ', hari yang cerah untuk menebang pohon kan?');
-		break;
+	if(CC!=2){
+		CC++;
+		cleanTxt();
+		fillText('Chef',stage2[CC][lang]);
+		if(CC==1) $('.stage2').css('border','1px solid white');
+		if(CC==2) $('#st2Next').html('Mulai Bekerja!');
+	}else{
+		doStage2();
 	}
 }
 
-function dougHandler(){
-	hideAll();
-	$("#B").show();
-	$("#B2").show();
-
-	switch(QCount){
-		case 4:
-			$(".ansBox").hide();			
-			fillText('2', 'Doug', May[ConvCount]);
-		break;
-		default:
-			$(".ansBox").hide();
-			fillText('2', 'Doug', 'Hai ' + uname + ', butuh kamar untuk istirahat?');
-		break;
+function shopHandler(){
+	if(CC!=2){
+		CC++;
+		cleanTxt();
+		fillText('Chef',stage3[CC][lang]);
+		if(CC==1) $('.stage4').css('border','1px solid white');
+		if(CC==2) $('#st3Next').html('Mulai Bekerja!');
+	}else{
+		doStage3();
 	}
 }
 
-function saiHandler(){
-	hideAll();
-	$("#B").show();
-	$("#B3").show();
-
-	switch(QCount){
-		case 2:
-			$(".ansBox").hide();			
-			fillText('3', 'Saibara', May[ConvCount]);
-		break;
-		default:
-			$(".ansBox").hide();
-			fillText('3', 'Saibara', 'Hai ' + uname + ', apa yang kau butuhkan dariku?');
-		break;
+function ringHandler(){
+	if(CC!=2){
+		CC++;
+		cleanTxt();
+		fillText('Chef',stage4[CC][lang]);
+		if(CC==2) $('#busFinish').html('Pindah ke Pulau RING!');
+	}else{
+		doRing();
 	}
 }
 
-function gourHandler(){
-	hideAll();
-	$("#B").show();
-	$("#B4").show();
-
-	switch(QCount){
-		case 5:
-			$(".ansBox").hide();			
-			fillText('4', 'Gourmetchef', May[ConvCount]);
-		break;
-		default:
-			$(".ansBox").hide();
-			fillText('4', 'Gourmetchef', 'Hai ' + uname + ', apa bisnismu hari ini?');
-		break;
+function ringHandler2(){
+	if(CC!=3){
+		CC++;
+		cleanTxt();
+		fillText('Chef',ringIntro[CC][lang]);
+		if(CC==2) $('.item4').css('border','1px solid white');
+		if(CC==3) $('#ringNext').html('Mulai Latihan!');
+	}else{
+		doStageRing();
 	}
 }
 
-function thaiHandler(){
-	hideAll();
-	$("#B").show();
-	$("#B5").show();
-
-	switch(QCount){
-		case 3:
-			$(".ansBox").hide();			
-			fillText('5', 'Thai', May[ConvCount]);
-		break;
-		default:
-			$(".ansBox").hide();
-			fillText('5', 'Thai', 'Hai ' + uname + ', apa yang kau lakukan di tempat kerjaku?');
-		break;
+function ringHandler3(){
+	if(CC!=3){
+		CC++;
+		cleanTxt();
+		fillText('Chef',ringFinish[CC][lang]);
+		if(CC==3) $('#ringFinish').html('Pindah ke Pulau STAR!');
+	}else{
+		doStar();
 	}
 }
 
-function mayorHandler(){
-	hideAll();
-	$("#B").show();
-	$("#B6").show();
+function starHandler(){
+	if(CC!=4){
+		CC++;
+		cleanTxt();
+		fillText('Chef',starIntro[CC][lang]);
+		if(CC==3) $('.item5').css('border','1px solid #F5F5F5');
+		if(CC==4) $('#starNext').html('Mulai Berlatih!');
+	}else{
+		doStageStar();
+	}
+}
 
-	switch(QCount){
-		case 6:
-			$(".ansBox").hide();			
-			fillText('6', 'Thomas', May[ConvCount]);
-		break;
-		default:
-			$(".ansBox").hide();
-			fillText('6', 'Thomas', 'Hai ' + uname + ', apa tugas yang kuberikan sudah selesai?');
-		break;
+function starHandler2(){
+	if(CC!=5){
+		CC++;
+		cleanTxt();
+		fillText('Chef',starFinish[CC][lang]);
+		if(CC==5) $('#starFinish').html('Selamat Tinggal!');
+	}else{
+		arenaTuts();
 	}
 }

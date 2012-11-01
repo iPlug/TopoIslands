@@ -39,14 +39,22 @@ var usernames = {};
 var guilds = {};
 var count=0;
 
+
 io.configure(function () { 
   io.set("transports", ["xhr-polling"]); 
   io.set("polling duration", 10); 
 });
 
+
 io.sockets.on('connection', function (socket) {
 	console.info('Connection started. ');
 	// when the client emits 'sendchat', this listens and executes
+	socket.on('sendchatG', function (data) {
+		// we tell the client to execute 'updatechat' with 2 parameters
+		//io.sockets.emit('updatechat', socket.username, data);
+		io.sockets.in(socket.room).emit('updatechatG', socket.username, data);
+	});
+	
 	socket.on('sendchat', function (data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.emit('updatechat', socket.username, data);
@@ -63,47 +71,41 @@ io.sockets.on('connection', function (socket) {
 			}
 		});
 	});
+	
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username, guild){
 		// we store the username in the socket session for this client
+		if(username!='undefined'){
+			socket.username = username;
+			socket.room = guild;
+			socket.join(guild);
+			// add the client's username to the global list
+			
+			socket.username=username;
+			usernames[username] = username;
+			guilds[username] = guild;
+			//socket.emit('updatechat', 'SERVER', username + ' has connected');
 		
-		socket.username = username;
-		socket.room = guild;
-		socket.join(guild);
-		// add the client's username to the global list
-		if(username == 'noob')
-		{
-			username='noob-'+count;
-			socket.username=username;
-			usernames[username] = username;
-			guilds[username] = guild;
-			// echo to client they've connected
-			socket.emit('updatechat', 'SERVER', 'Error ID - using ID '+ username);
+			// echo globally (all clients) that a person has connected
+			//socket.broadcast.emit('updatechat', 'SERVER', username + ' has connected');
+			// update the list of users in chat, client-side
+			io.sockets.emit('updateusers', usernames, guilds);
+			socket.emit('updateinfo', username, "45", "The Furious One", guild);
+			socket.broadcast.to(guild).emit('updatechatG', 'SERVER', username + ' has connected.');
 		}
-		else{
-			socket.username=username;
-			usernames[username] = username;
-			guilds[username] = guild;
-			socket.emit('updatechat', 'SERVER', username + ' has connected');
-		}
-		// echo globally (all clients) that a person has connected
-		socket.broadcast.emit('updatechat', 'SERVER', username + ' has connected');
-		// update the list of users in chat, client-side
-		io.sockets.emit('updateusers', usernames, guilds);
-		socket.emit('updateinfo', username, "45", "The Furious One", guild);
-		count++;
 	});
 
 	// when the user disconnects.. perform this
 	socket.on('disconnect', function(){
-		count--;
 		// remove the username from global usernames list
-		delete usernames[socket.username];
-		delete guilds[socket.username];
-		// update list of users in chat, client-side
-		io.sockets.emit('removeusers', usernames);
-		socket.leave(socket.room);
+		if(socket.username!='undefined'){
+			delete usernames[socket.username];
+			delete guilds[socket.username];
+			// update list of users in chat, client-side
+			socket.broadcast.to(socket.room).emit('updatechatG', 'SERVER', socket.username + ' has disconnected.');
+			socket.leave(socket.room);
+		}
 		// echo globally that this client has left
-		socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
+		//socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
 	});
 });

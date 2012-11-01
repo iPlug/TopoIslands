@@ -1,94 +1,22 @@
-function doTidur(){
-	pHP=mHP;
-	rUang-=tarifTidur;
-	hideAll();
-	$("#A").show();
-	resetR();
-}
-
-function resetR(){
-	$("#rUang").html(rUang);
-	$("#rWood").html(rKayu);
-	$("#rMine").html(rLogam);
-	$("#rRock").html(rBatu);
-	$("#pHP").html(pHP);
-}
-
-function preMn(no){
-	hideAll();
-	$("#D").show();
-	$("#D" + no).show();
-	$(".stBoard").show();
-	$(".pointer").hide();
-	$(".storeBag").hide();
+function stMini(){
 	$(".winBoard").hide();
-	$(".gScore").hide();
-	$(".gTimer").hide();
-}
-
-function startMini(){
-	pHP-=100;
-	$(".stBoard").hide();
-	$(".winBoard").hide();
-	$(".pointer").show();
-	$(".storeBag").show();
-	$(".gScore").show();
-	$(".gTimer").show();
-	$(".pointer").css("border","1px solid transparent");
-	isPlaying=1;
-	pTool=mTool;
-	gT=30;
+	$('.msgBox').hide();
+	gT=0;
 	gS=0;
-	$(".gTimer").html(gT);
-	$(".gScore").html(gS);
-	stopwatch = setInterval(function(){
-		gT--;
-		$(".gTimer").html(gT);
-		if(gT==0){
-			endMini();
-		}
-	},1000);
 }
 
 function endMini(){
 	isPlaying=0;
 	clearInterval(stopwatch);
 	clearTimeout(ptrTimer);
-	var timerEnd = setTimeout(function(){
-		$(".gGain").html(gS*4);
-		$(".storeBag").hide();
-		$(".pointer").hide();
-		$(".winBoard").show();
-	},2000);
+	console.log(gT);
+	$(".winBoard").show();
+	$(".txtScore").html(500-gT);
 }
 
-function mnAmbil(tipe){
-	switch(tipe){
-		case 'w':
-			rKayu+=gS*4;
-		break;
-		case 'm':
-			rLogam+=gS*4;
-		break;
-		case 'r':
-			rBatu+=gS*4;
-		break;
-	}
-	hideAll();
-	$("#A").show();
-	resetR();
-}
-
-function mnJual(tipe){
-	rUang+=gS*400;
-	hideAll();
-	$("#A").show();
-	resetR();
-}
-
-function hidePtr(tipe, no){
-	if(isPlaying==1 && pTool>0){
-		pTool--;		
+function hidePtr(id, sharpLvl){
+	if((pTool>0) && (($(id).css('border')=='1px solid rgb(255, 255, 255)') || ($(id)[0].style.border=='1px solid white')) ){
+		pTool--;
 		chop.play();
 		chopTimer = setTimeout(function(){
 			if(sharpLvl>=2) chop.play();
@@ -96,12 +24,21 @@ function hidePtr(tipe, no){
 		chopTimer = setTimeout(function(){
 			if(sharpLvl==3) chop.play();
 		},2000);
-		$(".ptr" + no).css("border","1px red solid");
+		$(id).css("border","1px red solid");
 			ptrTimer = setTimeout(function(){
+					bag.play();
 					gS++;
-					$(".gScore").html(gS);
-					$(".ptr" + no).fadeOut(500);
+					$(id).fadeOut(800);	
 					pTool++;
 				},sharpLvl*1000);
 	}
+}
+
+function FhidePtr(id, sharpLvl){
+//	if(($(id).css('border')=='1px solid rgb(255, 255, 255)') || ($(id)[0].style.border=='1px solid white')) {
+		$(id).css("border","1px blue solid");
+			ptrTimer = setTimeout(function(){
+					$(id).fadeOut(800);	
+				},sharpLvl*1000);
+//	}
 }

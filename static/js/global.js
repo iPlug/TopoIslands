@@ -1,20 +1,15 @@
 function hideAll(){
-		$("#A").hide();
-		$("#B").hide();
-		$("#C").hide();
-		$("#D").hide();
-		
-		$("#B1").hide();
-		$("#B2").hide();
-		$("#B3").hide();
-		$("#B4").hide();
-		$("#B5").hide();
-		$("#B6").hide();
-		
-		$("#D1").hide();
-		$("#D2").hide();
-		$("#D3").hide();
-		
+		$("#map").hide();
+		$("#intro").hide();
+		$("#tutorial").hide();
+		$("#stage1").hide();
+		$("#stage2").hide();
+		$("#stage3").hide();
+		$("#stage4").hide();
+		$("#introRing").hide();
+		$("#stageRing").hide();
+		$("#introStar").hide();
+		$("#stageStar").hide();
 	}
 	
 function Signed(){
@@ -23,66 +18,153 @@ function Signed(){
 			socket.emit('adduser', uname, guild);
 			
 			//prepare the conversation
-			initConv();
 			
 			//prepare the stage
 			hideAll();
 			$('#wrapper').show();
 			$('#loginBox').hide();
-			resetR();
-			
-			//$('#A').show();
-			//startTutorial();
-			//$('.ansBox').hide();
-			
-			
-			//$('#B').show();
-			//$('#B6').show();
-			//fillText('6', 'Thomas', May[ConvCount]);
-			
-			hideAll();
-			$("#D").show();
-			$("#D1").show();
+			//startIntro();
+			doStar();
 		}else{
 			
 		}
 	}
 	
-function startTutorial(){
-		hideAll();
-		$('#C').show();
-		$('#txtTut').hide();
-		$('#txtTut').html('Bangun... Bangunlah... Kau tidak apa-apa....?');
-		clearTimeout(popTimer);    
-		$('#txtTut').fadeIn(900);
-		popTimer = setTimeout(function(){
-			$('#txtTut').fadeOut(900);
-			popTimer = setTimeout(function(){
-				$('#txtTut').html('Oh, dia pingsan... Cepat bawa dia ke rumahku...');
-			}, 1000);
-			$('#txtTut').fadeIn(900);
-			
-			popTimer = setTimeout(function(){
-				$('#txtTut').fadeOut(900);
-				popTimer = setTimeout(function(){
-					$('#txtTut').html('Dua Hari Kemudian...');
-					$('#txtTut').fadeIn(3000);
-				}, 5000);
-				
-				popTimer = setTimeout(function(){
-					$('#txtTut').fadeOut(3000);
-					popTimer = setTimeout(function(){
-						popTimer = setTimeout(function(){
-							fillText('6', 'Thomas', May[ConvCount]);
-						}, 2100);
-						$('#C').fadeOut(900);
-						$('#wrapper').hide();
-						$('#wrapper').fadeIn(2000);
-						$('#B').show();
-						$('#B6').show();
-						cleanTxt('6');
-					}, 10000);
-				}, 10000);	
-			}, 6000);
-		}, 6000);
-	}
+function startIntro(){
+	hideAll();
+	$('#intro').fadeIn(1000);
+	fillText('Chef', intro[CC][lang]);
+}
+
+function doTuts(){
+	CC=0;
+	hideAll();
+	$('#tutorial').fadeIn(1000);
+	fillText('Chef', tuts[CC][lang]);
+}
+
+function doStage1(){
+	stMini();
+	$('.item1').show();
+	$('.item1').css("border","1px transparent solid");
+	CC=0;
+	hideAll();
+	$('#stage1').fadeIn(1000);
+	stopwatch = setInterval(function(){
+		gT++;
+		$(".gTimer").html(gT);
+		if(gS==8){
+			endMini();
+		}
+	},100);
+}
+
+function preStage2(){
+	$('.winBoard').hide();
+	$('.msgBox').show();
+	CC=-1;
+	woodyHandler();
+}
+
+function doStage2(){
+	stMini();
+	$('.item2').show();
+	$('.item2').css("border","1px transparent solid");
+	hideAll();
+	$('#stage2').fadeIn(1000);
+	
+	stopwatch = setInterval(function(){
+		gT++;
+		$(".gTimer").html(gT);
+		if(gS==8){
+			endMini();
+		}
+	},100);
+}
+
+function preStage3(){
+	$('.winBoard').hide();
+	$('.msgBox').show();
+	CC=-1;
+	shopHandler();
+}
+
+function doStage3(){
+	stMini();
+	hideAll();
+	$('#stage3').fadeIn(1000);
+	$('.item3').show();
+	$('.item3').css("border","1px transparent solid");	
+	stopwatch = setInterval(function(){
+		gT++;
+		$(".gTimer").html(gT);
+		if(gS==8){
+			endMini();
+		}
+	},100);
+}
+
+function preRing(){
+	$('.winBoard').hide();
+	$('.msgBox').show();
+	CC=-1;
+	ringHandler();
+}
+
+function doRing(){
+	CC=-1;
+	hideAll();
+	$('#introRing').fadeIn(1000);
+	ringHandler2();
+}
+
+function doStageRing(){
+	stMini();
+	hideAll();
+	$('#stageRing').fadeIn(1000);
+	$('.item4').show();
+	$('.item4').css("border","1px transparent solid");	
+	stopwatch = setInterval(function(){
+		gT++;
+		$(".gTimer").html(gT);
+		if(gS==12){
+			endMini();
+		}
+	},100);
+}
+
+function ringFin(){
+	$('.winBoard').hide();
+	$('.msgBox').show();
+	CC=-1;
+	ringHandler3();
+}
+
+function doStar(){
+	CC=-1;
+	hideAll();
+	$('#introStar').fadeIn(1000);
+	starHandler();
+}
+
+function doStageStar(){
+	stMini();
+	hideAll();
+	$('#stageStar').fadeIn(1000);
+	$('.item5').show();
+	$('.item5').css("border","1px transparent solid");	
+	stopwatch = setInterval(function(){
+		gT++;
+		$(".gTimer").html(gT);
+		if(gS==12){
+			endMini();
+		}
+	},100);
+}
+
+function starFin(){
+	$('.winBoard').hide();
+	$('.msgBox').show();
+	CC=-1;
+	starHandler2();
+}

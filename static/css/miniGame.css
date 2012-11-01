@@ -1,0 +1,619 @@
+/* wrapper Bus Island*/
+.locked{
+       
+}
+
+.stage1{
+   	position: absolute;
+	top: 100px;
+	left: 140px;
+	background-image:url('/img/bg/stage1.png');
+	width:98px;
+	height:182px;
+}
+
+.stage2{
+   	position: absolute;
+	top: 100px;
+	left: 405px;
+	background-image:url('/img/bg/stage2.png');
+	width:98px;
+	height:182px;
+}
+
+.stage3{
+   	position: absolute;
+	top: 130px;
+	left: 668px;
+	background-image:url('/img/bg/stage3.png');
+	width:92px;
+	height:147px;
+}
+
+.stage4{
+   	position: absolute;
+	top: 285px;
+	left: 245px;
+	background-image:url('/img/bg/stage4.png');
+	width:99px;
+	height:186px;
+}
+
+.stage5{
+   	position: absolute;
+	top: 320px;
+	left: 565px;
+	background-image:url('/img/bg/stage5.png');
+	width:90px;
+	height:160px;
+}
+
+.stage6{
+   	position: absolute;
+	top: 215px;
+	left: 32px;
+	background-image:url('/img/bg/stage6.png');
+	width:834px;
+	height:140px;
+}
+
+/* User Interface */
+
+.winBoard{
+	background: white;
+	display: inline-block;
+	position: absolute;
+	width:200px;
+	height:200px;
+	border: 3px black solid;
+	top: 250px;
+	left:350px;
+	z-index:1000;
+	text-align: center;
+}
+
+.stBoard{
+	background: white;
+	display: inline-block;
+	position: absolute;
+	width:200px;
+	height:200px;
+	border: 3px black solid;
+	top: 250px;
+	left:350px;
+	z-index:1000;
+}
+
+/* aksesoris */
+
+.midUp1{
+	position: absolute;
+	top: 100px;
+	left: 32px;
+	cursor: pointer;
+}
+
+.midUp2{
+	position: absolute;
+	top: 100px;
+	left: 247px;
+	cursor: pointer;
+}
+
+.midUp3{
+	position: absolute;
+	top:100px;
+	left:510px;
+	cursor: pointer;
+}
+
+.midUp4{
+	position: absolute;
+	top:100px;
+	left:775px;
+	cursor: pointer;
+}
+
+.midBot1{
+	position: absolute;
+	top:326px;
+	left:32px;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.midBot2{
+	position: absolute;
+	top:326px;
+	left:355px;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.midBot3{
+	position: absolute;
+	top:326px;
+	left:670px;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.trees2{
+	background-image:url('/img/bg/trees2.png');
+	width:96px;
+	height:148px;
+}
+
+.trees3{
+	background-image:url('/img/bg/trees3.png');
+	width:150px;
+	height:148px;
+}
+
+.trees4{
+	background-image:url('/img/bg/trees4.png');
+	width:204px;
+	height:148px;
+}
+
+/* game item */
+
+.pointer{
+	display: inline-block;
+	position: absolute;
+	width:76px;
+	height:120px;
+	border: 1px solid transparent;
+	cursor: pointer;
+	z-index: 9;
+}
+
+.pointer:hover{
+	border: 1px solid white;
+}
+
+.tree{
+	background-image:url('/img/bg/tree.png');
+	background-repeat:no-repeat;
+	width:45px;
+	height:71px;
+	cursor:pointer;
+	border:1px solid transparent; 
+}
+
+.stone{
+	background-image:url('/img/bg/stone.png');
+	background-repeat:no-repeat;
+	width:45px;
+	height:71px;
+	cursor:pointer;
+	border:1px solid transparent; 
+}
+
+.bush{
+	background-image:url('/img/bg/bush.png');
+	background-repeat:no-repeat;
+	width:45px;
+	height:71px;
+	cursor:pointer;
+	border:1px solid transparent; 
+}
+
+/* item location */
+
+#satu1{
+    position:absolute;
+    top:100px;
+    left:140px;    
+}
+
+#satu2{
+    position:absolute;
+    top:100px;
+    left:195px;    
+}
+
+#satu3{
+    position:absolute;
+    top:135px;
+    left:140px;    
+}
+
+#satu4{
+    position:absolute;
+    top:135px;
+    left:195px;    
+}
+
+#satu5{
+    position:absolute;
+    top:170px;
+    left:140px;    
+}
+
+#satu6{
+    position:absolute;
+    top:170px;
+    left:195px;    
+}
+
+#satu7{
+    position:absolute;
+    top:215px;
+    left:140px;    
+}
+
+#satu8{
+    position:absolute;
+    top:215px;
+    left:195px;    
+}
+
+#dua1{
+    position:absolute;
+    top:100px;
+    left:405px;    
+}
+
+#dua2{
+    position:absolute;
+    top:100px;
+    left:455px;    
+}
+
+#dua3{
+    position:absolute;
+    top:135px;
+    left:405px;    
+}
+
+#dua4{
+    position:absolute;
+    top:135px;
+    left:455px;    
+}
+
+#dua5{
+    position:absolute;
+    top:170px;
+    left:405px;    
+}
+
+#dua6{
+    position:absolute;
+    top:170px;
+    left:455px;    
+}
+
+#dua7{
+    position:absolute;
+    top:215px;
+    left:405px;    
+}
+
+#dua8{
+    position:absolute;
+    top:215px;
+    left:455px;    
+}
+
+#tiga1{
+    position:absolute;
+    top:285px;
+    left:240px;    
+}
+
+#tiga2{
+    position:absolute;
+    top:285px;
+    left:295px;    
+}
+
+#tiga3{
+    position:absolute;
+    top:325px;
+    left:240px;    
+}
+
+#tiga4{
+    position:absolute;
+    top:325px;
+    left:295px;    
+}
+
+#tiga5{
+    position:absolute;
+    top:370px;
+    left:240px;    
+}
+
+#tiga6{
+    position:absolute;
+    top:370px;
+    left:295px;    
+}
+
+#tiga7{
+    position:absolute;
+    top:410px;
+    left:240px;    
+}
+
+#tiga8{
+    position:absolute;
+    top:410px;
+    left:295px;    
+}
+
+/* wrapper Ring Island*/
+
+.rTreeUp{
+	position: absolute;
+	top:65px;
+	left:220px;
+	z-index: 10;
+	cursor: pointer;
+	width:444px;
+	height:112px;
+	background-image:url('/img/bg/rTreeUp.png');
+}
+
+.rTreeMid{
+	position: absolute;
+	top:200px;
+	left:365px;
+	z-index: 10;
+	cursor: pointer;
+	width:177px;
+	height:172px;
+	background-image:url('/img/bg/rTreeMid.png');
+}
+
+.rTreeBot{
+	position: absolute;
+	top:410px;
+	left:220px;
+	z-index: 10;
+	cursor: pointer;
+	width:444px;
+	height:112px;
+	background-image:url('/img/bg/rTreeBot.png');
+}
+
+.rTreeLeft{
+	position: absolute;
+	top:175px;
+	left:20px;
+	z-index: 10;
+	cursor: pointer;
+	width:229px;
+	height:246px;
+	background-image:url('/img/bg/rTreeLeft.png');
+}
+
+.rTreeRight{
+	position: absolute;
+	top:175px;
+	left:650px;
+	z-index: 10;
+	cursor: pointer;
+	width:229px;
+	height:246px;
+	background-image:url('/img/bg/rTreeRight.png');
+}
+
+#ring1{
+    position:absolute;
+    top:110px;
+    left:180px;    
+    z-index:11;    
+}
+
+#ring2{
+    position:absolute;
+    top:140px;
+    left:220px;
+    z-index:11;    
+}
+
+#ring3{
+    position:absolute;
+    top:200px;
+    left:290px;
+    z-index:11;
+
+}
+
+#ring4{
+    position:absolute;
+    top:300px;
+    left:290px;    
+    z-index:11;
+}
+
+#ring5{
+    position:absolute;
+    top:400px;
+    left:180px;
+    z-index:10;    
+}
+
+#ring6{
+    position:absolute;
+    top:360px;
+    left:400px;
+    z-index:10;
+}
+
+#ring7{
+    position:absolute;
+    top:370px;
+    left:600px;
+    z-index:9;   
+}
+
+#ring8{
+    position:absolute;
+    top:400px;
+    left:640px;    
+    z-index:9;
+}
+
+#ring9{
+    position:absolute;
+    top:250px;
+    left:580px;
+    z-index:11;  
+}
+
+#ring10{
+    position:absolute;
+    top:110px;
+    left:660px;
+    z-index:11;    
+}
+
+#ring11{
+    position:absolute;
+    top:140px;
+    left:630px;
+    z-index:11;    
+}
+
+#ring12{
+    position:absolute;
+    top:150px;
+    left:520px; 
+    z-index:11;   
+}
+
+/* wrapper Ring Island*/
+
+.sTreeUp{
+	position: absolute;
+	top:35px;
+	left:220px;
+	z-index: 10;
+	cursor: pointer;
+	width:444px;
+	height:182px;
+	background-image:url('/img/bg/sTreeUp.png');
+}
+
+.sTreeBot{
+	position: absolute;
+	top:360px;
+	left:220px;
+	z-index: 10;
+	cursor: pointer;
+	width:444px;
+	height:178px;
+	background-image:url('/img/bg/sTreeBot.png');
+}
+
+.sTreeLeft{
+	position: absolute;
+	top:175px;
+	left:30px;
+	z-index: 10;
+	cursor: pointer;
+	width:292px;
+	height:246px;
+	background-image:url('/img/bg/sTreeLeft.png');
+}
+
+.sTreeRight{
+	position: absolute;
+	top:175px;
+	left:570px;
+	z-index: 10;
+	cursor: pointer;
+	width:297px;
+	height:246px;
+	background-image:url('/img/bg/sTreeRight.png');
+}
+
+#star1{
+    position:absolute;
+    top:110px;
+    left:180px;    
+    z-index:11;    
+}
+
+#star2{
+    position:absolute;
+    top:140px;
+    left:250px;
+    z-index:11;    
+}
+
+#star3{
+    position:absolute;
+    top:200px;
+    left:330px;
+    z-index:11;
+
+}
+
+#star4{
+    position:absolute;
+    top:300px;
+    left:350px;    
+    z-index:11;
+}
+
+#star5{
+    position:absolute;
+    top:350px;
+    left:250px;
+    z-index:10;    
+}
+
+#star6{
+    position:absolute;
+    top:390px;
+    left:200px;
+    z-index:10;
+}
+
+#star7{
+    position:absolute;
+    top:290px;
+    left:500px;
+    z-index:9;   
+}
+
+#star8{
+    position:absolute;
+    top:320px;
+    left:540px;    
+    z-index:9;
+}
+
+#star9{
+    position:absolute;
+    top:400px;
+    left:640px;
+    z-index:11;  
+}
+
+#star10{
+    position:absolute;
+    top:110px;
+    left:660px;
+    z-index:11;    
+}
+
+#star11{
+    position:absolute;
+    top:140px;
+    left:600px;
+    z-index:11;    
+}
+
+#star12{
+    position:absolute;
+    top:180px;
+    left:520px; 
+    z-index:11;   
+}

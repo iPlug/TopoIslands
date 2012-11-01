@@ -6,14 +6,14 @@
 
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
-<link href="main.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="miniGame.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="bubbles.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/main.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/miniGame.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/bubbles.css" rel="stylesheet" type="text/css" media="screen" />
 
 <script src="socket.io/socket.io.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/declare.js"></script>
-<script src="js/conv.js"></script>
+<script src="js/lang.js"></script>
 <script src="js/global.js"></script>
 <script src="js/ioconf.js"></script>
 <script src="js/mini.js"></script>
@@ -51,9 +51,10 @@
 <br />
 <button id=butBarter class='btn btn-success'><i class='icon-white icon-retweet'></i> Pusat Barter</button> 
 <button class='btn btn-disabled disabled'><i class='icon-user'></i> Teman Guild</button>
-<div id=friendBoard>
+<div id=chatBoardG>
 </div>
-	
+	<input id=txtChatG type=text maxlength="150" class="span3 input-xlarge" placeholder='Ketikan isi pesan...'>
+	<button id=butSendG class='btn btn-success'><i class='icon-white icon-bullhorn'></i> Chat </button>
 </div>
 <div id=mainInfo>
 	<div id=profileWrap>
@@ -111,347 +112,336 @@
 	  </li>
 	</ul>
 </div>
-<section id=A>
-<div class=ui id=map>
-<div id=board>
-	<div id=wraperA>
-		<div class='bld hvr' id=bldA>
-			
-		</div>
-	</div>
-	<div id=wraperB>
-		<div class='bld hvr' id=bldB>		
-		
-		</div>
-	</div>
-	<div id=wraperC>
-		<div class='bld hvr' id=bldC>		
-		
-		</div>
-	</div>
-	<div id=wraperD>
-		<div class='bld hvr' id=bldD>		
-		
-		</div>
-	</div>
-	<div id=wraperE>
-		<div class='bld hvr' id=bldE>		
-		
-		</div>
-	</div>	
-</div>
-</div>
-</section>
-<section id=B>
-<div class=ui id=building>
-	<div class=buildBoard id=B1>
-		<div class=imgBuilding align=right>
-			<img src='media/image/people/woody.jpg' width=170px height=250px />
-		</div>
-		<div class=detBuilding id=txtWood>
-		
-		</div>
-		<div class='ansBox triangle-border right' id=boxWoody>
-			<button class='btn btn-info ansBut pil1' id=aWoo1></button>
-			<button class='btn btn-info ansBut pil2' id=aWoo2></button> 
-			<button class='btn btn-info ansBut pil3' id=aWoo3></button>
-			<button class='btn btn-info ansBut pil4' id=aWoo4></button>
-			<button class='btn btn-info ansBut pil5' id=aWoo5></button> 
-			<button class='btn btn-info ansBut pil6 back' id=aWoo6></button>
-		</div>
-		<div class='playerImg'>
-			<img src='media/image/profile/profile.jpg' width=175px height=175px />
-		</div>
-	</div>
-	
-	<div class=buildBoard id=B2>
-		<div class=imgBuilding align=right>
-			<img src='media/image/people/doug.jpg' width=170px height=250px />
-		</div>
-		<div class=detBuilding id=txtHome>
-		
-		</div>
-		<div class='ansBox triangle-border right' id=boxDoug>
-			<button class='btn btn-info ansBut pil1' id=aD1></button>
-			<button class='btn btn-info ansBut pil2' id=aD2></button> 
-			<button class='btn btn-info ansBut pil3' id=aD3></button>
-			<button class='btn btn-info ansBut pil4' id=aD4></button>
-			<button class='btn btn-info ansBut pil5' id=aD5></button> 
-			<button class='btn btn-info ansBut pil6 back' id=aD6></button>
-		</div>
-		<div class='playerImg'>
-			<img src='media/image/profile/profile.jpg' width=175px height=175px />
-		</div>
-		<div class=msgBox>
-			<br />
-			Beristirahat akan <code>mengembalikan seluruh HP-mu</code>, tetapi membutuhkan <code>1,000 IDR</code>. Ingin melanjutkan? <br />
-			<br />
-			<button class='btn btn-info' id=sleepYa>Ya</button> <button class='btn btn-warning' id=sleepTdk>Tidak</button>
-		</div>
-		<div class=infoBox>
-			<br />
-			Beristirahat akan <code>mengembalikan seluruh HP-mu</code>, tetapi membutuhkan <code>50,000 IDR</code>
-			<br />
-			Maaf, uang tidak cukup... Bekerjalah yang giat!<br />
-			<br />
-			<button class='btn btn-info' id=infOK> OK </button>
-		</div>
-	</div>
-	
-	<div class=buildBoard id=B3>
-		<div class=imgBuilding align=right>
-			<img src='media/image/people/saibara.jpg' width=170px height=250px />
-		</div>
-		<div class=detBuilding id=txtMine>
-		
-		</div>
-		<div class='ansBox triangle-border right' id=boxSaibara>
-			<button class='btn btn-info ansBut pil1' id=aS1></button>
-			<button class='btn btn-info ansBut pil2' id=aS2></button> 
-			<button class='btn btn-info ansBut pil3' id=aS3></button>
-			<button class='btn btn-info ansBut pil4' id=aS4></button>
-			<button class='btn btn-info ansBut pil5' id=aS5></button> 
-			<button class='btn btn-info ansBut pil6 back' id=aS6></button>
-		</div>
-		<div class='playerImg'>
-			<img src='media/image/profile/profile.jpg' width=175px height=175px />
-		</div>
-	</div>
 
-	<div class=buildBoard id=B4>
-		<div class=imgBuilding align=right>
-			<img src='media/image/people/gourmetchef.jpg' width=170px height=250px />
-		</div>
-		<div class=detBuilding id=txtShop>
-		
-		</div>
-		<div class='ansBox triangle-border right' id=boxGour>
-			<button class='btn btn-info ansBut pil1' id=aG1></button>
-			<button class='btn btn-info ansBut pil2' id=aG2></button> 
-			<button class='btn btn-info ansBut pil3' id=aG3></button>
-			<button class='btn btn-info ansBut pil4' id=aG4></button>
-			<button class='btn btn-info ansBut pil5' id=aG5></button> 
-			<button class='btn btn-info ansBut pil6 back' id=aG6></button>
-		</div>
-		<div class='playerImg'>
-			<img src='media/image/profile/profile.jpg' width=175px height=175px />
-		</div>
-		<div id=shopBoard>
-		<div style='float:left;width:200px;'>
-		<b>Barang</b> <br />
-		[Normal] Tas Ransel <br /><br />
-		[Normal] Kotak Peralatan <br /><br />
-		[Normal] Sepatu Boot
-		</div>
-		<div style='float:left;width:300px;'>
-		<b>Keterangan</b> <br />
-		Dapat membawa hingga 6 barang. <br /><br />
-		Dapat memanen dalam waktu 2.5 detik. <br /><br />
-		Dapat berlari 10 meter/detik.
-		</div>
-		<div style='float:left;width:300px;'>
-		<b>Harga</b> <br />
-		100.000 IDR <button id=beliA class='btn btn-primary'>Beli</button><br /><br />
-		200.000 IDR <button id=beliB class='btn btn-primary'>Beli</button><br /><br />
-		150.000 IDR <button id=beliC class='btn btn-primary'>Beli</button>
-		</div>
-		<button id=closeShop class='btn btn-warning'>Selesai</button>
-		</div>
-	</div>
+<section id=map>
+<div class=ui>
+<div class=board>
 	
-	<div class=buildBoard id=B5>
-		<div class=imgBuilding align=right>
-			<img src='media/image/people/tai.jpg' width=170px height=250px />
-		</div>
-		<div class=detBuilding id=txtRock>
-		
-		</div>
-		<div class='ansBox triangle-border right' id=boxThai>
-			<button class='btn btn-info ansBut pil1' id=aT1></button>
-			<button class='btn btn-info ansBut pil2' id=aT2></button> 
-			<button class='btn btn-info ansBut pil3' id=aT3></button>
-			<button class='btn btn-info ansBut pil4' id=aT4></button>
-			<button class='btn btn-info ansBut pil5' id=aT5></button> 
-			<button class='btn btn-info ansBut pil6 back' id=aT6></button>
-		</div>
-		<div class='playerImg'>
-			<img src='media/image/profile/profile.jpg' width=175px height=175px />
-		</div>
-	</div>
-	
-	<div class=buildBoard id=B6>
-		<div class=imgBuilding align=right>
-			<img src='media/image/people/theodore.jpg' width=170px height=250px />
-		</div>
-		<div class=detBuilding id=txtMayor>
-		
-		</div>
-		<div class='ansBox triangle-border right' id=boxMayor>
-			<button class='btn btn-info ansBut pil1' id=aMay1></button>
-			<button class='btn btn-info ansBut pil2' id=aMay2></button> 
-			<button class='btn btn-info ansBut pil3' id=aMay3></button>
-			<button class='btn btn-info ansBut pil4' id=aMay4></button>
-			<button class='btn btn-info ansBut pil5' id=aMay5></button> 
-			<button class='btn btn-info ansBut pil6 back' id=aMay6></button>
-		</div>
-		<div class='playerImg'>
-			<img src='media/image/profile/profile.jpg' width=175px height=175px />
-		</div>
-	</div>
+</div>
 </div>
 </section>
-<section id=C>
-<center>
-<div class=intro>
-<br /><br />
-<br /><br /><br />
-<br /><br />
-<br /><br /><br />
-<br /><br />
-<br /><br />
-<br />
-<h1 id=txtTut></h1>
-</div>
-</center>
-</section>
-<section id=D>
-<div class=ui id=miniGame>
-<div class=gameBoard id=D1>
-	<div class=midBot1 id=treeBot1></div>
-	<div class=midBot2 id=treeBot2></div>
-	<div class=midUp1 id=treeUp1></div>
-	<div class=midUp2 id=treeUp2></div>
-	<div class=midUp3 id=treeUp3></div>
-	
-	<div class='ptr1 pointer tree'></div>
-	<div class='ptr2 pointer tree'></div>
-	<div class='ptr3 pointer tree'></div>
-	<div class='ptr4 pointer tree'></div>
-	<div class='ptr5 pointer tree'></div>
-	<div class='ptr6 pointer tree'></div>
-	<div class='ptr7 pointer tree'></div>
-	<div class='ptr8 pointer tree'></div>
-	<div class='ptr9 pointer tree'></div>
-	<div class='ptr10 pointer tree'></div>
-	<div class='ptr11 pointer tree'></div>
-	<div class='ptr12 pointer tree'></div>
-	<div class='ptr13 pointer tree'></div>
-	<div class='ptr14 pointer tree'></div>
-	<div class='ptr15 pointer tree'></div>
-	<div class='ptr15 pointer tree'></div>
-	<div class='winBoard'>
-		<center>
-			Kayu :<h2 class=gGain>0</h2>
-			<button class='btn btn-info' id=wAmbil>Ambil</button>
-			<button class='btn btn-info' id=wJual>Jual</button>
-		</center>
-	</div>
-	<div class=stBoard>
-	<center>
-		<br /><br />
-		<button class='mnSt btn btn-primary'>Mulai Bekerja</button>
-	</center>
-	</div>
-	<div class='scoreBoard'>
-	<center>Time :<h2 class=gTimer>0</h2>
-	Score :<h2 class=gScore>0</h2></center>
-	</div>
-</div>
-<div class=gameBoard id=D2>
-	<div class='pointer ptr1' id=mptr1>
-	
-	</div>
-	<div class='pointer ptr2' id=mptr2>
-	
-	</div>
-	<div class='pointer ptr3' id=mptr3>
-	
-	</div>
-	<div class='pointer ptr4' id=mptr4>
-	
-	</div>
-	<div class='pointer ptr5' id=mptr5>
-	
-	</div>
-	<div class='pointer ptr6' id=mptr6>
-	
-	</div>
-	<div class='storeBag' id=miner>
-	
-	</div>
-	<div class='winBoard'>
-		<center>
-			Logam :<h2 class=gGain>0</h2>
-			<button class='btn btn-info' id=mAmbil>Ambil</button>
-			<button class='btn btn-info' id=mJual>Jual</button>
-		</center>
-	</div>
-	<div class=stBoard>
-	<center>
-		<br /><br />
-		<button class='mnSt btn btn-primary'>Mulai Bekerja</button>
-	</center>
-	</div>
-	<div class='scoreBoard'>
-	<center>Time :<h2 class=gTimer>0</h2>
-	Score :<h2 class=gScore>0</h2></center>
-	</div>
-</div>
-<div class=gameBoard id=D3>
-	<div class='pointer ptr1' id=mptr1>
-	
-	</div>
-	<div class='pointer ptr2' id=mptr2>
-	
-	</div>
-	<div class='pointer ptr3' id=mptr3>
-	
-	</div>
-	<div class='pointer ptr4' id=mptr4>
-	
-	</div>
-	<div class='pointer ptr5' id=mptr5>
-	
-	</div>
-	<div class='pointer ptr6' id=mptr6>
-	
-	</div>
-	<div class='storeBag' id=miner>
-	
-	</div>
-	<div class='winBoard'>
-		<center>
-			Batu :<h2 class=gGain>0</h2>
-			<button class='btn btn-info' id=rAmbil>Ambil</button>
-			<button class='btn btn-info' id=rJual>Jual</button>
-		</center>
-	</div>
-	<div class=stBoard>
-	<center>
-		<br /><br />
-		<button class='mnSt btn btn-primary'>Mulai Bekerja</button>
-	</center>
-	</div>
-	<div class='scoreBoard'>
-	<center>Time :<h2 class=gTimer>0</h2>
-	Score :<h2 class=gScore>0</h2></center>
-	</div>
-</div>
 
-<div>
+<section id=intro>
+<div class=ui>
+<div class=boardIntro>
+	
+	<div class=msgBox>
+		<div class=txtBox>
+		</div>
+		<button class='btn btn-info btNext' id=introNext>Next</button>
+	</div>
+</div>
+</div>
 </section>
+
+<section id=tutorial>
+<div class=ui>
+<div class=board>
+	<div class=msgBox>
+		<div class=txtBox>
+		</div>
+		<button class='btn btn-info btNext' id=tutsNext>Next</button>
+	</div>
+	
+	<div class='midUp1 trees2'></div>
+	<div class='midUp2 trees3'></div>
+	<div class='midUp3 trees3'></div>
+	<div class='midUp4 trees2'></div>
+	
+	<div class='midBot1 trees4'></div>
+	<div class='midBot2 trees4'></div>
+	<div class='midBot3 trees4'></div>
+	
+	<div class='stage1'></div>
+	<div class='stage2'></div>
+	<div class='stage4'></div>
+	<div class='stage6'></div>
+</div>
+</div>
+</section>
+
+<section id=stage1>
+<div class=ui>
+<div class=board>
+
+	<div class=msgBox>
+		<div class=txtBox>
+		</div>
+		<button class='btn btn-info btNext' id=st2Next>Next</button>
+	</div>
+	
+	<div class='midUp1 trees2'></div>
+	<div class='midUp2 trees3'></div>
+	<div class='midUp3 trees3'></div>
+	<div class='midUp4 trees2'></div>
+	
+	<div class='midBot1 trees4'></div>
+	<div class='midBot2 trees4'></div>
+	<div class='midBot3 trees4'></div>
+	
+	<div class='stage2'></div>
+	<div class='stage4'></div>
+	<div class='stage6'></div>
+	
+	<div class='tree item1 item' id=satu1></div>
+	<div class='tree item1 item' id=satu2></div>
+	<div class='tree item1 item' id=satu3></div>
+	<div class='tree item1 item' id=satu4></div>
+	<div class='tree item1 item' id=satu5></div>
+	<div class='tree item1 item' id=satu6></div>
+	<div class='tree item1 item' id=satu7></div>
+	<div class='tree item1 item' id=satu8></div>
+	
+	<div class='winBoard'>
+		<br />
+		<p>Score-mu adalah :</p>
+		<b class=txtScore></b>
+		<br />
+		<br />
+		<button class='btn btn-info' id=cont1>Continue</button>
+		<button class='btn btn-info' id=re1>Retry</button>
+	</div>
+</div>
+</div>
+</section>
+
+<section id=stage2>
+<div class=ui>
+<div class=board>
+	<div class=msgBox>
+		<div class=txtBox>
+		</div>
+		<button class='btn btn-info btNext' id=st3Next>Next</button>
+	</div>
+	
+	<div class='midUp1 trees2'></div>
+	<div class='midUp2 trees3'></div>
+	<div class='midUp3 trees3'></div>
+	<div class='midUp4 trees2'></div>
+	
+	<div class='midBot1 trees4'></div>
+	<div class='midBot2 trees4'></div>
+	<div class='midBot3 trees4'></div>
+	
+	<div class='stage4'></div>
+	<div class='stage6'></div>	
+	
+	<div class='tree item2 item' id=dua1></div>
+	<div class='tree item2 item' id=dua2></div>
+	<div class='tree item2 item' id=dua3></div>
+	<div class='tree item2 item' id=dua4></div>
+	<div class='stone item2 item' id=dua5></div>
+	<div class='stone item2 item' id=dua6></div>
+	<div class='stone item2 item' id=dua7></div>
+	<div class='stone item2 item' id=dua8></div>
+	
+	<div class='winBoard'>
+		<br />
+		<p>Score-mu adalah :</p>
+		<b class=txtScore></b>
+		<br />
+		<br />
+		<button class='btn btn-info' id=cont2>Continue</button>
+		<button class='btn btn-info' id=re2>Retry</button>
+	</div>
+	
+</div>
+</div>
+</section>
+
+<section id=stage3>
+<div class=ui>
+<div class=board>
+	<div class=msgBox>
+		<div class=txtBox>
+		</div>
+		<button class='btn btn-info btNext' id=busFinish>Next</button>
+	</div>
+	
+	<div class='midUp1 trees2'></div>
+	<div class='midUp2 trees3'></div>
+	<div class='midUp3 trees3'></div>
+	<div class='midUp4 trees2'></div>
+	
+	<div class='midBot1 trees4'></div>
+	<div class='midBot2 trees4'></div>
+	<div class='midBot3 trees4'></div>
+	
+	<div class='stage6'></div>
+	
+	<div class='tree item3 item' id=tiga1></div>
+	<div class='tree item3 item' id=tiga2></div>
+	<div class='stone item3 item' id=tiga3></div>
+	<div class='stone item3 item' id=tiga4></div>
+	<div class='stone item3 item' id=tiga5></div>
+	<div class='bush item3 item' id=tiga6></div>
+	<div class='bush item3 item' id=tiga7></div>
+	<div class='bush item3 item' id=tiga8></div>
+	
+	<div class='winBoard'>
+		<br />
+		<p>Score-mu adalah :</p>
+		<b class=txtScore></b>
+		<br />
+		<br />
+		<button class='btn btn-info' id=cont3>Continue</button>
+		<button class='btn btn-info' id=re3>Retry</button>
+	</div>
+</div>
+</div>
+</section>
+
+<section id=introRing>
+<div class=ui>
+<div class=ringIntro>
+	<div class=msgBox>
+		<div class=txtBox>
+		</div>
+		<button class='btn btn-info btNext' id=ringNext>Next</button>
+	</div>
+	<div class='tree item4 item' id=ring1></div>
+	<div class='tree item4 item' id=ring2></div>
+	<div class='stone item4 item' id=ring3></div>
+	<div class='stone item4 item' id=ring4></div>
+	<div class='stone item4 item' id=ring5></div>
+	<div class='bush item4 item' id=ring6></div>
+	<div class='bush item4 item' id=ring7></div>
+	<div class='bush item4 item' id=ring8></div>
+	<div class='tree item4 item' id=ring9></div>
+	<div class='tree item4 item' id=ring10></div>
+	<div class='stone item4 item' id=ring11></div>
+	<div class='bush item4 item' id=ring12></div>
+</div>
+</div>
+</section>
+
+<section id=stageRing>
+<div class=ui>
+<div class=ringBoard>
+	<div class=msgBox>
+		<div class=txtBox>
+		</div>
+		<button class='btn btn-info btNext' id=ringFinish>Next</button>
+	</div>
+	<div class='rTreeUp'></div>
+	<div class='rTreeMid'></div>
+	<div class='rTreeBot'></div>
+	<div class='rTreeLeft'></div>
+	<div class='rTreeRight'></div>
+	<div class='tree item4 item' id=ring1></div>
+	<div class='tree item4 item' id=ring2></div>
+	<div class='stone item4 item' id=ring3></div>
+	<div class='stone item4 item' id=ring4></div>
+	<div class='stone item4 item' id=ring5></div>
+	<div class='bush item4 item' id=ring6></div>
+	<div class='bush item4 item' id=ring7></div>
+	<div class='bush item4 item' id=ring8></div>
+	<div class='tree item4 item' id=ring9></div>
+	<div class='tree item4 item' id=ring10></div>
+	<div class='stone item4 item' id=ring11></div>
+	<div class='bush item4 item' id=ring12></div>
+	
+	<div class='winBoard'>
+		<br />
+		<p>Score-mu adalah :</p>
+		<b class=txtScore></b>
+		<br />
+		<br />
+		<button class='btn btn-info' id=cont4>Continue</button>
+		<button class='btn btn-info' id=re4>Retry</button>
+	</div>
+</div>
+</div>
+</section>
+
+<section id=introStar>
+<div class=ui>
+<div class=starIntro>
+	<div class=msgBox>
+		<div class=txtBox>
+		</div>
+		<button class='btn btn-info btNext' id=starNext>Next</button>
+	</div>
+	<div class='sTreeUp'></div>
+	<div class='sTreeBot'></div>
+	<div class='sTreeLeft'></div>
+	<div class='sTreeRight'></div>
+	<div class='tree item5 item' id=star1></div>
+	<div class='tree item5 item' id=star2></div>
+	<div class='stone item5 item' id=star3></div>
+	<div class='stone item5 item' id=star4></div>
+	<div class='stone item5 item' id=star5></div>
+	<div class='bush item5 item' id=star6></div>
+	<div class='bush item5 item' id=star7></div>
+	<div class='bush item5 item' id=star8></div>
+	<div class='tree item5 item' id=star9></div>
+	<div class='tree item5 item' id=star10></div>
+	<div class='stone item5 item' id=star11></div>
+	<div class='bush item5 item' id=star12></div>
+</div>
+</div>
+</section>
+
+<section id=stageStar>
+<div class=ui>
+<div class=starBoard>
+	<div class=msgBox>
+		<div class=txtBox>
+		</div>
+		<button class='btn btn-info btNext' id=starFinish>Next</button>
+	</div>
+	<div class='sTreeUp'></div>
+	<div class='sTreeBot'></div>
+	<div class='sTreeLeft'></div>
+	<div class='sTreeRight'></div>
+	<div class='tree item5 item' id=star1></div>
+	<div class='tree item5 item' id=star2></div>
+	<div class='stone item5 item' id=star3></div>
+	<div class='stone item5 item' id=star4></div>
+	<div class='stone item5 item' id=star5></div>
+	<div class='bush item5 item' id=star6></div>
+	<div class='bush item5 item' id=star7></div>
+	<div class='bush item5 item' id=star8></div>
+	<div class='tree item5 item' id=star9></div>
+	<div class='tree item5 item' id=star10></div>
+	<div class='stone item5 item' id=star11></div>
+	<div class='bush item5 item' id=star12></div>
+	
+	<div class='winBoard'>
+		<br />
+		<p>Score-mu adalah :</p>
+		<b class=txtScore></b>
+		<br />
+		<br />
+		<button class='btn btn-info' id=cont5>Continue</button>
+		<button class='btn btn-info' id=re5>Retry</button>
+	</div>
+</div>
+</div>
+</section>
+
 </div>
 <audio id="beep" preload="auto">
-	<source src="media/audio/typewriter.ogg" type="audio/ogg" controls></source>
+	<source src="aud/typewriter.ogg" type="audio/ogg" controls></source>
 	Your browser isn't invited for super fun audio time.
 </audio>
 <audio id="chop" preload="auto">
-	<source src="media/audio/chop.ogg" type="audio/ogg"  controls></source>
+	<source src="aud/chop.ogg" type="audio/ogg"  controls></source>
+	Your browser isn't invited for super fun audio time.
+</audio>
+<audio id="bag" preload="auto">
+	<source src="aud/bag.ogg" type="audio/ogg"  controls></source>
+	Your browser isn't invited for super fun audio time.
+</audio>
+<audio id="select" preload="auto">
+	<source src="aud/select.ogg" type="audio/ogg"  controls></source>
 	Your browser isn't invited for super fun audio time.
 </audio>
 <script>
 var textNoise = $("#beep")[0];
 var chop = $("#chop")[0];
+var bag = $("#bag")[0];
+var select = $("#select")[0];
 </script>
 <div id=popup>
 This is <code>Description</code> of the building. It will change on another version. :)
