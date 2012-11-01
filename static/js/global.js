@@ -23,8 +23,8 @@ function Signed(){
 			hideAll();
 			$('#wrapper').show();
 			$('#loginBox').hide();
-			//startIntro();
-			doStar();
+			startIntro();
+			//doStar();
 		}else{
 			
 		}
