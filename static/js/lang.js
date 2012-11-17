@@ -7,11 +7,11 @@ Index:
 
 	var intro = [
 	[
-	"Akhirnya kau datang juga. Aku dengar kau sangat jenius. Tetapi akan aku jelaskan mengapa kau di panggil kesini.",
+	"Akhirnya kau datang juga. Selamat datang di kepulauan topo. Aku adalah Chief di pulau ini.",
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
-	"Ini adalah Pulau Topo dimana hutan nya dihuni oleh banyak hewan mematikan. Jika salah menebang pohon, maka akibatnya sangat fatal. ",
+	"Di kepulauan ini hutannya dihuni oleh banyak hewan mematikan. Jika salah menebang pohon, maka akibatnya sangat fatal. ",
 	""
 	],
 	[
@@ -23,11 +23,11 @@ Index:
 	""
 	],
 	[
-	"Pulau ini adalah Pulau Bus. Kau bisa lihat Rute nya kan? Terdiri dari satu jalur besar yang disebut Backbone, dan banyak jalur kecil yang bercabang darinya.",
+	"Di Pulau ini, kamu akan mendapatkan latihan dasar sebagai Pejuang Topo. Mereka adalah mantan pejuang topo yang terkenal.",
 	""
 	],
 	[
-	"Untuk saat ini, mari coba kita lihat seberapa jenius keahlianmu menggunakan kapak ini. Tebanglah pohon dari rumah ini hingga ke Backbone.",
+	"Woody akan meltihmu menggunakan kapak, Thai melatihmu menggunakan palu, dan Saibara akan melatihmu menggunakan sabit. Berlatihlah dengan Semangat!",
 	""]
 	];
 
@@ -35,15 +35,15 @@ Index:
 	
 	var tuts = [
 	[
-	"Click pohon untuk mulai menebang. Menebang pohon memakan waktu tertentu, tergantung dari Tingkat Keahlian Kapakmu.",
+	"Click pohon untuk mulai menebang. Ingat, tebanglah pohon yang telah diberi tanda sebelumnya. Jangan menebang pohon yang lain!",
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
-	"Ingat, tebanglah pohon yang telah diberi tanda sebelumnya. Jangan menebang pohon yang lain!",
+	"Kamu tidak bisa menebang pohon lain saat kamu sedang menebang pohon tertentu. Menebang pohon memakan waktu tertentu, tergantung dari Tingkat Keahlian Kapakmu.",
 	""
 	],
 	[
-	"Kamu hanya bisa menebang 1 pohon sekaligus, semakin cepat kamu menyelesaikan tugas ini, semakin tinggi score yang didapat.",
+	"Jika sudah mengerti, mari kita lihat kemampuanmu. Tebanglah pohon yang menghalangi rute Bus.",
 	""]
 	];
 	
@@ -51,15 +51,15 @@ Index:
 
 	var stage2 = [
 	[
-	"Kerja bagus, walaupun jenius adalah kata-kata yang berlebihan untukmu. Sekarang mari kita lihat seberapa mahir kau menggunakan Palu.",
+	"Kerja bagus, tetapi menggunakan kapak saja belum cukup. Sekarang mari kita lihat seberapa mahir kau menggunakan Palu.",
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
-	"Bersihkan jalan dari Backbone ke Pabrik Kayu. Jangan salah tebang, atau kau tanggung sendiri akibatnya.",
+	"Bersihkan batu yang menghadang jalan di pulau ini. Gunakan palu ini untuk menghancurkannya.",
 	""
 	],
 	[
-	"Cara kerja nya hampir sama ketika kamu memotong kayu, waktu yang dibutuhkan untuk menghancurkan batu tergantung Tingkat Keahlian Palumu.",
+	"Cara kerjanya hampir sama ketika kamu memotong kayu, waktu yang dibutuhkan untuk menghancurkan batu tergantung Tingkat Keahlian Palumu.",
 	""]
 	];
 	
@@ -70,7 +70,7 @@ Index:
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
-	"Bersihkan jalan dari Backbone ke Toko. Manfaatkanlah waktu sebaik mungkin. Waktu adalah Score!",
+	"Bersihkan semua semak yang menghadang jalan di pulau ini. Gunakan sabit ini untuk membersihkannya.",
 	""
 	],
 	[
@@ -85,29 +85,29 @@ Index:
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
-	"Setelah ini aku akan mengenalkanmu dengan Rute selanjutnya yaitu Rute Ring. Kita akan pergi ke Pulau Ring untuk latihan disana.",
+	"Setelah ini aku akan mengenalkanmu dengan Rute selanjutnya yaitu Rute Ring. Pergilah ke Pulau Ring untuk latihan disana.",
 	""
 	],
 	[
-	"Siapkan bekal secukupnya, karena kita akan berangkat secepatnya. Apakah kau sudah siap?",
+	"Di pulau ring, kau akan disambut oleh temanku Doug. Jangan khawatir, Doug adalah orang yang baik.",
 	""]
 	];
 	
 // stage 4
 	var ringIntro = [
 	[
-	"Ini adalah Pulau Ring. Bangunan disini dihubungkan oleh Jalan Besar yang menyambung membentuk lingkaran. Dan banyak jalan kecil bercabang dari jalan besar tersebut.",
+	"Oh, jadi kau orangnya, perkenalkan namaku Doug. Ini adalah Pulau Ring.",
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
-	"Di pulau ini, aku ingin mengenalkanmu dengan fitur lain game ini yaitu Guild. Guild adalah tempat kamu berkumpul dan berjuang bersama dengan teman-teman mu melawan Guild lain.",
+	"Bangunan disini dihubungkan oleh Jalan Besar yang menyambung membentuk lingkaran. Dan banyak jalan kecil bercabang dari jalan besar tersebut.",
 	""
 	],
 	[
-	"Kamu bisa membuat Guild sendiri, atau bergabung dengan Guild lain. Kembali ke latihan kita sebelumnya, aku ingin kau membersihkan jalan menurut Rute di Pulau ini.",
+	"Aku ingin kau membersihkan jalan menurut Rute di Pulau ini. Lihatlah, jalan disini dipenuhi dengan pohon, batu, dan semak. Tolong bersihkan semua, ok?",
 	""],
 	[
-	"Ingat, jika kau salah menebang pohon, maka akan berakibat fatal bagimu dan teman-teman disekitarmu. Rute Ring terdiri dari jalan besar membentuk lingkaran yang bercabang.",
+	"Ingat, jika kau salah menebang pohon, maka akan berakibat fatal bagimu. Apa kamu sudah siap?",
 	""]
 	];
 	
@@ -118,11 +118,11 @@ Index:
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
-	"Setelah ini akan ku kenalkan dengan Rute yang ketiga Yaitu Rute Star. Kita akan pergi ke Pulau Star untuk berlatih disana.",
+	"Setelah ini akan Aku kenalkan dengan Rute yang ketiga yaitu Rute Star. Pergilah ke Pulau Star untuk berlatih disana.",
 	""
 	],
 	[
-	"Rute Star adalah rute terakhir yang akan ku ajarkan. Jadi perhatikanlah baik-baik.",
+	"Rute Star adalah rute terakhir yang akan ku ajarkan. Jadi perhatikanlah baik-baik. Temanku bernama Gourmet akan melatihmu disana. Semoga Sukses!",
 	""],
 	[
 	"Berbicaralah padaku kapanpun kamu siap untuk pergi ke Pulau Star.",
@@ -131,7 +131,7 @@ Index:
 	
 	var starIntro = [
 	[
-	"Selamat datang di Pulau Star. Ku ingatkan sekali lagi, ini adalah latihan terakhirmu, setelah ini kamu akan berjuang sendiri demi pulau mu.",
+	"Selamat datang di Pulau Star. Namaku Gourmet, ini adalah latihan terakhirmu, setelah ini kamu akan berjuang sendiri demi pulaumu.",
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
@@ -145,13 +145,13 @@ Index:
 	"Jadi, tugasmu adalah membersihkan jalan dari Hub ke bangunan-bangunan lain yang mengelilinginya. Itulah mengapa Rute ini dikenal sebagai Rute Star (Bintang).",
 	""],
 	[
-	"Mulailah berlatih, setelah ini aku akan menunjukan padamu inti dari latian kita selama ini, yaitu untuk memperebutkan Pulau-pulau yang ada di Kepulauan Topo ini.",
+	"Bersihkan jalanya secepat yang kamu bisa, karena lebih cepat kamu menyelesaikan, lebih banyak score yang kamu dapatkan.",
 	""]
 	];
 	
 	var starFinish = [
 	[
-	"Setiap pertemuan pasti ada perpisahan, dan disinilah kita harus berpisah... Kau sudah punya semua yang kau butuhkan untuk menjadi Pejuang Topo.",
+	"Terimakasih atas bantuannya. Kini kau sudah punya semua yang kau butuhkan untuk menjadi Pejuang Topo.",
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
@@ -168,6 +168,6 @@ Index:
 	"Itu adalah pilihanmu sendiri, Menang PVP mendapat EXP+150, Kalah PVP mendapat EXP+50, sedangkan COOP pasti akan memberimu EXP+100.",
 	""],
 	[
-	"Selamat Berjuang...",
+	"Selamat Berjuang. Cobalah mengetest kemampuanmu di Arena PVP (Pulau dengan Pedang dan Tengkorak) atau mencari teman di Coop (Pulau dengan Pedang dan Hati).",
 	""]
 	];

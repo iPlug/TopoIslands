@@ -2,8 +2,9 @@
 
 $(document).ready(function() {
 	$("#uname").focus();
+	
+	// HOVER ITEM
 	$('.item').hover(function(event){
-		//console.log($(this)[0].style.border);
 		if(($(this).css('border')=='1px solid rgba(0, 0, 0, 0)') || ($(this)[0].style.border=='1px solid transparent')){
 			$(this).css('border','1px solid white');
 		}
@@ -14,21 +15,75 @@ $(document).ready(function() {
 		}
 	});
 	
-// declarasi event bangunan
+	//-------- login handler
+	$('#signin').click( function(){
+		uname = $('#uname').val();
+		passw = $('#passw').val();
+		socket.emit('signin',uname,passw);
+	});
+		
+	$('#signup').click( function(){
+		uname = $('#uname').val();
+		passw = $('#passw').val();
+		socket.emit('signup',uname,passw);
+	});
+		
+	// MAP BUTTON HANDLER
 
-	$(".back").click(function(event) {
-		hideAll();
-		$(".msgBox").hide();
-		$(".infoBox").hide();
-		$("#A").show();
+	$("#butBus").click(function(event) {
+		$('#sailBoat').css('left','500px');
+		$('#sailBoat').css('top','80px');
+		if(tutorial==0){
+			startIntro();
+		}else{
+			animateBus();
+		}
+	  });
+	$("#butRing").click(function(event) {
+		$('#sailBoat').css('left','700px');
+		$('#sailBoat').css('top','360px');
+		if(tutorial==3){
+			CC=-1;
+			hideAll();
+			$('#introRing').fadeIn(1000);
+			ringHandler2();
+		}else{
+			animateRing();
+		}
+	  });
+	$("#butStar").click(function(event) {
+		$('#sailBoat').css('left','430px');
+		$('#sailBoat').css('top','400px');
+		if(tutorial==4){
+			CC=-1;
+			hideAll();
+			$('#introStar').fadeIn(1000);
+			starHandler();
+		}else{
+			animateStar();
+		}
+	  });
+	$("#butPvp").click(function(event) {
+		$('#sailBoat').css('left','280px');
+		$('#sailBoat').css('top','110px');
+		doPvp();
+	  });
+	$("#butCoop").click(function(event) {
+		$('#sailBoat').css('left','230px');
+		$('#sailBoat').css('top','300px');
+		doCoop();
 	  });
 
-	  
-	  $("#bldE").click(function(event) {
-	    thaiHandler();
+	  // UI BUTTON HANDLER
+	  $('#butFS').click(function(event){
+		var e = document.getElementById("wrapper");  
+		if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {  
+			RunPrefixMethod(document, "CancelFullScreen"); 
+		}  
+		else {  
+			document.body.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+		}  
 	  });
-
-	  // deklarasi event tombol-tombol ui
 	  
 	  $("#butTeman").click(function(event) {
 		$("#chatBox").hide();
@@ -45,20 +100,43 @@ $(document).ready(function() {
 		mayorHandler();
 	  });
 	  
-	  $("#butHome").click(function(event) {
+	  $(".butHome").click(function(event) {
 		hideAll();
-		$("#A").show();
+		$("#map").fadeIn(1000);
+		stage.removeAllChildren();
 	  });
-
-
-// system text
+	// SKILL BUTTON HANDLER
+	
+	$("#addAxe").click(function(event){
+		socket.emit('updateSkill',1);
+		$('.infoBox').hide();
+		$('#lvlUp').fadeOut(500);
+	});
+	
+	$("#addHam").click(function(event){
+		socket.emit('updateSkill',2);
+		$('.infoBox').hide();
+		$('#lvlUp').fadeOut(500);
+	});
+	
+	$("#addSic").click(function(event){
+		socket.emit('updateSkill',3);
+		$('.infoBox').hide();
+		$('#lvlUp').fadeOut(500);
+	});
+	
+	// TEXT BUTTON NEXT HANDLER
+	
 	$("#introNext").click(function(event){
 		introHandler();
 	});
 	
-	$("#tutsNext").click(function(event){
+	// TUTORIAL HANDLER
+	$(".tutsNext").click(function(event){
 		tutsHandler();
 	});
+	
+	// TUTORIAL HANDLER END
 	
 	$("#st2Next").click(function(event){
 		woodyHandler();
@@ -87,56 +165,113 @@ $(document).ready(function() {
 		starHandler2();
 	});
 	
-// game here
+	// GAME BUTTON HANDLER
 	  	  
-$(".mnSt").click(function(event) {
-		startMini();
-	  });
+	$(".mnSt").click(function(event) {
+			startMini();
+		  });
 
-$(".tree").click(function(event) {
-		hidePtr(this,axeLvl);
-	});
+	$(".tree").click(function(event) {
+			if(axeLvl!=0){
+				hidePtr(this,axeLvl);
+			}
+		});
 
-$(".stone").click(function(event) {
-		hidePtr(this,hamLvl);
+	$(".stone").click(function(event) {
+		if(hamLvl!=0){
+			hidePtr(this,hamLvl);
+		}
+		});
+		
+	$(".bush").click(function(event) {
+		if(sicLvl!=0){
+			hidePtr(this,sicLvl);
+		}
+		});
+		
+	$("#cont1").click(function(event) {
+			socket.emit('updateScoreT',gS);
+			preStage2();
+		});	
+	$("#re1").click(function(event) {
+			doStage1();
+		});
+	$("#cont2").click(function(event) {
+			socket.emit('updateScoreT',gS);
+			preStage3();
+		});	
+	$("#re2").click(function(event) {
+			doStage2();
+		});
+	$("#cont3").click(function(event) {
+			socket.emit('updateScoreT',gS);
+			preRing();
+		});	
+	$("#re3").click(function(event) {
+			doStage3();
+		});
+	$("#cont4").click(function(event) {
+			socket.emit('updateScoreT',gS);
+			ringFin();
+		});	
+	$("#re4").click(function(event) {
+			doStageRing();
+		});
+	$("#cont5").click(function(event) {
+			socket.emit('updateScoreT',gS);
+			starFin();
+		});	
+	$("#re5").click(function(event) {
+			doStageStar();
+		});
+	
+	// PLAYER TO PLAYER BUTTON HANDLER
+	
+	$("#aReadyP1").click(function(event) {
+		if(rea==1){
+			socket.emit('startPVP',1);
+		}
+	});
+	$("#aReadyP2").click(function(event) {
+		socket.emit('fReady');
+		$('#aReadyP2').attr("disabled", true);
+	});
+	$("#aExitP1").click(function(event) {
+		socket.emit('leaveArena');
+		doPvp();		
+	});
+	$("#aExitP2").click(function(event) {
+		socket.emit('leaveArena');
+		doPvp();
+	});
+	$(".butLobi").click(function(event) {
+		socket.emit('leaveArena');
+		doPvp();
+	});
+	$("#cReadyP1").click(function(event) {
+		if(rea==1){
+			socket.emit('startCoop',1);
+		}
+	});
+	$("#cReadyP2").click(function(event) {
+		socket.emit('pReady');
+		$('#cReadyP2').attr("disabled", true);
+	});
+	$("#cExitP1").click(function(event) {
+		socket.emit('leaveParty');
+		doCoop();		
+	});
+	$("#cExitP2").click(function(event) {
+		socket.emit('leaveParty');
+		doCoop();
+	});
+	$(".butLobi").click(function(event) {
+		socket.emit('leaveParty');
+		doCoop();
 	});
 	
-$(".bush").click(function(event) {
-		hidePtr(this,sicLvl);
-	});
-	
-$("#cont1").click(function(event) {
-		preStage2();
-	});	
-$("#re1").click(function(event) {
-		doStage1();
-	});
-$("#cont2").click(function(event) {
-		preStage3();
-	});	
-$("#re2").click(function(event) {
-		doStage2();
-	});
-$("#cont3").click(function(event) {
-		preRing();
-	});	
-$("#re3").click(function(event) {
-		doStage3();
-	});
-$("#cont4").click(function(event) {
-		ringFin();
-	});	
-$("#re4").click(function(event) {
-		doStageRing();
-	});
-$("#cont5").click(function(event) {
-		starFin();
-	});	
-$("#re5").click(function(event) {
-		doStageStar();
-	});
-	
-//------------------------------------	
+	// CHAT SYSTEM HANDLER
+
 	$('#butSend').click( function() {
 			var message = $('#txtChat').val();
 			$('#txtChat').val('');
@@ -216,10 +351,21 @@ $("#re5").click(function(event) {
         }, 2000);
 		*/
 		
-		//-------- login handler
-		$('#signin').click( function(){
-			uname = $('#uname').val();
-			passw = $('#passw').val();
-			socket.emit('signin',uname,passw);
-		});
+		$('#kupu').sprite({
+			fps: 12, 
+			no_of_frames: 6,
+			// the following are optional: new in version 0.6...
+			start_at_frame: 1
+		}).active();
+		
+		$('.boy').sprite({
+			fps: 3, 
+			no_of_frames: 4
+		}).active();
+		
+		$('#sailBoat').sprite({
+			fps: 3, 
+			no_of_frames: 4
+		}).active();
+		
  });

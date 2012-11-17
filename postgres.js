@@ -6,15 +6,14 @@ client.connect();
 
 
 function initDb(){
-	//client.query("DROP TABLE player");
-	client.query("CREATE TABLE player(name varchar(10), pass varchar(10), guild varchar(10))");
+	client.query("DROP TABLE player");
+	client.query("CREATE TABLE player(name varchar(10) PRIMARY KEY, pass varchar(10), level integer, exp integer , axe integer, hammer integer, sickle integer, win integer, lose integer, score integer, tuts integer, winrate real, email varchar(50), pp varchar(250))");
 	console.log('Created Table : player');
 }
 
 function insertQ(){
-	//client.query("INSERT INTO player(name, pass, guild) values($1, $2, $3)", ['Kirito', 'asuna', 'Solaris']);
-	//client.query("INSERT INTO player(name, pass, guild) values($1, $2, $3)", ['Asuna', 'kirito', 'Solaris']);
-	client.query("INSERT INTO player(name, pass, guild) values($1, $2, $3)", ['Kayaba', 'kayaba', 'Sao']);
+	client.query("INSERT INTO player(name, pass, level, exp, axe, hammer, sickle, win, lose, score, tuts, winrate, email, pp) values($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)", ['Kirito', 'asuna', 1, 100, 1, 1, 1, 0, 0, 0, 0, 0, 'kirito@gmail.com','profile1.png']);
+	client.query("INSERT INTO player(name, pass, level, exp, axe, hammer, sickle, win, lose, score, tuts, winrate, email, pp) values($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)", ['Asuna', 'asuna', 1, 100, 1, 1, 1, 0, 0, 0, 0, 0, 'asuna@gmail.com','profile2.png']);
 	console.log('Inserted a record.');
 }
 function search(name){
@@ -25,5 +24,5 @@ function search(name){
 	  console.log(row);
 	});
 }
-
+initDb();
 insertQ();

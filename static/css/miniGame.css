@@ -1,8 +1,5 @@
 /* wrapper Bus Island*/
-.locked{
-       
-}
-
+/*
 .stage1{
    	position: absolute;
 	top: 100px;
@@ -55,17 +52,18 @@
 	background-image:url('/img/bg/stage6.png');
 	width:834px;
 	height:140px;
-}
+}*/
 
 /* User Interface */
 
 .winBoard{
-	background: white;
+    background: rgba(0, 0, 0, 0.89);
 	display: inline-block;
 	position: absolute;
 	width:200px;
 	height:200px;
-	border: 3px black solid;
+	color: white;
+	border: 3px whiteSmoke solid;
 	top: 250px;
 	left:350px;
 	z-index:1000;
@@ -163,7 +161,7 @@
 	position: absolute;
 	width:76px;
 	height:120px;
-	border: 1px solid transparent;
+
 	cursor: pointer;
 	z-index: 9;
 }
@@ -178,7 +176,7 @@
 	width:45px;
 	height:71px;
 	cursor:pointer;
-	border:1px solid transparent; 
+
 }
 
 .stone{
@@ -187,7 +185,7 @@
 	width:45px;
 	height:71px;
 	cursor:pointer;
-	border:1px solid transparent; 
+
 }
 
 .bush{
@@ -196,153 +194,120 @@
 	width:45px;
 	height:71px;
 	cursor:pointer;
-	border:1px solid transparent; 
+
 }
 
-/* item location */
 
-#satu1{
+/* wrapper Bus Online Stage*/
+
+#tutsTree1{
+    position:absolute;
+    top:200px;
+    left:400px;   
+}
+
+#tutsTree2{
+    position:absolute;
+    top:200px;
+    left:500px;   
+}
+
+#tutsTree3{
+    position:absolute;
+    top:200px;
+    left:500px;   
+}
+
+.bus1{
     position:absolute;
     top:100px;
-    left:140px;    
+    left:160px;    
+    z-index:11;    
 }
 
-#satu2{
+.bus2{
     position:absolute;
-    top:100px;
-    left:195px;    
+    top:250px;
+    left:120px;
+    z-index:11;    
 }
 
-#satu3{
+.bus3{
     position:absolute;
-    top:135px;
-    left:140px;    
+    top:350px;
+    left:580px;
+    z-index:11;
+
 }
 
-#satu4{
+.bus4{
     position:absolute;
-    top:135px;
-    left:195px;    
+    top:350px;
+    left:270px;    
+    z-index:11;
 }
 
-#satu5{
+.bus5{
     position:absolute;
-    top:170px;
-    left:140px;    
+    top:400px;
+    left:280px;
+    z-index:10;    
 }
 
-#satu6{
+.bus6{
     position:absolute;
-    top:170px;
-    left:195px;    
+    top:230px;
+    left:400px;
+    z-index:10;
 }
 
-#satu7{
+.bus7{
     position:absolute;
-    top:215px;
-    left:140px;    
+    top:250px;
+    left:750px;
+    z-index:9;   
 }
 
-#satu8{
+.bus8{
     position:absolute;
-    top:215px;
-    left:195px;    
-}
-
-#dua1{
-    position:absolute;
-    top:100px;
-    left:405px;    
-}
-
-#dua2{
-    position:absolute;
-    top:100px;
-    left:455px;    
-}
-
-#dua3{
-    position:absolute;
-    top:135px;
-    left:405px;    
-}
-
-#dua4{
-    position:absolute;
-    top:135px;
-    left:455px;    
-}
-
-#dua5{
-    position:absolute;
-    top:170px;
-    left:405px;    
-}
-
-#dua6{
-    position:absolute;
-    top:170px;
-    left:455px;    
-}
-
-#dua7{
-    position:absolute;
-    top:215px;
-    left:405px;    
-}
-
-#dua8{
-    position:absolute;
-    top:215px;
-    left:455px;    
-}
-
-#tiga1{
-    position:absolute;
-    top:285px;
+    top:220px;
     left:240px;    
+    z-index:9;
 }
 
-#tiga2{
+.bus9{
     position:absolute;
-    top:285px;
-    left:295px;    
+    top:250px;
+    left:580px;
+    z-index:11;  
 }
 
-#tiga3{
+.bus10{
     position:absolute;
-    top:325px;
-    left:240px;    
+    top:110px;
+    left:690px;
+    z-index:11;    
 }
 
-#tiga4{
+.bus11{
     position:absolute;
-    top:325px;
-    left:295px;    
+    top:190px;
+    left:680px;
+    z-index:11;    
 }
 
-#tiga5{
+.bus12{
     position:absolute;
-    top:370px;
-    left:240px;    
+    top:150px;
+    left:450px; 
+    z-index:11;   
 }
 
-#tiga6{
+.bus13{
     position:absolute;
-    top:370px;
-    left:295px;    
-}
-
-#tiga7{
-    position:absolute;
-    top:410px;
-    left:240px;    
-}
-
-#tiga8{
-    position:absolute;
-    top:410px;
-    left:295px;    
+    top:150px;
+    left:520px; 
+    z-index:11;   
 }
 
 /* wrapper Ring Island*/
@@ -402,21 +367,21 @@
 	background-image:url('/img/bg/rTreeRight.png');
 }
 
-#ring1{
+.ring1{
     position:absolute;
     top:110px;
     left:180px;    
     z-index:11;    
 }
 
-#ring2{
+.ring2{
     position:absolute;
     top:140px;
     left:220px;
     z-index:11;    
 }
 
-#ring3{
+.ring3{
     position:absolute;
     top:200px;
     left:290px;
@@ -424,70 +389,77 @@
 
 }
 
-#ring4{
+.ring4{
     position:absolute;
     top:300px;
     left:290px;    
     z-index:11;
 }
 
-#ring5{
+.ring5{
     position:absolute;
     top:400px;
     left:180px;
     z-index:10;    
 }
 
-#ring6{
+.ring6{
     position:absolute;
     top:360px;
     left:400px;
     z-index:10;
 }
 
-#ring7{
+.ring7{
     position:absolute;
-    top:370px;
-    left:600px;
+    top:320px;
+    left:550px;
     z-index:9;   
 }
 
-#ring8{
+.ring8{
     position:absolute;
-    top:400px;
-    left:640px;    
+    top:390px;
+    left:650px;    
     z-index:9;
 }
 
-#ring9{
+.ring9{
     position:absolute;
     top:250px;
     left:580px;
     z-index:11;  
 }
 
-#ring10{
+.ring10{
     position:absolute;
     top:110px;
     left:660px;
     z-index:11;    
 }
 
-#ring11{
+.ring11{
     position:absolute;
     top:140px;
     left:630px;
     z-index:11;    
 }
 
-#ring12{
+.ring12{
     position:absolute;
     top:150px;
     left:520px; 
     z-index:11;   
 }
 
-/* wrapper Ring Island*/
+.ring13{
+    position:absolute;
+    top:150px;
+    left:520px; 
+    z-index:11;   
+}
+
+/* wrapper Star Island*/
 
 .sTreeUp{
 	position: absolute;
@@ -533,21 +505,21 @@
 	background-image:url('/img/bg/sTreeRight.png');
 }
 
-#star1{
+.star1{
     position:absolute;
     top:110px;
     left:180px;    
     z-index:11;    
 }
 
-#star2{
+.star2{
     position:absolute;
     top:140px;
     left:250px;
     z-index:11;    
 }
 
-#star3{
+.star3{
     position:absolute;
     top:200px;
     left:330px;
@@ -555,65 +527,72 @@
 
 }
 
-#star4{
+.star4{
     position:absolute;
     top:300px;
     left:350px;    
     z-index:11;
 }
 
-#star5{
+.star5{
     position:absolute;
     top:350px;
     left:250px;
     z-index:10;    
 }
 
-#star6{
+.star6{
     position:absolute;
     top:390px;
     left:200px;
     z-index:10;
 }
 
-#star7{
+.star7{
     position:absolute;
     top:290px;
     left:500px;
     z-index:9;   
 }
 
-#star8{
+.star8{
     position:absolute;
     top:320px;
     left:540px;    
     z-index:9;
 }
 
-#star9{
+.star9{
     position:absolute;
     top:400px;
     left:640px;
     z-index:11;  
 }
 
-#star10{
+.star10{
     position:absolute;
     top:110px;
     left:660px;
     z-index:11;    
 }
 
-#star11{
+.star11{
     position:absolute;
     top:140px;
     left:600px;
     z-index:11;    
 }
 
-#star12{
+.star12{
     position:absolute;
     top:180px;
     left:520px; 
     z-index:11;   
+}
+
+.star13{
+    position:absolute;
+    top:160px;
+    left:300px; 
+    z-index:10;   
 }

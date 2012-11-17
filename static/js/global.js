@@ -5,42 +5,109 @@ function hideAll(){
 		$("#stage1").hide();
 		$("#stage2").hide();
 		$("#stage3").hide();
-		$("#stage4").hide();
+		
 		$("#introRing").hide();
 		$("#stageRing").hide();
+		
 		$("#introStar").hide();
 		$("#stageStar").hide();
+		
+		$("#arenaLobi").hide();
+		$("#coopLobi").hide();
+		
+		$("#arenaRoom").hide();
+		$("#coopRoom").hide();
+		
+		$("#pvp1").hide();
+		$("#pvp2").hide();
+		$("#pvp3").hide();
+		
+		$("#coop1").hide();
+		$("#coop2").hide();
+		$("#coop3").hide();
+		
+		$("#animBus").hide();
+		$("#animRing").hide();
+		$("#animStar").hide();
 	}
 	
+function reqRefresh(){
+		socket.emit('reqRefresh');
+}
+
+function refreshNow(level, exp, axe, hammer, sickle, win, lose, score, tuts, pp){
+		axeLvl=4-axe;
+		hamLvl=4-hammer;
+		sicLvl=4-sickle;
+		$("#labName").html(uname);
+		$("#labLevel").html(level);
+		$("#labEXP").html(exp);
+		$("#labWin").html(win);
+		$("#labLose").html(lose);
+		$("#labScore").html(score);
+		$("#rKapak").html(axe);
+		$("#rPalu").html(hammer);
+		$("#rSabit").html(sickle);
+		
+		tutorial=tuts;
+		sp=tutorial-6;
+		if(sp>0) $('.infoBox').fadeIn(1000);
+		
+		$('#pp').html("<img src=img/profile/" + pp + " width=90px height=100px />");
+		$('.infoFighter').html("<img src=img/profile/" + pp + " width=180px height=200px />");
+		
+		imgP='img/profile/' + pp;
+}
+
 function Signed(){
-		if((uname!='')&&(uname!=null)){
-			console.log(uname);
-			socket.emit('adduser', uname, guild);
-			
-			//prepare the conversation
-			
-			//prepare the stage
-			hideAll();
-			$('#wrapper').show();
-			$('#loginBox').hide();
-			startIntro();
-			//doStar();
+		//prepare the stage
+		hideAll();
+		$('#butBarter').click();
+		$('#wrapper').show();
+		$('#loginBox').hide();
+		
+		if(tutorial<3){
+			$('#butRing').hide();
+			switch(tutorial){
+				case 0:
+					startIntro();
+				break;
+				case 1:
+					$('#stage1').fadeIn(1000);
+					preStage2();
+				break;
+				case 2:
+					$('#stage2').fadeIn(1000);
+					preStage3();
+				break;
+			}
+		}else if(tutorial<4){
+			$('#butStar').hide();
+			$('#map').show();
+		}else if(tutorial<5){
+			$('#butPvp').hide();
+			$('#butCoop').hide();
+			$('#map').show();
 		}else{
-			
+			$('#map').show();
 		}
 	}
 	
 function startIntro(){
 	hideAll();
 	$('#intro').fadeIn(1000);
-	fillText('Chef', intro[CC][lang]);
+	fillText('Chief', intro[CC][lang]);
 }
 
 function doTuts(){
 	CC=0;
 	hideAll();
 	$('#tutorial').fadeIn(1000);
-	fillText('Chef', tuts[CC][lang]);
+	$('#textTut').hide();
+	$('#tutsTree3').hide();
+	$('#tutsTree1').css("border","1px white solid");
+	$('#tutsTree3').css("border","1px white solid");
+	fillText('Woody', tuts[CC][lang]);
 }
 
 function doStage1(){
@@ -53,8 +120,8 @@ function doStage1(){
 	stopwatch = setInterval(function(){
 		gT++;
 		$(".gTimer").html(gT);
-		if(gS==8){
-			endMini();
+		if(gS==4){
+			endMini(500);
 		}
 	},100);
 }
@@ -76,8 +143,8 @@ function doStage2(){
 	stopwatch = setInterval(function(){
 		gT++;
 		$(".gTimer").html(gT);
-		if(gS==8){
-			endMini();
+		if(gS==4){
+			endMini(500);
 		}
 	},100);
 }
@@ -98,8 +165,8 @@ function doStage3(){
 	stopwatch = setInterval(function(){
 		gT++;
 		$(".gTimer").html(gT);
-		if(gS==8){
-			endMini();
+		if(gS==4){
+			endMini(500);
 		}
 	},100);
 }
@@ -112,10 +179,12 @@ function preRing(){
 }
 
 function doRing(){
+	socket.emit('updateTuts',3);
+	tutorial=3;
 	CC=-1;
 	hideAll();
-	$('#introRing').fadeIn(1000);
-	ringHandler2();
+	animateBus();
+	$('#butRing').fadeIn(500);
 }
 
 function doStageRing(){
@@ -128,7 +197,7 @@ function doStageRing(){
 		gT++;
 		$(".gTimer").html(gT);
 		if(gS==12){
-			endMini();
+			endMini(1000);
 		}
 	},100);
 }
@@ -141,10 +210,12 @@ function ringFin(){
 }
 
 function doStar(){
+	socket.emit('updateTuts',4);
+	tutorial=4;
 	CC=-1;
 	hideAll();
-	$('#introStar').fadeIn(1000);
-	starHandler();
+	animateRing();
+	$('#butStar').fadeIn(500);
 }
 
 function doStageStar(){
@@ -157,14 +228,102 @@ function doStageStar(){
 		gT++;
 		$(".gTimer").html(gT);
 		if(gS==12){
-			endMini();
+			endMini(1000);
 		}
 	},100);
 }
 
 function starFin(){
+	socket.emit('updateTuts',6);
+	socket.emit('reqRefresh');
+	tutorial=5;
 	$('.winBoard').hide();
 	$('.msgBox').show();
 	CC=-1;
 	starHandler2();
+}
+
+function arenaTuts(){
+	socket.emit('updateScoreT',0);
+	hideAll();
+	animateStar();
+	$('#butPvp').fadeIn(500);
+	$('#butCoop').fadeIn(500);
+}
+
+function doPvp(){
+	socket.emit('roomReq',0);
+	hideAll();
+	$('#arenaLobi').fadeIn(1000);
+	$('#butTeman').attr("disabled", true);
+	$('#butBarter').click();
+	$('#chatBoardG').html('');
+}
+
+function doCoop(){
+	socket.emit('roomReq',1);
+	hideAll();
+	$('#coopLobi').fadeIn(1000);
+	$('#butTeman').attr("disabled", true);
+	$('#butBarter').click();
+	$('#chatBoardG').html('');
+}
+
+// PLAYER TO PLAYER FUNCTION (PVP AND COOP)
+// -------------------------
+
+function joinArena(room){
+	$('#butTeman').attr("disabled", false);
+	$('#butTeman').click();
+	socket.emit('joinArena', room);
+}
+
+function joinParty(room){
+	$('#butTeman').attr("disabled", false);
+	$('#butTeman').click();
+	socket.emit('joinParty', room);
+}
+
+function leaveArena(){
+	socket.emit('leaveArena');
+}
+
+function autoJoin(type){
+	socket.emit('autoJoin', type);
+}
+
+function doArena(num){
+	isPVP=true;
+	stMini();
+	hideAll();
+	$('#pvp'+num).fadeIn(1000);
+	$('.item' + (num + 5)).show();
+	$('.item' + (num + 5)).css("border","1px transparent solid");	
+	stopwatch = setInterval(function(){
+		gT++;
+		$(".gTimer").html(gT);
+		if(gS==13){
+			endPVP();
+		}
+	},100);
+}
+
+function doParty(num){
+	isCoop=true;
+	stMini();
+	hideAll();
+	$('#coop'+num).fadeIn(1000);
+	$('.item' + (num + 8)).show();
+	$('.item' + (num + 8)).css("border","1px transparent solid");	
+	stopwatch = setInterval(function(){
+		gT++;
+		$(".gTimer").html(gT);
+		if(gS==13){
+			endCoop();
+		}
+	},100);
+}
+
+function doLevelUp(lvl){
+
 }

@@ -4,10 +4,104 @@ body, h2, p {
 }
 
 body {
-	background: #F5F5F5;
+    height:700px;
+    background-image: linear-gradient(bottom, rgb(255,255,255) 18%, rgb(87,146,235) 90%);
+    background-image: -o-linear-gradient(bottom, rgb(255,255,255) 18%, rgb(87,146,235) 90%);
+    background-image: -moz-linear-gradient(bottom, rgb(255,255,255) 18%, rgb(87,146,235) 90%);
+    background-image: -webkit-linear-gradient(bottom, rgb(255,255,255) 18%, rgb(87,146,235) 90%);
+    background-image: -ms-linear-gradient(bottom, rgb(255,255,255) 18%, rgb(87,146,235) 90%);
+    
+    background-image: -webkit-gradient(
+    	linear,
+    	left bottom,
+    	left top,
+    	color-stop(0.18, rgb(255,255,255)),
+    	color-stop(0.9, rgb(87,146,235))
+    );
 	color: Black;
 	font-family: Helvetica, sans-serif;
 	overflow: hidden;
+}
+
+body:-webkit-full-screen	{ 
+    width: 100%;height:100%; 
+    }
+body:-moz-full-screen{ 
+    width: 100%;height:100%; 
+    }
+body:-ms-full-screen{ 
+    width: 100%;height:100%; 
+    }
+body:-o-full-screen{ 
+    width: 100%;height:100%; 
+    }
+body:full-screen{ 
+    width: 100%;height:100%; 
+    }
+
+
+#daunKiri{
+    position: absolute;
+    z-index:200;
+}
+
+.boy{
+    position:absolute;
+    z-index: 2000;
+    width:50px;
+    height:85px;
+
+    background: url(/img/acc/boy.png) no-repeat;               
+}
+
+#busPpl1{
+    top:50px;
+    left:120px;    
+}
+
+#starPpl1{
+    top:70px;
+    left:100px;    
+}
+
+#kupu{
+    position: absolute;
+	width: 80px;
+	height: 80px;
+	z-index:2000;
+	left:10px;
+	top:10px;
+	background: url(/img/acc/kupu.png) no-repeat;       
+}
+
+#sailBoat{
+    position: absolute;
+	width: 55px;
+	height: 60px;
+	z-index:2000;
+	left:500px;
+	top:80px;
+	background: url(/img/acc/boat.png) no-repeat;       
+}
+
+#daunKanan{
+    top:-125px;
+    right:0px;
+    position: absolute;
+    z-index:100;
+}
+
+.daunTengah{
+    left:520px;
+    position: absolute;
+    z-index:200;
+}
+
+#rumput{
+    left:300px;
+    bottom:0px;
+    position: absolute;
+    z-index:1000;
 }
 
 #popup{
@@ -27,99 +121,13 @@ body {
 	height: 300px;
 	top: 200px;
 	border: black solid 2px;
+	background: rgba(0, 0, 0, 0.78);
+	color: whiteSmoke;
 }
 
 #wrapper{
 	display: none;
-}
 
-.ui{
-	z-index:109;
-	float:left;
-	background: #FFFFFF;
-	position: relative;
-    height:900px;
-    width:78%;
-	left:285px;
-	top: 125px;
-	border:1px solid #E5E5E5;
-	-moz-border-radius-topleft: 5px;
-	border-radius-topleft: 5px;
-}
-
-.board{
-	margin-top:10px;
-	margin-left:20px;
-	position: relative;
-    height:590px;
-    width:900px;
-	border:1px solid #999999;
-	background: #899037;
-	background-image: url("/img/bg/bus.png");
-}
-
-.ringBoard{
-	margin-top:10px;
-	margin-left:20px;
-	position: relative;
-    height:590px;
-    width:900px;
-	border:1px solid #999999;
-	background: #899037;
-	background-image: url("/img/bg/ring.png");
-}
-
-.ringIntro{
-	margin-top:10px;
-	margin-left:20px;
-	position: relative;
-    height:590px;
-    width:900px;
-	border:1px solid #999999;
-	background: #899037;
-	background-image: url("/img/bg/ring.png");
-}
-
-.starBoard{
-	margin-top:10px;
-	margin-left:20px;
-	position: relative;
-    height:590px;
-    width:900px;
-	border:1px solid #999999;
-	background: #899037;
-	background-image: url("/img/bg/star.png");
-}
-
-.starIntro{
-	margin-top:10px;
-	margin-left:20px;
-	position: relative;
-    height:590px;
-    width:900px;
-	border:1px solid #999999;
-	background: #899037;
-	background-image: url("/img/bg/star.png");
-}
-
-.boardIntro{
-	margin-top:10px;
-	margin-left:20px;
-	position: relative;
-    height:590px;
-    width:900px;
-	border:1px solid #999999;
-	background: #899037;
-	background-image: url("/img/bg/intro.png");
-}
-
-.gameBoard{
-	margin-top:10px;
-	margin-left:20px;
-	position: relative;
-    height:590px;
-    width:900px;
-	border:1px solid #999999;
 }
 
 #mainInfo{
@@ -129,64 +137,108 @@ body {
 	z-index: 109;
 	width: 100%;
 	height: 125px;
-	background: #F5F5F5;
-	background-repeat:no-repeat;
 }
 
 #profileWrap{
 	float: left;
 	display: block;
-	width: 900px;
-	height: 120px;
-	margin-left:10px;
-	border: red 1px solid;
+	width: 100%;
+	height: 125px;
+
+    background-image: linear-gradient(bottom, rgb(87,146,235) 18%, rgb(5,70,168) 90%);
+    background-image: -o-linear-gradient(bottom, rgb(87,146,235) 18%, rgb(5,70,168) 90%);
+    background-image: -moz-linear-gradient(bottom, rgb(87,146,235) 18%, rgb(5,70,168) 90%);
+    background-image: -webkit-linear-gradient(bottom, rgb(87,146,235) 18%, rgb(5,70,168) 90%);
+    background-image: -ms-linear-gradient(bottom, rgb(87,146,235) 18%, rgb(5,70,168) 90%);
+    
+    background-image: -webkit-gradient(
+    	linear,
+    	left bottom,
+    	left top,
+    	color-stop(0.18, rgb(87,146,235)),
+    	color-stop(0.9, rgb(5,70,168))
+    );
+
 }
 
-#profileImg{
-	position: relative;
-	float: left;
-	width: 100px;
-	height: 118px;
-	border: blue 1px solid;
-	text-align: center;
-}
 
 #profileInfo{
+	color: whitesmoke;
 	position: relative;
 	float: left;
-	width: 295px;
-	height: 118px;
+	width: 300px;
+	height: 105px;
 	text-align: center;
-	border: green 1px solid;
-	margin-left:10px;
+	background: rgba(0, 0, 0, 0.71);
+	border:1px solid whiteSmoke;
+	margin-left:120px;
+	margin-top:10px;
 }
 
-#resourceInfo{
+#skillInfo{
 	position:relative;
 	float:left;
-	width: 295px;
-	height: 118px;
-	text-align: center;
-	border: black 1px solid;
+	width: 180px;
+	height: 105px;
+
+	color: whitesmoke;
+	background: rgba(0, 0, 0, 0.72);
+	border:1px solid whiteSmoke;
 	margin-left:10px;
+	margin-top:10px;
+	padding-left:5px;
+}
+
+#lbPVP{
+	position:relative;
+	float:left;
+	width: 250px;
+	height: 105px;
+
+	color: whitesmoke;
+	background: rgba(0, 0, 0, 0.72);
+	border:1px solid whiteSmoke;
+	margin-left:30px;
+	margin-top:10px;
+	padding-left:5px;
+}
+
+#lbCoop{
+	position:relative;
+	float:left;
+	width: 250px;
+	height: 105px;
+
+	color: whitesmoke;
+	background: rgba(0, 0, 0, 0.72);
+	border:1px solid whiteSmoke;
+	margin-left:10px;
+	margin-top:10px;
+	padding-left:5px;
 }
 
 #mainMenu{
 	top:125px;
-	right: -135px;
+	right: 0px;
 	z-index:110;
 	position: fixed;
     height:900px;
-    width:170px;
-	background: #F5F5F5;
-	border:1px solid #E5E5E5;
-	/*    background: #3366CC; */
-}
-#mainMenu:hover{
-	right: 0px;
-}
+    width:60px;
 
-
+    background-image: linear-gradient(bottom, rgb(255,255,255) 18%, rgb(87,146,235) 90%);
+    background-image: -o-linear-gradient(bottom, rgb(255,255,255) 18%, rgb(87,146,235) 90%);
+    background-image: -moz-linear-gradient(bottom, rgb(255,255,255) 18%, rgb(87,146,235) 90%);
+    background-image: -webkit-linear-gradient(bottom, rgb(255,255,255) 18%, rgb(87,146,235) 90%);
+    background-image: -ms-linear-gradient(bottom, rgb(255,255,255) 18%, rgb(87,146,235) 90%);
+    
+    background-image: -webkit-gradient(
+    	linear,
+    	left bottom,
+    	left top,
+    	color-stop(0.18, rgb(255,255,255)),
+    	color-stop(0.9, rgb(87,146,235))
+    );
+}
 
 #chatBox{
 	left: 1px;
@@ -197,8 +249,19 @@ body {
 	width: 275px;
 	height: 100%;
 	top:125px;
-	background: #F5F5F5;
-	background-repeat:no-repeat;
+    background-image: linear-gradient(bottom, rgb(255,255,255) 18%, rgb(87,146,235) 90%);
+    background-image: -o-linear-gradient(bottom, rgb(255,255,255) 18%, rgb(87,146,235) 90%);
+    background-image: -moz-linear-gradient(bottom, rgb(255,255,255) 18%, rgb(87,146,235) 90%);
+    background-image: -webkit-linear-gradient(bottom, rgb(255,255,255) 18%, rgb(87,146,235) 90%);
+    background-image: -ms-linear-gradient(bottom, rgb(255,255,255) 18%, rgb(87,146,235) 90%);
+    
+    background-image: -webkit-gradient(
+    	linear,
+    	left bottom,
+    	left top,
+    	color-stop(0.18, rgb(255,255,255)),
+    	color-stop(0.9, rgb(87,146,235))
+    );
 }
 
 #friendBox{
@@ -240,57 +303,229 @@ body {
 	text-align: left;
 }
 
-#friendBoard{
-	margin-top:20px;
-	margin-bottom:5px;
-	left: 0px;
-	z-index: 110;
-	width: 260px;
-	height: 70%;
-	background: white;
-	background-repeat:no-repeat;
-	border: 1px solid black;
-	overflow: auto;
-	text-align: left;
-}
-
-
-#bldE{
-	background:url('media/image/building/full.png') -375px -125px;
-	position: relative;
-	display: block;
-	background-repeat:no-repeat;
-	cursor: pointer;
-	top: 55px;
-	left: 65px;
-}
-
-#bldE:hover{
-	background-position: -375px 0;
-}
 
 .msgBox{
-	background: white;
+    color:whiteSmoke;
 	position: absolute;
 	width:750px;
 	height:125px;
-	border: 3px black solid;
-	top: 450px;
+    background: rgba(0, 0, 0, 0.71);
+	border:1px solid whiteSmoke;
+	top: 350px;
 	left:75px;
 	z-index:1000;
-	padding:1px;
+	padding:20px;
+	font-size:1.5em;
+}
+
+.imgBox{
+    position:relative;
+    width:120px;
+    height:100%;
+    float:left;
+    border:2px solid whiteSmoke;
+    margin-right:20px;
+}
+
+.txtBox{
+    position:relative;
+    width:600px;
+    float:left;
+    height:100%;
+}
+
+.btNext{
+    position:absolute;
+    right:10px;  
+    bottom:10px;
+}
+
+.btIsle{
+    width:80px;
+    height:50px;
+    border:1px solid transparent;
+    cursor: pointer;
+}
+.btIsle:hover{
+    border:1px solid white;
+}
+
+#butBus{
+    position:absolute;
+    top:25px;    
+    left:540px;
+}
+#butRing{
+    position:absolute;
+    top:290px;    
+    left:730px;
+}
+#butStar{
+    position:absolute;
+    top:455px;    
+    left:328px;
+}
+#butPvp{
+    position:absolute;
+    top:53px;    
+    left:178px;
+}
+#butCoop{
+    position:absolute;
+    top:275px;    
+    left:111px;
 }
 
 .infoBox{
 	display:none;
-	background: white;
+	background: rgba(0, 0, 0, 0.89);
 	position: absolute;
 	text-align:center;
+	color:whiteSmoke;
 	width:350px;
 	height:150px;
-	border: 3px black solid;
-	top: 250px;
-	left:350px;
+	border: 3px whiteSmoke solid;
+	top: 350px;
+	left:570px;
 	z-index:1000;
 	padding:2px;
+}
+
+.ui{
+	z-index:109;
+	float:left;
+	background: #FFFFFF;
+	position: relative;
+    height:615px;
+    
+	width: 930px;
+	left:285px;
+	top: 125px;
+	border:1px solid #E5E5E5;
+	-moz-border-radius-topleft: 5px;
+	border-radius-topleft: 5px;
+}
+
+.map{
+	background: #2D6DF5;
+	background-image: url("/img/bg/maplogo.png");
+}
+
+.board{
+	margin-top:10px;
+	margin-left:15px;
+	position: relative;
+    height:590px;
+    width:900px;
+	border:1px solid #999999;
+}
+
+.busBoard{
+	background: #899037;
+	background-image: url("/img/bg/bus.png");
+}
+
+.ringBoard{
+
+	background: #899037;
+	background-image: url("/img/bg/ring.png");
+}
+
+.ringIntro{
+	background: #899037;
+	background-image: url("/img/bg/ring.png");
+}
+
+.starBoard{
+	background: #899037;
+	background-image: url("/img/bg/star.png");
+}
+
+.starIntro{
+	background: #899037;
+	background-image: url("/img/bg/star.png");
+}
+
+.boardIntro{
+	background: #899037;
+	background-image: url("/img/bg/intro.png");
+}
+
+.room{
+	background: whiteSmoke;
+}
+
+.lobi{
+
+	background: whiteSmoke;
+}
+
+.infoFighter{
+    position:relative;
+    width:200px;
+    height:200px;
+    border:1px solid black;
+    float:left;  
+    margin-left: 150px;
+}
+
+.roomList{
+    position:relative;
+    width:300px;
+    height:500px;
+    text-align:center;
+    border:1px solid black;
+    float:left;
+    margin-left: 50px;
+}
+
+.roomItem{
+    padding-top:4px;
+    padding-bottom:4px;
+    margin-top:10px;
+    margin-left:25px;
+    border:1px solid black;
+    width:250px;
+
+}
+
+.butHome{
+    position:absolute;
+    top:0px;
+    right:0px;    
+}
+
+.infoP1{
+    position:relative;
+    width:400px;
+    height:300px;
+    border:1px solid black;
+    background: rgb(240, 193, 193);
+    float:left;
+    margin-left:30px;
+    padding:10px;
+    text-align: center;
+
+}
+
+.infoP2{
+    position:relative;
+    width:400px;
+    height:300px;
+    border:1px solid black;
+    background: rgb(183, 183, 250);
+    float:left;
+    margin-left:30px;
+    padding:10px;
+    text-align: center;    
+}
+
+.imgP2{
+    background:white;
+
+}
+
+.imgP1{
+    background:white;
+
 }

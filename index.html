@@ -12,8 +12,11 @@
 
 <script src="socket.io/socket.io.js"></script>
 <script src="js/jquery.js"></script>
+<script src="js/spritely.js"></script>
+<script src="js/easeljs.js"></script>
 <script src="js/declare.js"></script>
 <script src="js/lang.js"></script>
+<script src="js/animation.js"></script>
 <script src="js/global.js"></script>
 <script src="js/ioconf.js"></script>
 <script src="js/mini.js"></script>
@@ -29,27 +32,32 @@
 <div style="top:100px;position:relative;">
 <label>Username : <input type=text id=uname value=Kirito /></label>
 <label>Password : <input type=password id=passw value=asuna /></label>
-<button class='btn btn-success' id=signin>Sign In</button>
+<button class='btn btn-info btn-large' id=signup><i class='icon-white icon-plus-sign'></i> <br /> Daftar</button> <button class='btn btn-success btn-large' id=signin><i class='icon-white icon-leaf'></i> <br /> Masuk</button>
 <label id=warnBoard></label>
 </div>
 </div>
 </div>
 <div id=wrapper>
+<div id=kupu></div>
+<div id=daunKiri><img src=/img/acc/kiri.png width=120px height=120px/></div>
+<div class=daunTengah style='left:100px;'><img src=/img/acc/rumput.png width=300px height=50px/></div>
+<div class=daunTengah style='left:400px;'><img src=/img/acc/rumput.png width=300px height=50px/></div>
+<div class=daunTengah style='left:700px;'><img src=/img/acc/rumput.png width=300px height=50px/></div>
+<div class=daunTengah style='left:1000px;'><img src=/img/acc/rumput.png width=300px height=50px/></div>
 <div id=chatBox  align=center>
 <br />
-<button class='btn btn-disabled disabled'><i class='icon-retweet'></i> Pusat Barter</button> 
-<button id=butTeman class='btn btn-success'><i class='icon-white icon-user'></i> Teman Guild</button>
+<button class='btn btn-disabled disabled'><i class='icon-retweet'></i> Chat All </button> 
+<button id=butTeman class='btn btn-success' disabled><i class='icon-white icon-user'></i> Chat Room </button>
 	<div id=chatBoard>
 	</div>
 	
 	<input id=txtChat type=text maxlength="150" class="span3 input-xlarge" placeholder='Ketikan isi pesan...'>
 	<button id=butSend class='btn btn-success'><i class='icon-white icon-bullhorn'></i> Teriak </button>
-	<button id=butMarket class='btn btn-primary'><i class='icon-white icon-comment'></i> ke Pasar </button>
 </div>
 <div id=friendBox  align=center>
 <br />
-<button id=butBarter class='btn btn-success'><i class='icon-white icon-retweet'></i> Pusat Barter</button> 
-<button class='btn btn-disabled disabled'><i class='icon-user'></i> Teman Guild</button>
+<button id=butBarter class='btn btn-success'><i class='icon-white icon-retweet'></i> Chat All </button> 
+<button class='btn btn-disabled disabled'><i class='icon-user'></i> Chat Room </button>
 <div id=chatBoardG>
 </div>
 	<input id=txtChatG type=text maxlength="150" class="span3 input-xlarge" placeholder='Ketikan isi pesan...'>
@@ -57,75 +65,78 @@
 </div>
 <div id=mainInfo>
 	<div id=profileWrap>
-		<div id=profileImg><img src='media/image/profile/profile.jpg' width=100px height=100px /><b>HP: <a id=pHP>0</a>/1000</b></div>
+		
 		<div id=profileInfo>
-			<br />
-			<strong>
-			<div id=labName>Unknown</div></strong>
-			Title
-			<b><div id=labTitle>Untitled</div></b>
-			Guild
-			<b><div id=labGuild>None</div></b>
+			<div id=pp style='float:left;width:90px;margin-top:2px;margin-left:2px;'>
+			</div>
+			<h4><strong><div style='margin-top:10px;' id=labName>Unknown</div></strong></h4>
+			Level <b id=labLevel>0</b> (EXP:<b id=labEXP>0</b>)<br />
+			<div style='float:left;width:30%;margin-top:5px;text-align:center;'>
+			Win: <font color=green><b id=labWin>0</b></font> <br />
+			Lose: <font color=red><b id=labLose>0</b></font>
+			</div>
+			<div style='float:left;width:30%;margin-top:5px;text-align:center;'>
+			Score: <br /><b id=labScore>0</b>
+			</div>
 		</div>
-		<div id=resourceInfo>
-				<br />
-				Uang : Rp. <a id=rUang>0</a>,-<br />
-				Kayu : <a id=rWood>0</a> <br />
-				Logam : <a id=rMine>0</a> <br />
-				Batu : <a id=rRock>0</a>			
+		<div id=skillInfo>
+		<br /><center>
+				<strong>Skill</strong></center>
+				Kapak : <a id=rKapak>0</a><br />
+				Palu : <a id=rPalu>0</a><br />
+				Sabit : <a id=rSabit>0</a><br />
+		</div>
+		<div id=lbPVP>
+		<br />
+		<b><center>King of PVP</center></b>
 		</div>
 		
+		<div id=lbCoop>
+		<br />
+		<b><center>King of Coop</center></b>
+		</div>
 	</div>
 </div>
+<div class=infoBox>
+<br />
+<h1 id=lvlUp>Level Up!</h1>
+<h3><strong>Kamu mendapatkan Poin Keahlian.</strong><br /></h3>
+<h4><strong>Pilih Skill yang akan ditingkatkan!</strong><br /></h4><br/>
+<button class='btn btn-info btn-large' id=addAxe><i class='icon-white icon-plus-sign'></i> 
+<br /> Skill Kapak</button>
+<button class='btn btn-info btn-large' id=addHam><i class='icon-white icon-plus-sign'></i> 
+<br /> Skill Palu</button>
+<button class='btn btn-info btn-large' id=addSic><i class='icon-white icon-plus-sign'></i> 
+<br /> Skill Sabit</button>
+</div>
 <div id=mainMenu>
-	<ul class="nav nav-list">
-	  <li class="active">
-		
-		<a href="#"><i class='icon-white icon-home'></i>&nbsp; Peta</a>
-	  </li>
-	  <li>
-		
-		<a href="library"><i class=icon-book></i>&nbsp; Perpustakaan</a>
-	  </li>
-		<li>
-		
-		<a href="#"><i class=icon-comment></i>&nbsp; Ruang Chat</a>
-	  </li>
-	</ul>
-	<hr />
-	<ul class="nav nav-list">
-	  <li >
-		<a href="#"><i class='icon-wrench'></i>&nbsp; Tampilan</a>
-	  </li>
-	  <li>
-		<a href="#"><i class=icon-user></i>&nbsp; Profil</a>
-	  </li>
-	  <li>
-		<a href="#"><i class=icon-headphones></i>&nbsp; Suara</a>
-	  </li>
-	</ul>
-	<hr />
-	<ul class="nav nav-list">
-	  <li >
-		<a href="#"><i class='icon-thumbs-up'></i>&nbsp; Feedback</a>
-	  </li>
-	</ul>
+<div id=daunKanan><img src=/img/acc/kanan.png width=50px height=130px/></div>
+<button class='btn btn-primary' style='width:60px;' id=butFS><i class='icon-white icon-resize-full' ></i> <br /> Full</button><br />
+<button class='btn btn-success' style='width:60px;margin-top:5px;'><i class='icon-white icon-music'></i> <br /> Sound</button>
+<button class='btn btn-info' style='width:60px;margin-top:5px;'><i class='icon-white icon-thumbs-up'></i> <br /> Feeds</button>
 </div>
 
 <section id=map>
 <div class=ui>
-<div class=board>
-	
+<div class='board map'>
+	<div class='btIsle' id=butBus></div>
+	<div class='btIsle' id=butRing></div>
+	<div class='btIsle' id=butStar></div>
+	<div class='btIsle' id=butPvp></div>
+	<div class='btIsle' id=butCoop></div>
+	<div id=sailBoat></div>
 </div>
 </div>
 </section>
 
 <section id=intro>
 <div class=ui>
-<div class=boardIntro>
+<div class='board boardIntro'>
 	
 	<div class=msgBox>
-		<div class=txtBox>
+		<div class=imgBox  >
+		</div>
+		<div class=txtBox  >
 		</div>
 		<button class='btn btn-info btNext' id=introNext>Next</button>
 	</div>
@@ -135,66 +146,48 @@
 
 <section id=tutorial>
 <div class=ui>
-<div class=board>
+<div class='board' style='background:black;'>
 	<div class=msgBox>
-		<div class=txtBox>
+		<div class=imgBox  >
 		</div>
-		<button class='btn btn-info btNext' id=tutsNext>Next</button>
+		<div class=txtBox  >
+		</div>
+		<button class='btn btn-info btNext tutsNext' id=textTut>Ok, Aku mengerti</button>
 	</div>
-	
-	<div class='midUp1 trees2'></div>
-	<div class='midUp2 trees3'></div>
-	<div class='midUp3 trees3'></div>
-	<div class='midUp4 trees2'></div>
-	
-	<div class='midBot1 trees4'></div>
-	<div class='midBot2 trees4'></div>
-	<div class='midBot3 trees4'></div>
-	
-	<div class='stage1'></div>
-	<div class='stage2'></div>
-	<div class='stage4'></div>
-	<div class='stage6'></div>
-</div>
-</div>
+	<div class='tree item tutsNext' id=tutsTree1></div>
+	<div class='tree item' id=tutsTree2></div>
+	<div class='tree item tutsNext' id=tutsTree3></div>
+
+</div></div>
 </section>
 
 <section id=stage1>
 <div class=ui>
-<div class=board>
+<div class='board busBoard'>
 
 	<div class=msgBox>
-		<div class=txtBox>
+		<div class=imgBox  >
+		</div>
+		<div class=txtBox  >
 		</div>
 		<button class='btn btn-info btNext' id=st2Next>Next</button>
 	</div>
 	
-	<div class='midUp1 trees2'></div>
-	<div class='midUp2 trees3'></div>
-	<div class='midUp3 trees3'></div>
-	<div class='midUp4 trees2'></div>
-	
-	<div class='midBot1 trees4'></div>
-	<div class='midBot2 trees4'></div>
-	<div class='midBot3 trees4'></div>
-	
-	<div class='stage2'></div>
-	<div class='stage4'></div>
-	<div class='stage6'></div>
-	
-	<div class='tree item1 item' id=satu1></div>
-	<div class='tree item1 item' id=satu2></div>
-	<div class='tree item1 item' id=satu3></div>
-	<div class='tree item1 item' id=satu4></div>
-	<div class='tree item1 item' id=satu5></div>
-	<div class='tree item1 item' id=satu6></div>
-	<div class='tree item1 item' id=satu7></div>
-	<div class='tree item1 item' id=satu8></div>
+	<div class='midUp1 trees2'></div><div class='midUp2 trees3'></div><div class='midUp3 trees3'></div><div class='midUp4 trees2'></div>
+	<div class='midBot1 trees4'></div><div class='midBot2 trees4'></div><div class='midBot3 trees4'></div>
+	<div class='stage2'></div><div class='stage4'></div><div class='stage6'></div>
+	<div class='tree item1 item bus1' id=satu1></div><div class='tree item1 item bus2' id=satu2></div><div class='tree item1 item bus3' id=satu3></div>
+	<div class='tree item1 item bus4' id=satu4></div><div class='stone item2 item bus5' id=dua1></div><div class='stone item2 item bus6' id=dua2></div><div class='stone item2 item bus7' id=dua3></div>
+	<div class='stone item2 item bus8' id=dua4></div><div class='bush item3 item bus9' id=tiga1></div><div class='bush item3 item bus10' id=tiga2></div><div class='bush item3 item bus11' id=tiga3></div>
+	<div class='bush item3 item bus12' id=tiga4></div>
 	
 	<div class='winBoard'>
 		<br />
-		<p>Score-mu adalah :</p>
-		<b class=txtScore></b>
+		<h3><p>Score-mu adalah :</p></h3>
+		<p>
+		<br />
+		<h2><b class=txtScore></b></h2>
+		</p>
 		<br />
 		<br />
 		<button class='btn btn-info' id=cont1>Continue</button>
@@ -206,38 +199,28 @@
 
 <section id=stage2>
 <div class=ui>
-<div class=board>
+<div class='board busBoard'>
 	<div class=msgBox>
-		<div class=txtBox>
+		<div class=imgBox  >
+		</div>
+		<div class=txtBox  >
 		</div>
 		<button class='btn btn-info btNext' id=st3Next>Next</button>
 	</div>
 	
-	<div class='midUp1 trees2'></div>
-	<div class='midUp2 trees3'></div>
-	<div class='midUp3 trees3'></div>
-	<div class='midUp4 trees2'></div>
-	
-	<div class='midBot1 trees4'></div>
-	<div class='midBot2 trees4'></div>
-	<div class='midBot3 trees4'></div>
-	
-	<div class='stage4'></div>
-	<div class='stage6'></div>	
-	
-	<div class='tree item2 item' id=dua1></div>
-	<div class='tree item2 item' id=dua2></div>
-	<div class='tree item2 item' id=dua3></div>
-	<div class='tree item2 item' id=dua4></div>
-	<div class='stone item2 item' id=dua5></div>
-	<div class='stone item2 item' id=dua6></div>
-	<div class='stone item2 item' id=dua7></div>
-	<div class='stone item2 item' id=dua8></div>
+	<div class='midUp1 trees2'></div><div class='midUp2 trees3'></div><div class='midUp3 trees3'></div><div class='midUp4 trees2'></div>
+	<div class='midBot1 trees4'></div><div class='midBot2 trees4'></div><div class='midBot3 trees4'></div>
+	<div class='stone item2 item bus5' id=dua1></div><div class='stone item2 item bus6' id=dua2></div><div class='stone item2 item bus7' id=dua3></div>
+	<div class='stone item2 item bus8' id=dua4></div><div class='bush item3 item bus9' id=tiga1></div><div class='bush item3 item bus10' id=tiga2></div><div class='bush item3 item bus11' id=tiga3></div>
+	<div class='bush item3 item bus12' id=tiga4></div>
 	
 	<div class='winBoard'>
 		<br />
-		<p>Score-mu adalah :</p>
-		<b class=txtScore></b>
+		<h3><p>Score-mu adalah :</p></h3>
+		<p>
+		<br />
+		<h2><b class=txtScore></b></h2>
+		</p>
 		<br />
 		<br />
 		<button class='btn btn-info' id=cont2>Continue</button>
@@ -250,37 +233,27 @@
 
 <section id=stage3>
 <div class=ui>
-<div class=board>
+<div class='board busBoard'>
 	<div class=msgBox>
-		<div class=txtBox>
+		<div class=imgBox  >
+		</div>
+		<div class=txtBox  >
 		</div>
 		<button class='btn btn-info btNext' id=busFinish>Next</button>
 	</div>
 	
-	<div class='midUp1 trees2'></div>
-	<div class='midUp2 trees3'></div>
-	<div class='midUp3 trees3'></div>
-	<div class='midUp4 trees2'></div>
-	
-	<div class='midBot1 trees4'></div>
-	<div class='midBot2 trees4'></div>
-	<div class='midBot3 trees4'></div>
-	
-	<div class='stage6'></div>
-	
-	<div class='tree item3 item' id=tiga1></div>
-	<div class='tree item3 item' id=tiga2></div>
-	<div class='stone item3 item' id=tiga3></div>
-	<div class='stone item3 item' id=tiga4></div>
-	<div class='stone item3 item' id=tiga5></div>
-	<div class='bush item3 item' id=tiga6></div>
-	<div class='bush item3 item' id=tiga7></div>
-	<div class='bush item3 item' id=tiga8></div>
+	<div class='midUp1 trees2'></div><div class='midUp2 trees3'></div><div class='midUp3 trees3'></div><div class='midUp4 trees2'></div>
+	<div class='midBot1 trees4'></div><div class='midBot2 trees4'></div><div class='midBot3 trees4'></div>
+	<div class='bush item3 item bus9' id=tiga1></div><div class='bush item3 item bus10' id=tiga2></div><div class='bush item3 item bus11' id=tiga3></div>
+	<div class='bush item3 item bus12' id=tiga4></div>
 	
 	<div class='winBoard'>
 		<br />
-		<p>Score-mu adalah :</p>
-		<b class=txtScore></b>
+		<h3><p>Score-mu adalah :</p></h3>
+		<p>
+		<br />
+		<h2><b class=txtScore></b></h2>
+		</p>
 		<br />
 		<br />
 		<button class='btn btn-info' id=cont3>Continue</button>
@@ -292,58 +265,46 @@
 
 <section id=introRing>
 <div class=ui>
-<div class=ringIntro>
+<div class='board ringIntro'>
 	<div class=msgBox>
-		<div class=txtBox>
+		<div class=imgBox  >
+		</div>
+		<div class=txtBox  >
 		</div>
 		<button class='btn btn-info btNext' id=ringNext>Next</button>
 	</div>
-	<div class='tree item4 item' id=ring1></div>
-	<div class='tree item4 item' id=ring2></div>
-	<div class='stone item4 item' id=ring3></div>
-	<div class='stone item4 item' id=ring4></div>
-	<div class='stone item4 item' id=ring5></div>
-	<div class='bush item4 item' id=ring6></div>
-	<div class='bush item4 item' id=ring7></div>
-	<div class='bush item4 item' id=ring8></div>
-	<div class='tree item4 item' id=ring9></div>
-	<div class='tree item4 item' id=ring10></div>
-	<div class='stone item4 item' id=ring11></div>
-	<div class='bush item4 item' id=ring12></div>
+	<div class='rTreeUp'></div><div class='rTreeMid'></div><div class='rTreeBot'></div><div class='rTreeLeft'></div><div class='rTreeRight'></div>
+	<div class='tree item4 item ring1' id=ring1></div><div class='tree item4 item ring2' id=ring2></div><div class='stone item4 item ring3' id=ring3></div>
+	<div class='stone item4 item ring4' id=ring4></div><div class='stone item4 item ring5' id=ring5></div><div class='bush item4 item ring6' id=ring6></div>
+	<div class='bush item4 item ring7' id=ring7></div><div class='bush item4 item ring8' id=ring8></div><div class='tree item4 item ring9' id=ring9></div>
+	<div class='tree item4 item ring10' id=ring10></div><div class='stone item4 item ring11' id=ring11></div><div class='bush item4 item ring12' id=ring12></div>
 </div>
 </div>
 </section>
 
 <section id=stageRing>
 <div class=ui>
-<div class=ringBoard>
+<div class='board ringBoard'>
 	<div class=msgBox>
-		<div class=txtBox>
+		<div class=imgBox  >
+		</div>
+		<div class=txtBox  >
 		</div>
 		<button class='btn btn-info btNext' id=ringFinish>Next</button>
 	</div>
-	<div class='rTreeUp'></div>
-	<div class='rTreeMid'></div>
-	<div class='rTreeBot'></div>
-	<div class='rTreeLeft'></div>
-	<div class='rTreeRight'></div>
-	<div class='tree item4 item' id=ring1></div>
-	<div class='tree item4 item' id=ring2></div>
-	<div class='stone item4 item' id=ring3></div>
-	<div class='stone item4 item' id=ring4></div>
-	<div class='stone item4 item' id=ring5></div>
-	<div class='bush item4 item' id=ring6></div>
-	<div class='bush item4 item' id=ring7></div>
-	<div class='bush item4 item' id=ring8></div>
-	<div class='tree item4 item' id=ring9></div>
-	<div class='tree item4 item' id=ring10></div>
-	<div class='stone item4 item' id=ring11></div>
-	<div class='bush item4 item' id=ring12></div>
+	<div class='rTreeUp'></div><div class='rTreeMid'></div><div class='rTreeBot'></div><div class='rTreeLeft'></div><div class='rTreeRight'></div>
+	<div class='tree item4 item ring1' id=ring1></div><div class='tree item4 item ring2' id=ring2></div><div class='stone item4 item ring3' id=ring3></div>
+	<div class='stone item4 item ring4' id=ring4></div><div class='stone item4 item ring5' id=ring5></div><div class='bush item4 item ring6' id=ring6></div>
+	<div class='bush item4 item ring7' id=ring7></div><div class='bush item4 item ring8' id=ring8></div><div class='tree item4 item ring9' id=ring9></div>
+	<div class='tree item4 item ring10' id=ring10></div><div class='stone item4 item ring11' id=ring11></div><div class='bush item4 item ring12' id=ring12></div>
 	
 	<div class='winBoard'>
 		<br />
-		<p>Score-mu adalah :</p>
-		<b class=txtScore></b>
+		<h3><p>Score-mu adalah :</p></h3>
+		<p>
+		<br />
+		<h2><b class=txtScore></b></h2>
+		</p>
 		<br />
 		<br />
 		<button class='btn btn-info' id=cont4>Continue</button>
@@ -355,65 +316,312 @@
 
 <section id=introStar>
 <div class=ui>
-<div class=starIntro>
+<div class='board starIntro'>
 	<div class=msgBox>
+		<div class=imgBox>
+		</div>
 		<div class=txtBox>
 		</div>
 		<button class='btn btn-info btNext' id=starNext>Next</button>
 	</div>
-	<div class='sTreeUp'></div>
-	<div class='sTreeBot'></div>
-	<div class='sTreeLeft'></div>
-	<div class='sTreeRight'></div>
-	<div class='tree item5 item' id=star1></div>
-	<div class='tree item5 item' id=star2></div>
-	<div class='stone item5 item' id=star3></div>
-	<div class='stone item5 item' id=star4></div>
-	<div class='stone item5 item' id=star5></div>
-	<div class='bush item5 item' id=star6></div>
-	<div class='bush item5 item' id=star7></div>
-	<div class='bush item5 item' id=star8></div>
-	<div class='tree item5 item' id=star9></div>
-	<div class='tree item5 item' id=star10></div>
-	<div class='stone item5 item' id=star11></div>
-	<div class='bush item5 item' id=star12></div>
+	<div class='sTreeUp'></div><div class='sTreeBot'></div><div class='sTreeLeft'></div><div class='sTreeRight'></div>
+	<div class='tree item5 item star1'></div><div class='tree item5 item star2'></div><div class='stone item5 item star3'></div>
+	<div class='stone item5 item star4'></div><div class='stone item5 item star5'></div><div class='bush item5 item star6'></div>
+	<div class='bush item5 item star7'></div><div class='bush item5 item star8'></div><div class='tree item5 item star9'></div>
+	<div class='tree item5 item star10'></div><div class='stone item5 item star11'></div><div class='bush item5 item star12'></div>
 </div>
 </div>
 </section>
 
 <section id=stageStar>
 <div class=ui>
-<div class=starBoard>
+<div class='board starBoard'>
 	<div class=msgBox>
-		<div class=txtBox>
+		<div class=imgBox  >
+		</div>
+		<div class=txtBox  >
 		</div>
 		<button class='btn btn-info btNext' id=starFinish>Next</button>
 	</div>
-	<div class='sTreeUp'></div>
-	<div class='sTreeBot'></div>
-	<div class='sTreeLeft'></div>
-	<div class='sTreeRight'></div>
-	<div class='tree item5 item' id=star1></div>
-	<div class='tree item5 item' id=star2></div>
-	<div class='stone item5 item' id=star3></div>
-	<div class='stone item5 item' id=star4></div>
-	<div class='stone item5 item' id=star5></div>
-	<div class='bush item5 item' id=star6></div>
-	<div class='bush item5 item' id=star7></div>
-	<div class='bush item5 item' id=star8></div>
-	<div class='tree item5 item' id=star9></div>
-	<div class='tree item5 item' id=star10></div>
-	<div class='stone item5 item' id=star11></div>
-	<div class='bush item5 item' id=star12></div>
+	<div class='sTreeUp'></div><div class='sTreeBot'></div><div class='sTreeLeft'></div><div class='sTreeRight'></div>
+	<div class='tree item5 item star1' id=star1></div><div class='tree item5 item star2' id=star2></div><div class='stone item5 item star3' id=star3></div>
+	<div class='stone item5 item star4' id=star4></div><div class='stone item5 item star5' id=star5></div><div class='bush item5 item star6' id=star6></div>
+	<div class='bush item5 item star7' id=star7></div><div class='bush item5 item star8' id=star8></div><div class='tree item5 item star9' id=star9></div>
+	<div class='tree item5 item star10' id=star10></div><div class='stone item5 item star11' id=star11></div><div class='bush item5 item star12' id=star12></div>
 	
 	<div class='winBoard'>
 		<br />
-		<p>Score-mu adalah :</p>
-		<b class=txtScore></b>
+		<h3><p>Score-mu adalah :</p></h3>
+		<p>
+		<br />
+		<h2><b class=txtScore></b></h2>
+		</p>
 		<br />
 		<br />
 		<button class='btn btn-info' id=cont5>Continue</button>
 		<button class='btn btn-info' id=re5>Retry</button>
+	</div>
+</div>
+</div>
+</section>
+
+<section id=animBus>
+<div class=ui>
+<div class='board busBoard'>
+	<canvas id=busCanvas width=900px height=590px></canvas>
+	<div class='midUp1 trees2'></div><div class='midUp2 trees3'></div><div class='midUp3 trees3'></div><div class='midUp4 trees2'></div>
+	<div class='midBot1 trees4'></div><div class='midBot2 trees4'></div><div class='midBot3 trees4'></div>
+	<button class='btn btn-danger butHome'><i class='icon-white icon-home'></i><br /> Keluar </button>
+</div>
+</div>
+</section>
+
+<section id=animRing>
+<div class=ui>
+<div class='board ringBoard'>
+	<canvas id=ringCanvas width=900px height=590px></canvas>
+	<div class='rTreeUp'></div><div class='rTreeMid'></div><div class='rTreeBot'></div><div class='rTreeLeft'></div><div class='rTreeRight'></div>
+	<button class='btn btn-danger butHome'><i class='icon-white icon-home'></i><br /> Keluar </button>
+</div>
+</div>
+</section>
+
+<section id=animStar>
+<div class=ui>
+<div class='board starBoard'>
+	<canvas id=starCanvas width=900px height=590px></canvas>
+	<div class='sTreeUp'></div><div class='sTreeBot'></div><div class='sTreeLeft'></div><div class='sTreeRight'></div>
+	<button class='btn btn-danger butHome'><i class='icon-white icon-home'></i><br /> Keluar </button>
+</div>
+</div>
+</section>
+
+<section id=arenaLobi>
+<div class=ui>
+<div class=lobi>
+	<br />
+	<center><h1>ARENA PVP - LOBBY</h1></center>
+	<br />
+	<div class=infoFighter>
+	
+	</div>
+	<div class=roomList>
+	
+	</div>
+	<button class='btn btn-danger butHome'><i class='icon-white icon-home'></i><br /> Keluar </button>
+</div>
+</div>
+</section>
+
+<section id=coopLobi>
+<div class=ui>
+<div class=lobi>
+	<br />
+	<center><h1>COOPERATIVE - LOBBY</h1></center>
+	<br />
+	<div class=infoFighter>
+	
+	</div>
+	<div class=roomList>
+	
+	</div>
+	<button class='btn btn-danger butHome'><i class='icon-white icon-home'></i><br /> Keluar </button>
+</div>
+</div>
+</section>
+
+<section id=arenaRoom>
+<div class=ui>
+<div class=room>
+	<br />
+	<center><h1>ARENA PVP - ROOM</h1></center>
+	<br />
+	<div class=infoP1>
+		<p class=imgP1></p>
+		<br />
+		<h2>
+		<p class=nameP1></p>
+		</h2>
+		<br />
+		<button class='btn btn-primary' id=aReadyP1>SIAP</button>
+		<button class='btn btn-danger' id=aExitP1>KELUAR</button>
+	</div>
+	<div class=infoP2>
+		<p class=imgP2></p>
+		<br />
+		<h2>
+		<p class=nameP2></p>
+		</h2>
+		<br />
+		<button class='btn btn-primary' id=aReadyP2>SIAP</button>
+		<button class='btn btn-danger' id=aExitP2>KELUAR</button>
+	</div>
+</div>
+</div>
+</section>
+
+<section id=coopRoom>
+<div class=ui>
+<div class=room>
+	<br />
+	<center><h1>COOPERATIVE - ROOM</h1></center>
+	<br />
+	<div class=infoP1>
+		<p class=imgP1></p>
+		<br />
+		<h2>
+		<p class=nameP1></p>
+		</h2>
+		<br />
+		<button class='btn btn-primary' id=cReadyP1>SIAP</button>
+		<button class='btn btn-danger' id=cExitP1>KELUAR</button>
+	</div>
+	<div class=infoP2>
+		<p class=imgP2></p>
+		<br />
+		<h2>
+		<p class=nameP2></p>
+		</h2>
+		<br />
+		<button class='btn btn-primary' id=cReadyP2>SIAP</button>
+		<button class='btn btn-danger' id=cExitP2>KELUAR</button>
+	</div>
+</div>
+</div>
+</section>
+
+<section id=pvp1>
+<div class=ui>
+<div class='board busBoard'>
+	
+	<div class='midUp1 trees2'></div><div class='midUp2 trees3'></div><div class='midUp3 trees3'></div><div class='midUp4 trees2'></div>
+	<div class='midBot1 trees4'></div><div class='midBot2 trees4'></div><div class='midBot3 trees4'></div>	
+	<div class='tree item6 item bus1' id=abus1></div><div class='tree item6 item bus2' id=abus2></div><div class='stone item6 item bus3' id=abus3></div>
+	<div class='stone item6 item bus4' id=abus4></div><div class='stone item6 item bus5' id=abus5></div><div class='bush item6 item bus6' id=abus6></div>
+	<div class='bush item6 item bus7' id=abus7></div><div class='bush item6 item bus8' id=abus8></div><div class='tree item6 item bus9' id=abus9></div>
+	<div class='tree item6 item bus10' id=abus10></div><div class='stone item6 item bus11' id=abus11></div><div class='bush item6 item bus12' id=abus12></div>
+	<div class='bush item6 item bus13' id=abus13></div>
+	
+	<div class='winBoard'>
+		<br />
+		<b class=txtScore></b>
+		<br />
+		<br />
+		<button class='btn btn-info butLobi'>OK</button>
+	</div>
+</div>
+</div>
+</section>
+
+<section id=pvp2>
+<div class=ui>
+<div class='board ringBoard'>
+	
+	<div class='rTreeUp'></div><div class='rTreeMid'></div><div class='rTreeBot'></div><div class='rTreeLeft'></div><div class='rTreeRight'></div>
+	<div class='tree item7 item ring1' id=aring1></div><div class='tree item7 item ring2' id=aring2></div><div class='stone item7 item ring3' id=aring3></div>
+	<div class='stone item7 item ring4' id=aring4></div><div class='stone item7 item ring5' id=aring5></div><div class='bush item7 item ring6' id=aring6></div>
+	<div class='bush item7 item ring7' id=aring7></div><div class='bush item7 item ring8' id=aring8></div><div class='tree item7 item ring9' id=aring9></div>
+	<div class='tree item7 item ring10' id=aring10></div><div class='stone item7 item ring11' id=aring11></div><div class='bush item7 item ring12' id=aring12></div>
+	<div class='bush item7 item ring13' id=aring13></div>
+	
+	<div class='winBoard'>
+		<br />
+		<b class=txtScore></b>
+		<br />
+		<br />
+		<button class='btn btn-info butLobi'>OK</button>
+	</div>
+</div>
+</div>
+</section>
+
+<section id=pvp3>
+<div class=ui>
+<div class='board starBoard'>
+	
+	<div class='sTreeUp'></div><div class='sTreeBot'></div><div class='sTreeLeft'></div><div class='sTreeRight'></div>
+	<div class='tree item8 item star1' id=astar1></div><div class='tree item8 item star2' id=astar2></div><div class='stone item8 item star3' id=astar3></div>
+	<div class='stone item8 item star4' id=astar4></div><div class='stone item8 item star5' id=astar5></div><div class='bush item8 item star6' id=astar6></div>
+	<div class='bush item8 item star7' id=astar7></div><div class='bush item8 item star8' id=astar8></div><div class='tree item8 item star9' id=astar9></div>
+	<div class='tree item8 item star10' id=astar10></div><div class='stone item8 item star11' id=astar11></div><div class='bush item8 item star12' id=astar12></div>
+	<div class='bush item8 item star13' id=astar13></div>
+	
+	<div class='winBoard'>
+		<br />
+		<b class=txtScore></b>
+		<br />
+		<br />
+		<button class='btn btn-info butLobi'>OK</button>
+	</div>
+</div>
+</div>
+</section>
+
+<section id=coop1>
+<div class=ui>
+<div class='board busBoard'>
+	
+	<div class='midUp1 trees2'></div><div class='midUp2 trees3'></div><div class='midUp3 trees3'></div><div class='midUp4 trees2'></div>
+	<div class='midBot1 trees4'></div><div class='midBot2 trees4'></div><div class='midBot3 trees4'></div>	
+	<div class='tree item9 item bus1' id=cbus1></div><div class='tree item9 item bus2' id=cbus2></div><div class='stone item9 item bus3' id=cbus3></div>
+	<div class='stone item9 item bus4' id=cbus4></div><div class='stone item9 item bus5' id=cbus5></div><div class='bush item9 item bus6' id=cbus6></div>
+	<div class='bush item9 item bus7' id=cbus7></div><div class='bush item9 item bus8' id=cbus8></div><div class='tree item9 item bus9' id=cbus9></div>
+	<div class='tree item9 item bus10' id=cbus10></div><div class='stone item9 item bus11' id=cbus11></div><div class='bush item9 item bus12' id=cbus12></div>
+	<div class='bush item9 item bus13' id=cbus13></div>
+	
+	<div class='winBoard'>
+		<br />Score kalian adalah :
+		<br /><br />
+		<b class=txtScore></b>
+		<br />
+		<br />
+		<button class='btn btn-info butCLobi'>OK</button>
+	</div>
+</div>
+</div>
+</section>
+
+<section id=coop2>
+<div class=ui>
+<div class='board ringBoard'>
+	
+	<div class='rTreeUp'></div><div class='rTreeMid'></div><div class='rTreeBot'></div><div class='rTreeLeft'></div><div class='rTreeRight'></div>
+	<div class='tree item10 item ring1' id=cring1></div><div class='tree item10 item ring2' id=cring2></div><div class='stone item10 item ring3' id=cring3></div>
+	<div class='stone item10 item ring4' id=cring4></div><div class='stone item10 item ring5' id=cring5></div><div class='bush item10 item ring6' id=cring6></div>
+	<div class='bush item10 item ring7' id=cring7></div><div class='bush item10 item ring8' id=cring8></div><div class='tree item10 item ring9' id=cring9></div>
+	<div class='tree item10 item ring10' id=cring10></div><div class='stone item10 item ring11' id=cring11></div><div class='bush item10 item ring12' id=cring12></div>
+	<div class='bush item10 item ring13' id=cring13></div>
+	
+	<div class='winBoard'>
+		<br />Score kalian adalah :
+		<br /><br />
+		<b class=txtScore></b>
+		<br />
+		<br />
+		<button class='btn btn-info butCLobi'>OK</button>
+	</div>
+</div>
+</div>
+</section>
+
+<section id=coop3>
+<div class=ui>
+<div class='board starBoard'>
+	
+	<div class='sTreeUp'></div><div class='sTreeBot'></div><div class='sTreeLeft'></div><div class='sTreeRight'></div>
+	<div class='tree item11 item star1' id=cstar1></div><div class='tree item11 item star2' id=cstar2></div><div class='stone item11 item star3' id=cstar3></div>
+	<div class='stone item11 item star4' id=cstar4></div><div class='stone item11 item star5' id=cstar5></div><div class='bush item11 item star6' id=cstar6></div>
+	<div class='bush item11 item star7' id=cstar7></div><div class='bush item11 item star8' id=cstar8></div><div class='tree item11 item star9' id=cstar9></div>
+	<div class='tree item11 item star10' id=cstar10></div><div class='stone item11 item star11' id=cstar11></div><div class='bush item11 item star12' id=cstar12></div>
+	<div class='bush item11 item star13' id=cstar13></div>
+	
+	<div class='winBoard'>
+		<br />Score kalian adalah :
+		<br /><br />
+		<b class=txtScore></b>
+		<br />
+		<br />
+		<button class='btn btn-info butCLobi'>OK</button>
 	</div>
 </div>
 </div>
