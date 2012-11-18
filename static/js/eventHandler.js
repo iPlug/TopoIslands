@@ -57,7 +57,10 @@ $(document).ready(function() {
 			//alert('Username dan Password tidak boleh kosong.');
 		}
 	});
-		
+	
+	$("#forgotPssw").click(function(event) {
+		alert('Request password lama Anda dengan mengirimkan username anda ke alamat admin-tpislands@gmail.com. Kami akan segera mengirimkan password lama Anda ke email yang terkait dengan username tersebut.');
+	  });
 	// MAP BUTTON HANDLER
 
 	$("#butBus").click(function(event) {
