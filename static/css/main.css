@@ -325,7 +325,8 @@ body:full-screen{
 	left:75px;
 	z-index:1000;
 	padding:20px;
-	font-size:1.5em;
+	font-size:1.25em;
+	font-family:Arial;
 }
 
 .imgBox{
@@ -544,4 +545,9 @@ body:full-screen{
 .imgP1{
     background:white;
 
+}
+
+#credit{
+    color:whiteSmoke;
+    font-family:Consolas;    
 }

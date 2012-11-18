@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 	$("#uname").focus();
-	
+
 	// HOVER ITEM
 	$('.item').hover(function(event){
 		if(($(this).css('border')=='1px solid rgba(0, 0, 0, 0)') || ($(this)[0].style.border=='1px solid transparent')){
@@ -117,7 +117,7 @@ $(document).ready(function() {
 			RunPrefixMethod(document, "CancelFullScreen"); 
 		}  
 		else {  
-			document.body.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+			document.body.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
 		}  
 	  });
 	  
