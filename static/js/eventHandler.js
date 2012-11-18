@@ -227,7 +227,7 @@ $(document).ready(function() {
 		
 	$(".trap").click(function(event) {
 		alert('Kamu memotong pohon yang salah, score mu akan berkurang.');
-		gF++;
+		gF+=50;
 	});
 		
 	$("#cont1").click(function(event) {
