@@ -297,7 +297,7 @@ $(document).ready(function() {
 	
 	$("#cReadyP1").click(function(event) {
 		if(rea==1){
-			socket.emit('startCoop',1);
+			socket.emit('startCoop',Math.floor((Math.random()*3)+1););
 		}
 	});
 	$("#cReadyP2").click(function(event) {
