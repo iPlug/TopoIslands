@@ -57,7 +57,7 @@ app.get('/drop-101010', function(req, res) {
 	if(err)
 		res.send(err);
 	else
-		res.send('delete success');
+		res.send('delete success<br /><a href=/create-101010>Next</a>');
   });
 });
 
