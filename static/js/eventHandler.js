@@ -226,8 +226,10 @@ $(document).ready(function() {
 		});
 		
 	$(".trap").click(function(event) {
-		alert('Kamu memotong pohon yang salah, score mu akan berkurang.');
-		gF+=50;
+		if(isWorking==false){
+			alert('Kamu memotong pohon yang salah, score mu akan berkurang.');
+			gF+=50;
+		}
 	});
 		
 	$("#cont1").click(function(event) {
