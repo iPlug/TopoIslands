@@ -270,7 +270,7 @@ $(document).ready(function() {
 	
 	$("#aReadyP1").click(function(event) {
 		if(rea==1){
-			socket.emit('startPVP',1);
+			socket.emit('startPVP',Math.floor((Math.random()*3)+1););
 		}
 	});
 	$("#aReadyP2").click(function(event) {
