@@ -122,10 +122,10 @@ Index:
 	""
 	],
 	[
-	"Rute Star adalah rute terakhir yang akan ku ajarkan. Jadi perhatikanlah baik-baik. Temanku bernama Gourmet akan melatihmu disana. Semoga Sukses!",
+	"Rute Star adalah rute terakhir yang akan ku ajarkan. Jadi perhatikanlah baik-baik. Temanku bernama Gourmet akan melatihmu disana.",
 	""],
 	[
-	"Berbicaralah padaku kapanpun kamu siap untuk pergi ke Pulau Star.",
+	"Pergilah kapanpun saat kau siap. Berlatihlah yang giat, semoga sukses!",
 	""]
 	];
 	

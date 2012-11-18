@@ -4,6 +4,7 @@ function stMini(){
 	gT=0;
 	gS=0;
 	eS=0;
+	gF=0;
 	isPlaying=true;
 }
 
@@ -13,9 +14,9 @@ function endMini(batas){
 	clearTimeout(ptrTimer);
 	console.log(gT);
 	$(".winBoard").show();
-	if(gT<batas){
+	if(gT+gF<batas){
 		$(".txtScore").html(batas-gT);
-		gS=(batas-gT);
+		gS=(batas-gT-gF);
 	}else{
 		$(".txtScore").html('0');
 		gS=0;
@@ -45,9 +46,9 @@ function endCoop(){
 	clearTimeout(ptrTimer);
 	console.log(gT);
 	$(".winBoard").show();
-	if(gT<500){
-		$(".txtScore").html(500-gT);
-		gS=(500-gT);
+	if(gT+gF<500){
+		$(".txtScore").html(500-gT-gF);
+		gS=(500-gT-gF);
 	}else{
 		$(".txtScore").html('0');
 		gS=0;

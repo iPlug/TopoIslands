@@ -6,8 +6,8 @@ client.connect();
 
 
 function initDb(){
-	client.query("DROP TABLE player");
-	client.query("CREATE TABLE player(name varchar(10) PRIMARY KEY, pass varchar(10), level integer, exp integer , axe integer, hammer integer, sickle integer, win integer, lose integer, score integer, tuts integer, winrate real, email varchar(50), pp varchar(250))");
+	
+	
 	console.log('Created Table : player');
 }
 

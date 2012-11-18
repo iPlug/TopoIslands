@@ -29,11 +29,23 @@
 <body>
 <div align=center style="top:100px;position:relative;">
 <div id=loginBox>
-<div style="top:100px;position:relative;">
-<label>Username : <input type=text id=uname value=Kirito /></label>
-<label>Password : <input type=password id=passw value=asuna /></label>
+<div style="top:100px;position:relative;color:whiteSmoke;">
+<form id=frmSignin>
+<label>Username : <input type=text id=uname pattern="[a-zA-Z0-9]{4,}" title="Minmimum 4 letters or numbers." required x-moz-errormessage="Minmimum 4 letters or numbers."/></label>
+<label>Password : <input type=password id=passw pattern="[a-zA-Z0-9]{8,}" title="Minmimum 8 letters or numbers." required x-moz-errormessage="Minmimum 8 letters or numbers."/></label>
 <button class='btn btn-info btn-large' id=signup><i class='icon-white icon-plus-sign'></i> <br /> Daftar</button> <button class='btn btn-success btn-large' id=signin><i class='icon-white icon-leaf'></i> <br /> Masuk</button>
-<label id=warnBoard></label>
+</form>
+</div>
+</div>
+<div id=signBox>
+<div style="top:20px;position:relative;color:whiteSmoke;">
+<form method="post" enctype="multipart/form-data">
+  <br /> Username <br /><input type="text" id=signName name="uname" readonly=readonly>
+  <br /><br /> Password <br /><input type="password" id=signPass name="passw" pattern="[a-zA-Z0-9]{8,}" title="Minmimum 8 letters or numbers." required>
+  <br /><br /> Email    <br /><input id=signEmail name="email" type="email" required >
+  <br /><br /> Photo Profile <br /><input type="file" id=signPP name="pp" required>
+  <br /><br /><button type="submit" class='btn btn-info btn-large'><i class='icon-white icon-plus-sign'></i><br /> Signup </button>
+</form>
 </div>
 </div>
 </div>
@@ -124,14 +136,24 @@
 	<div class='btIsle' id=butStar></div>
 	<div class='btIsle' id=butPvp></div>
 	<div class='btIsle' id=butCoop></div>
+	<div class='btIsle' id=butCredit></div>
 	<div id=sailBoat></div>
+</div>
+</div>
+</section>
+
+<section id=credit>
+<div class=ui>
+<div class='board'>
+	Ini adalah halaman credit. Yay, akhirnya selesai juga.
+	<button class='btn btn-danger butHome'><i class='icon-white icon-home'></i><br /> Keluar </button>
 </div>
 </div>
 </section>
 
 <section id=intro>
 <div class=ui>
-<div class='board boardIntro'>
+<div class='board busBoard'>
 	
 	<div class=msgBox>
 		<div class=imgBox  >
@@ -140,6 +162,15 @@
 		</div>
 		<button class='btn btn-info btNext' id=introNext>Next</button>
 	</div>
+	
+	<div class='midUp1 trees2'></div><div class='midUp2 trees3'></div><div class='midUp3 trees3'></div><div class='midUp4 trees2'></div>
+	<div class='midBot1 trees4'></div><div class='midBot2 trees4'></div><div class='midBot3 trees4'></div>
+	<div class='stage2'></div><div class='stage4'></div><div class='stage6'></div>
+	<div class='tree item bus1' ></div><div class='tree item bus2' ></div><div class='tree item bus3' ></div>
+	<div class='tree item bus4' ></div><div class='stone item bus5' ></div><div class='stone item bus6' ></div><div class='stone item bus7' ></div>
+	<div class='stone item bus8' ></div><div class='bush item bus9' ></div><div class='bush item bus10' ></div><div class='bush item bus11' ></div>
+	<div class='bush item bus12' ></div>
+	
 </div>
 </div>
 </section>
@@ -173,9 +204,8 @@
 		<button class='btn btn-info btNext' id=st2Next>Next</button>
 	</div>
 	
-	<div class='midUp1 trees2'></div><div class='midUp2 trees3'></div><div class='midUp3 trees3'></div><div class='midUp4 trees2'></div>
-	<div class='midBot1 trees4'></div><div class='midBot2 trees4'></div><div class='midBot3 trees4'></div>
-	<div class='stage2'></div><div class='stage4'></div><div class='stage6'></div>
+	<div class='midUp1 trees2 trap'></div><div class='midUp2 trees3 trap'></div><div class='midUp3 trees3 trap'></div><div class='midUp4 trees2 trap'></div>
+	<div class='midBot1 trees4 trap'></div><div class='midBot2 trees4 trap'></div><div class='midBot3 trees4 trap'></div>
 	<div class='tree item1 item bus1' id=satu1></div><div class='tree item1 item bus2' id=satu2></div><div class='tree item1 item bus3' id=satu3></div>
 	<div class='tree item1 item bus4' id=satu4></div><div class='stone item2 item bus5' id=dua1></div><div class='stone item2 item bus6' id=dua2></div><div class='stone item2 item bus7' id=dua3></div>
 	<div class='stone item2 item bus8' id=dua4></div><div class='bush item3 item bus9' id=tiga1></div><div class='bush item3 item bus10' id=tiga2></div><div class='bush item3 item bus11' id=tiga3></div>
@@ -208,8 +238,8 @@
 		<button class='btn btn-info btNext' id=st3Next>Next</button>
 	</div>
 	
-	<div class='midUp1 trees2'></div><div class='midUp2 trees3'></div><div class='midUp3 trees3'></div><div class='midUp4 trees2'></div>
-	<div class='midBot1 trees4'></div><div class='midBot2 trees4'></div><div class='midBot3 trees4'></div>
+	<div class='midUp1 trees2 trap'></div><div class='midUp2 trees3 trap'></div><div class='midUp3 trees3 trap'></div><div class='midUp4 trees2 trap'></div>
+	<div class='midBot1 trees4 trap'></div><div class='midBot2 trees4 trap'></div><div class='midBot3 trees4 trap'></div>
 	<div class='stone item2 item bus5' id=dua1></div><div class='stone item2 item bus6' id=dua2></div><div class='stone item2 item bus7' id=dua3></div>
 	<div class='stone item2 item bus8' id=dua4></div><div class='bush item3 item bus9' id=tiga1></div><div class='bush item3 item bus10' id=tiga2></div><div class='bush item3 item bus11' id=tiga3></div>
 	<div class='bush item3 item bus12' id=tiga4></div>
@@ -242,8 +272,8 @@
 		<button class='btn btn-info btNext' id=busFinish>Next</button>
 	</div>
 	
-	<div class='midUp1 trees2'></div><div class='midUp2 trees3'></div><div class='midUp3 trees3'></div><div class='midUp4 trees2'></div>
-	<div class='midBot1 trees4'></div><div class='midBot2 trees4'></div><div class='midBot3 trees4'></div>
+	<div class='midUp1 trees2 trap'></div><div class='midUp2 trees3 trap'></div><div class='midUp3 trees3 trap'></div><div class='midUp4 trees2 trap'></div>
+	<div class='midBot1 trees4 trap'></div><div class='midBot2 trees4 trap'></div><div class='midBot3 trees4 trap'></div>
 	<div class='bush item3 item bus9' id=tiga1></div><div class='bush item3 item bus10' id=tiga2></div><div class='bush item3 item bus11' id=tiga3></div>
 	<div class='bush item3 item bus12' id=tiga4></div>
 	
@@ -292,7 +322,7 @@
 		</div>
 		<button class='btn btn-info btNext' id=ringFinish>Next</button>
 	</div>
-	<div class='rTreeUp'></div><div class='rTreeMid'></div><div class='rTreeBot'></div><div class='rTreeLeft'></div><div class='rTreeRight'></div>
+	<div class='rTreeUp trap'></div><div class='rTreeMid trap'></div><div class='rTreeBot trap'></div><div class='rTreeLeft trap'></div><div class='rTreeRight trap'></div>
 	<div class='tree item4 item ring1' id=ring1></div><div class='tree item4 item ring2' id=ring2></div><div class='stone item4 item ring3' id=ring3></div>
 	<div class='stone item4 item ring4' id=ring4></div><div class='stone item4 item ring5' id=ring5></div><div class='bush item4 item ring6' id=ring6></div>
 	<div class='bush item4 item ring7' id=ring7></div><div class='bush item4 item ring8' id=ring8></div><div class='tree item4 item ring9' id=ring9></div>
@@ -343,7 +373,7 @@
 		</div>
 		<button class='btn btn-info btNext' id=starFinish>Next</button>
 	</div>
-	<div class='sTreeUp'></div><div class='sTreeBot'></div><div class='sTreeLeft'></div><div class='sTreeRight'></div>
+	<div class='sTreeUp trap'></div><div class='sTreeBot  trap'></div><div class='sTreeLeft  trap'></div><div class='sTreeRight  trap'></div>
 	<div class='tree item5 item star1' id=star1></div><div class='tree item5 item star2' id=star2></div><div class='stone item5 item star3' id=star3></div>
 	<div class='stone item5 item star4' id=star4></div><div class='stone item5 item star5' id=star5></div><div class='bush item5 item star6' id=star6></div>
 	<div class='bush item5 item star7' id=star7></div><div class='bush item5 item star8' id=star8></div><div class='tree item5 item star9' id=star9></div>
@@ -494,8 +524,8 @@
 <div class=ui>
 <div class='board busBoard'>
 	
-	<div class='midUp1 trees2'></div><div class='midUp2 trees3'></div><div class='midUp3 trees3'></div><div class='midUp4 trees2'></div>
-	<div class='midBot1 trees4'></div><div class='midBot2 trees4'></div><div class='midBot3 trees4'></div>	
+	<div class='midUp1 trees2 trap'></div><div class='midUp2 trees3 trap'></div><div class='midUp3 trees3 trap'></div><div class='midUp4 trees2 trap'></div>
+	<div class='midBot1 trees4 trap'></div><div class='midBot2 trees4 trap'></div><div class='midBot3 trees4 trap'></div>
 	<div class='tree item6 item bus1' id=abus1></div><div class='tree item6 item bus2' id=abus2></div><div class='stone item6 item bus3' id=abus3></div>
 	<div class='stone item6 item bus4' id=abus4></div><div class='stone item6 item bus5' id=abus5></div><div class='bush item6 item bus6' id=abus6></div>
 	<div class='bush item6 item bus7' id=abus7></div><div class='bush item6 item bus8' id=abus8></div><div class='tree item6 item bus9' id=abus9></div>
@@ -517,7 +547,7 @@
 <div class=ui>
 <div class='board ringBoard'>
 	
-	<div class='rTreeUp'></div><div class='rTreeMid'></div><div class='rTreeBot'></div><div class='rTreeLeft'></div><div class='rTreeRight'></div>
+	<div class='rTreeUp trap'></div><div class='rTreeMid trap'></div><div class='rTreeBot trap'></div><div class='rTreeLeft trap'></div><div class='rTreeRight trap'></div>
 	<div class='tree item7 item ring1' id=aring1></div><div class='tree item7 item ring2' id=aring2></div><div class='stone item7 item ring3' id=aring3></div>
 	<div class='stone item7 item ring4' id=aring4></div><div class='stone item7 item ring5' id=aring5></div><div class='bush item7 item ring6' id=aring6></div>
 	<div class='bush item7 item ring7' id=aring7></div><div class='bush item7 item ring8' id=aring8></div><div class='tree item7 item ring9' id=aring9></div>
@@ -539,7 +569,7 @@
 <div class=ui>
 <div class='board starBoard'>
 	
-	<div class='sTreeUp'></div><div class='sTreeBot'></div><div class='sTreeLeft'></div><div class='sTreeRight'></div>
+	<div class='sTreeUp trap'></div><div class='sTreeBot  trap'></div><div class='sTreeLeft  trap'></div><div class='sTreeRight  trap'></div>
 	<div class='tree item8 item star1' id=astar1></div><div class='tree item8 item star2' id=astar2></div><div class='stone item8 item star3' id=astar3></div>
 	<div class='stone item8 item star4' id=astar4></div><div class='stone item8 item star5' id=astar5></div><div class='bush item8 item star6' id=astar6></div>
 	<div class='bush item8 item star7' id=astar7></div><div class='bush item8 item star8' id=astar8></div><div class='tree item8 item star9' id=astar9></div>
@@ -561,8 +591,8 @@
 <div class=ui>
 <div class='board busBoard'>
 	
-	<div class='midUp1 trees2'></div><div class='midUp2 trees3'></div><div class='midUp3 trees3'></div><div class='midUp4 trees2'></div>
-	<div class='midBot1 trees4'></div><div class='midBot2 trees4'></div><div class='midBot3 trees4'></div>	
+	<div class='midUp1 trees2 trap'></div><div class='midUp2 trees3 trap'></div><div class='midUp3 trees3 trap'></div><div class='midUp4 trees2 trap'></div>
+	<div class='midBot1 trees4 trap'></div><div class='midBot2 trees4 trap'></div><div class='midBot3 trees4 trap'></div>
 	<div class='tree item9 item bus1' id=cbus1></div><div class='tree item9 item bus2' id=cbus2></div><div class='stone item9 item bus3' id=cbus3></div>
 	<div class='stone item9 item bus4' id=cbus4></div><div class='stone item9 item bus5' id=cbus5></div><div class='bush item9 item bus6' id=cbus6></div>
 	<div class='bush item9 item bus7' id=cbus7></div><div class='bush item9 item bus8' id=cbus8></div><div class='tree item9 item bus9' id=cbus9></div>
@@ -585,7 +615,7 @@
 <div class=ui>
 <div class='board ringBoard'>
 	
-	<div class='rTreeUp'></div><div class='rTreeMid'></div><div class='rTreeBot'></div><div class='rTreeLeft'></div><div class='rTreeRight'></div>
+	<div class='rTreeUp trap'></div><div class='rTreeMid trap'></div><div class='rTreeBot trap'></div><div class='rTreeLeft trap'></div><div class='rTreeRight trap'></div>
 	<div class='tree item10 item ring1' id=cring1></div><div class='tree item10 item ring2' id=cring2></div><div class='stone item10 item ring3' id=cring3></div>
 	<div class='stone item10 item ring4' id=cring4></div><div class='stone item10 item ring5' id=cring5></div><div class='bush item10 item ring6' id=cring6></div>
 	<div class='bush item10 item ring7' id=cring7></div><div class='bush item10 item ring8' id=cring8></div><div class='tree item10 item ring9' id=cring9></div>
@@ -608,7 +638,7 @@
 <div class=ui>
 <div class='board starBoard'>
 	
-	<div class='sTreeUp'></div><div class='sTreeBot'></div><div class='sTreeLeft'></div><div class='sTreeRight'></div>
+	<div class='sTreeUp trap'></div><div class='sTreeBot  trap'></div><div class='sTreeLeft  trap'></div><div class='sTreeRight  trap'></div>
 	<div class='tree item11 item star1' id=cstar1></div><div class='tree item11 item star2' id=cstar2></div><div class='stone item11 item star3' id=cstar3></div>
 	<div class='stone item11 item star4' id=cstar4></div><div class='stone item11 item star5' id=cstar5></div><div class='bush item11 item star6' id=cstar6></div>
 	<div class='bush item11 item star7' id=cstar7></div><div class='bush item11 item star8' id=cstar8></div><div class='tree item11 item star9' id=cstar9></div>

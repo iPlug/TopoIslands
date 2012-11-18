@@ -117,6 +117,7 @@
 	var isWorking=false;
 	var gT=60;
 	var gS=0;
+	var gF=0;
 	var stopwatch;
 	var ptrTimer;
 	var chopTimer;

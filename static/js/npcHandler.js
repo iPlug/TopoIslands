@@ -18,12 +18,12 @@ function tutsHandler(){
 			$('#tutsTree1').show();
 		}
 		if(CC==1){
-			$('#tutsTree1').fadeOut(2000);
+			$('#tutsTree1').fadeOut(1000);
 			$('#tutsTree3').show();
 			$('#tutsTree2').hide();
 		}
 		if(CC==2){
-			$('#tutsTree3').fadeOut(2000);
+			$('#tutsTree3').fadeOut(1000);
 			$('#textTut').show();
 		}
 	}else{

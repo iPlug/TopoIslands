@@ -13,6 +13,17 @@
 		*/
 	});
 	
+	socket.on('uStat', function(i){
+		if(i==0){
+			$('#signBox').show();
+			$('#loginBox').hide();
+			$('#signName').val(uname);
+			$('#signPass').val(passw);
+		}else{
+			alert('Username sudah ada, coba username yang lain.');
+		}
+	});
+	
 	socket.on('refreshNow', function (level, exp, axe, hammer, sickle, win, lose, score, tuts, pp){
 		refreshNow(level, exp, axe, hammer, sickle, win, lose, score, tuts, pp);
 	});
@@ -95,8 +106,11 @@
 	});
 	
 	socket.on('notauthed', function(g){
-		$('#warnBoard').html('Username / Password Anda Salah');
-		$('#uname').focus();
+		alert('Username tidak cocok dengan Password. Silahkan periksa kembali Username dan Password Anda.');
+	});
+	
+	socket.on('notsigned', function(g){
+		alert('Username Anda belum terdaftar. Silahkan klik tombol daftar.');
 	});
 	
 	socket.on('levelUp', function(){

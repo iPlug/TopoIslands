@@ -1,4 +1,5 @@
 function hideAll(){
+		$("#credit").hide();
 		$("#map").hide();
 		$("#intro").hide();
 		$("#tutorial").hide();
@@ -179,8 +180,6 @@ function preRing(){
 }
 
 function doRing(){
-	socket.emit('updateTuts',3);
-	tutorial=3;
 	CC=-1;
 	hideAll();
 	animateBus();
@@ -210,8 +209,6 @@ function ringFin(){
 }
 
 function doStar(){
-	socket.emit('updateTuts',4);
-	tutorial=4;
 	CC=-1;
 	hideAll();
 	animateRing();
@@ -234,7 +231,6 @@ function doStageStar(){
 }
 
 function starFin(){
-	socket.emit('updateTuts',6);
 	socket.emit('reqRefresh');
 	tutorial=5;
 	$('.winBoard').hide();

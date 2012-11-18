@@ -19,13 +19,43 @@ $(document).ready(function() {
 	$('#signin').click( function(){
 		uname = $('#uname').val();
 		passw = $('#passw').val();
-		socket.emit('signin',uname,passw);
+		if(uname!='' && passw!=''){
+			if(uname.length<4){
+				//alert('Username tidak boleh kurang dari 4 huruf.');
+			}else{
+				if(passw.length<8){
+					//alert('Password tidak boleh kurang dari 8 huruf/angka.');
+				}else{
+					socket.emit('signin',uname,passw);
+				}
+			}
+		}else{
+			//alert('Username dan Password tidak boleh kosong.');
+		}
 	});
-		
+	
+	$('#frmSignin').submit(function(e){
+		e.preventDefault();
+        return false;
+	});
+	
 	$('#signup').click( function(){
 		uname = $('#uname').val();
 		passw = $('#passw').val();
-		socket.emit('signup',uname,passw);
+		
+		if(uname!='' && passw!=''){
+			if(uname.length<4){
+				//alert('Username tidak boleh kurang dari 4 huruf.');
+			}else{
+				if(passw.length<8){
+					//alert('Password tidak boleh kurang dari 8 huruf/angka.');
+				}else{
+					socket.emit('signup',uname,passw);
+				}
+			}
+		}else{
+			//alert('Username dan Password tidak boleh kosong.');
+		}
 	});
 		
 	// MAP BUTTON HANDLER
@@ -72,7 +102,13 @@ $(document).ready(function() {
 		$('#sailBoat').css('left','230px');
 		$('#sailBoat').css('top','300px');
 		doCoop();
-	  });
+	});
+	$("#butCredit").click(function(event) {
+		$('#sailBoat').css('left','411px');
+		$('#sailBoat').css('top','275px');
+		hideAll();
+		$('#credit').fadeIn(1000);
+	});
 
 	  // UI BUTTON HANDLER
 	  $('#butFS').click(function(event){
@@ -189,6 +225,11 @@ $(document).ready(function() {
 		}
 		});
 		
+	$(".trap").click(function(event) {
+		alert('Kamu memotong pohon yang salah, score mu akan berkurang.');
+		gF++;
+	});
+		
 	$("#cont1").click(function(event) {
 			socket.emit('updateScoreT',gS);
 			preStage2();
@@ -248,6 +289,12 @@ $(document).ready(function() {
 		socket.emit('leaveArena');
 		doPvp();
 	});
+	
+	$(".butCLobi").click(function(event) {
+		socket.emit('leaveParty');
+		doCoop();
+	});
+	
 	$("#cReadyP1").click(function(event) {
 		if(rea==1){
 			socket.emit('startCoop',1);

@@ -16,12 +16,13 @@ var imgL = new Array;
 var express = require('express');
 var app = express()
   , http = require('http')
+  , fs = require('fs')
   , server = http.createServer(app)
   , io = require('socket.io').listen(server);
 var sys = require('util');
 var pg = require('pg'); //native libpq bindings = `var pg = require('pg').native`
-var conString = "postgres://postgres:fariqorik@localhost:5432/postgres";
-//var conString = 'postgres://nijegwbjqbuihp:my6WheKVlqtm3UHFV4NKgu5nov@ec2-54-243-247-55.compute-1.amazonaws.com:5432/d6imoto5c8i6ej';
+//var conString = "postgres://postgres:fariqorik@localhost:5432/postgres";
+var conString = 'postgres://nijegwbjqbuihp:my6WheKVlqtm3UHFV4NKgu5nov@ec2-54-243-247-55.compute-1.amazonaws.com:5432/d6imoto5c8i6ej';
 
 var port = process.env.PORT || 5000;
 
@@ -37,6 +38,7 @@ var client = new pg.Client(conString);
 client.connect();
 
 app.configure(function(){
+	app.use(express.bodyParser());
 	app.use(express.static(__dirname + '/static'));
 });
 
@@ -48,6 +50,55 @@ app.get('/', function (req, res) {
 
 app.get('/play', function (req, res) {
   res.sendfile(__dirname + '/index.html');
+});
+
+app.get('/drop-101010', function(req, res) {
+  client.query("DROP TABLE player", function(err,result){
+	if(err)
+		res.send(err);
+	else
+		res.send('delete success');
+  });
+});
+
+app.get('/create-101010', function(req, res) {
+  client.query("CREATE TABLE player(name varchar(10) PRIMARY KEY, pass varchar(10), level integer, exp integer , axe integer, hammer integer, sickle integer, win integer, lose integer, score integer, tuts integer, winrate real, email varchar(50), pp varchar(250))", function(err,result){
+	if(err)
+		res.send(err);
+	else
+		res.send('create success');
+  });
+});
+
+app.post('/play', function (req, res) {
+	var uname = req.param('uname', null);
+	var passw = req.param('passw', null);
+	var email = req.param('email', null);
+	var ppro = uname + '.jpg';
+	
+	var searching;
+	var update;
+	searching = client.query("SELECT name FROM player WHERE name = $1", [uname], function(err,result){
+		if(err) {
+			console.log(err);
+		}else {
+			if(result.rowCount==0){
+				client.query("INSERT INTO player(name, pass, level, exp, axe, hammer, sickle, win, lose, score, tuts, winrate, email, pp) values($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)", [uname, passw, 1, 100, 1, 1, 1, 0, 0, 0, 0, 0, email, ppro]);
+				fs.readFile(req.files.pp.path, function (err, data) {  
+					var newPath = __dirname + "/static/img/profile/" + uname + '.jpg';
+					fs.writeFile(newPath, data, function (err) {
+						cinfo(red + uname + reset + ' upload completed.');	
+						cinfo(red + uname + reset + ' has been born.');
+						res.redirect("/play#success");
+					});
+				});
+			}else{
+				res.redirect("/play#fail");
+				cinfo(red + uname + reset + ' is arleady exist.');
+			}
+		}
+	});
+
 });
 
 app.get('/library', function (req, res) {
@@ -73,21 +124,14 @@ io.sockets.on('connection', function (socket) {
 	
 	// ------- DATABASE ---------------
 	
-	socket.on('signup', function (uname,passw){
+	socket.on('signup', function (uname,passw,email,pp){
 		var searching;
 		var update;
 		searching = client.query("SELECT name FROM player WHERE name = $1", [uname], function(err,result){
 			if(err) {
 				console.log(err);
 			}else {
-				if(result.rowCount==0){
-					client.query("INSERT INTO player(name, pass, level, exp, axe, hammer, sickle, win, lose, score, tuts) values($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)", [uname, passw, 1, 0, 1, 1, 1, 0, 0, 0, 0]);
-					socket.emit('authed', 1, 0, 1, 1, 1, 0, 0, 0, 0);
-					cinfo(red + uname + reset + ' has been born.');		
-				}else{
-					console.log(result);
-					cinfo(red + uname + reset + ' is arleady exist.');
-				}
+				socket.emit('uStat', result.rowCount);
 			}
 		});
 		
@@ -95,7 +139,6 @@ io.sockets.on('connection', function (socket) {
 
 	// when user sign in
 	socket.on('signin', function(name, pass){
-		
 		var searching = client.query("SELECT * FROM player WHERE name = $1", [name]);
 		searching.on('row', function(row) {
 			if(pass==row.pass){
@@ -104,12 +147,18 @@ io.sockets.on('connection', function (socket) {
 				socket.pp=row.pp;
 				socket.emit('authed', row.level, row.exp, row.axe, row.hammer, row.sickle, row.win, row.lose, row.score, row.tuts, row.pp);
 				cinfo(red + name + reset + ' has connected.');
-				
 			}else{
 				socket.emit('notauthed');
 			}
 		});
 		
+		searching = client.query("SELECT * FROM player WHERE name = $1", [name], function(err,result){
+			if(err) {
+				console.log(err);
+			}else {
+				if(result.rowCount==0) socket.emit('notsigned');
+			}
+		});
 		// update leaderboard
 		
 		var lbPVP = client.query("SELECT * FROM player ORDER BY winrate DESC LIMIT 3", function(err,result){
