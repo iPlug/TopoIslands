@@ -2,8 +2,8 @@
 // format 
 // var conString = 'postgres://user:password@host';
 
-var conString = "postgres://postgres:fariqorik@localhost:5432/postgres";
-//var conString = 'postgres://nijegwbjqbuihp:my6WheKVlqtm3UHFV4NKgu5nov@ec2-54-243-247-55.compute-1.amazonaws.com:5432/d6imoto5c8i6ej';
+//var conString = "postgres://postgres:fariqorik@localhost:5432/postgres";
+var conString = 'postgres://nijegwbjqbuihp:my6WheKVlqtm3UHFV4NKgu5nov@ec2-54-243-247-55.compute-1.amazonaws.com:5432/d6imoto5c8i6ej';
 
 var red, blue, reset;
 red   = '\u001b[31m';
@@ -113,12 +113,12 @@ app.get('/library', function (req, res) {
   res.sendfile(__dirname + '/perpus.html');
 });
 
-/*
+
 io.configure(function () { 
   io.set("transports", ["xhr-polling"]); 
   io.set("polling duration", 10); 
 });
-*/
+
 
 io.set('log level', 1);
 
