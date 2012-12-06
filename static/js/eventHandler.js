@@ -34,14 +34,20 @@ $(document).ready(function() {
 		}
 	});
 	
-	$('#frmSignin').submit(function(e){
+	$('.frmAuth').submit(function(e){
 		e.preventDefault();
         return false;
 	});
 	
 	$('#signup').click( function(){
-		uname = $('#uname').val();
-		passw = $('#passw').val();
+		$('#loginBox').hide();	
+		$('#signBox0').show();
+		$("#signName").focus();
+	});
+	
+	$('#cekAkun').click( function(){
+		uname = $('#signName').val();
+		passw = $('#signPass').val();
 		
 		if(uname!='' && passw!=''){
 			if(uname.length<4){
@@ -61,6 +67,12 @@ $(document).ready(function() {
 	$("#forgotPssw").click(function(event) {
 		alert('Request password lama Anda dengan mengirimkan username anda ke alamat admin-tpislands@gmail.com. Kami akan segera mengirimkan password lama Anda ke email yang terkait dengan username tersebut.');
 	  });
+	  
+	$("#toSignin").click(function(event) {
+		$('#signBox').hide();
+		$('#loginBox').show();
+	});  
+	  
 	// MAP BUTTON HANDLER
 
 	$("#butBus").click(function(event) {
@@ -106,11 +118,16 @@ $(document).ready(function() {
 		$('#sailBoat').css('top','300px');
 		doCoop();
 	});
-	$("#butCredit").click(function(event) {
+	$(".bCredit").click(function(event) {
 		$('#sailBoat').css('left','411px');
 		$('#sailBoat').css('top','275px');
 		hideAll();
 		$('#credit').fadeIn(1000);
+	});
+	$("#bRank").click(function(event) {
+		hideAll();
+		socket.emit("reqRank");
+		$('#rank').fadeIn(1000);
 	});
 
 	  // UI BUTTON HANDLER
@@ -207,32 +224,36 @@ $(document).ready(function() {
 	// GAME BUTTON HANDLER
 	  	  
 	$(".mnSt").click(function(event) {
-			startMini();
-		  });
+		startMini();
+	 });
 
 	$(".tree").click(function(event) {
-			if(axeLvl!=0){
-				hidePtr(this,axeLvl);
-			}
-		});
+		if(axeLvl!=0){
+			hidePtr(this,axeLvl);
+		}
+	});
 
 	$(".stone").click(function(event) {
 		if(hamLvl!=0){
 			hidePtr(this,hamLvl);
 		}
-		});
+	});
 		
 	$(".bush").click(function(event) {
 		if(sicLvl!=0){
 			hidePtr(this,sicLvl);
 		}
-		});
+	});
 		
 	$(".trap").click(function(event) {
 		if(isWorking==false){
 			alert('Kamu memotong pohon yang salah, score mu akan berkurang.');
 			gF+=50;
 		}
+	});
+	
+	$(".item").click(function(event){
+
 	});
 		
 	$("#cont1").click(function(event) {
@@ -295,11 +316,6 @@ $(document).ready(function() {
 		doPvp();
 	});
 	
-	$(".butCLobi").click(function(event) {
-		socket.emit('leaveParty');
-		doCoop();
-	});
-	
 	$("#cReadyP1").click(function(event) {
 		if(rea==1){
 			socket.emit('startCoop',Math.floor((Math.random()*3)+1));
@@ -317,7 +333,8 @@ $(document).ready(function() {
 		socket.emit('leaveParty');
 		doCoop();
 	});
-	$(".butLobi").click(function(event) {
+	
+	$(".butCLobi").click(function(event) {
 		socket.emit('leaveParty');
 		doCoop();
 	});
@@ -418,6 +435,11 @@ $(document).ready(function() {
 		$('#sailBoat').sprite({
 			fps: 3, 
 			no_of_frames: 4
+		}).active();
+		
+		$('#toolTip').sprite({
+			fps: 4, 
+			no_of_frames: 2
 		}).active();
 		
  });

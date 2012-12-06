@@ -129,6 +129,10 @@
 	var isCoop=false;
 	var eS=0;
 	
+	//lb
+	var dbP;
+	var dbC;
+	var rnkCnt;
 	
 	var pfx = ["webkit", "moz", "ms", "o", ""];  
 	function RunPrefixMethod(obj, method) {  

@@ -2,7 +2,7 @@
 <html lang=en>
 <head>
 <meta charset="utf-8">
-<title>TopoIslands - Education Game of Network Topology</title>
+<title>TopoIslands - Educational Game of Network Topology</title>
 
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
@@ -29,26 +29,44 @@
 <body>
 <div align=center style="top:100px;position:relative;">
 <div id=loginBox>
-<div style="top:100px;position:relative;color:whiteSmoke;">
-<form id=frmSignin>
-<label>Username : <input type=text id=uname pattern="[a-zA-Z0-9]{4,}" title="Minmimum 4 letters or numbers." required x-moz-errormessage="Minmimum 4 letters or numbers."/></label>
-<label>Password : <input type=password id=passw pattern="[a-zA-Z0-9]{8,}" title="Minmimum 8 letters or numbers." required x-moz-errormessage="Minmimum 8 letters or numbers."/></label>
-<button class='btn btn-info btn-large' id=signup><i class='icon-white icon-plus-sign'></i> <br /> Daftar</button> <button class='btn btn-success btn-large' id=signin><i class='icon-white icon-leaf'></i> <br /> Masuk</button>
+<button class='btn btn-info btn-large' id=signup><i class='icon-white icon-plus-sign'></i> <br /> Daftar</button>
+<div style="left:100px;top:100px;position:relative;color:whiteSmoke;float:left;">
+<form class=frmAuth >
+<label>Username : <input type=text id=uname pattern="[a-zA-Z0-9]{4,10}" title="Minimum 4, Maximal 10, letters or numbers." required x-moz-errormessage="Minimum 4, Maximal 10, letters or numbers."></label>
+<label>Password : <input type=password id=passw pattern="[a-zA-Z0-9]{8,10}" title="Minimum 8, Maximal 10, letters or numbers." required x-moz-errormessage="Minimum 8, Maximal 10, letters or numbers."></label>
+ <button class='btn btn-success btn-large' id=signin><i class='icon-white icon-leaf'></i> <br /> Masuk</button>
+ <br /><br /><a id=forgotPssw style='cursor:pointer;'>Lupa Password?</a>
 </form>
-<a id=forgotPssw style='cursor:pointer;'>Lupa Password?</a>
 </div>
 </div>
+
+
+
+<div id=signBox0>
+<div style="top:20px;position:relative;color:whiteSmoke;">
+<form class=frmAuth>
+<h4> Membuat akun baru. </h4>
+  <br /> Username <br /><input type="text" id=signName name="uname" pattern="[a-zA-Z0-9]{4,10}" title="Minimum 4, Maximal 10, letters or numbers." required x-moz-errormessage="Minimum 4, Maximal 10, letters or numbers.">
+  <br /><br /> Password <br /><input type="password" id=signPass name="passw" pattern="[a-zA-Z0-9]{8,10}" title="Minimum 8, Maximal 10, letters or numbers." required x-moz-errormessage="Minimum 8, Maximal 10, letters or numbers.">
+  <br /><br /> <button type="submit" class='btn btn-info btn-large' id=cekAkun><i class='icon-white icon-plus-sign'></i><br /> Lanjutkan </button>
+</form>
+</div>
+</div>
+
 <div id=signBox>
 <div style="top:20px;position:relative;color:whiteSmoke;">
-<form method="post" enctype="multipart/form-data">
-  <br /> Username <br /><input type="text" id=signName name="uname" readonly=readonly>
-  <br /><br /> Password <br /><input type="password" id=signPass name="passw" pattern="[a-zA-Z0-9]{8,}" title="Minmimum 8 letters or numbers." required>
-  <br /><br /> Email    <br /><input id=signEmail name="email" type="email" required >
-  <br /><br /> Photo Profile <br /><input type="file" id=signPP name="pp" required>
-  <br /><br /><button type="submit" class='btn btn-info btn-large'><i class='icon-white icon-plus-sign'></i><br /> Signup </button>
+<form method="post" enctype="multipart/form-data" >
+<h4> Silahkan lengkapi form di bawah ini untuk bermain. </h4>
+  <input type="hidden" name="uname" id=signName1>
+  <input type="hidden" name="passw" id=signPass1>
+  <br /><br /> Email    <br /><input id=signEmail name="email" type="email" title="Masukan email Anda." required >
+  <br /><br /> Photo Profile <br /><input type="file" id=signPP name="pp" title="Pilih Foto profile Anda." required>
+  <br /><br /> <button type="submit" class='btn btn-info btn-large'><i class='icon-white icon-plus-sign'></i><br /> Signup </button> <button type="submit" class='btn btn-danger' id=toSignin><i class='icon-white icon-minus-sign'></i><br /> Kembali </button>
 </form>
+
 </div>
 </div>
+
 </div>
 <div id=wrapper>
 <div id=kupu></div>
@@ -123,6 +141,8 @@
 <br /> Skill Sabit</button>
 </div>
 <div id=mainMenu>
+<button id=bRank class='btn btn-info btmn'><i class='icon-white icon-star'></i> <br /> Rank </button>
+<button class='btn btn-info bCredit btmn'><i class='icon-white icon-tint'></i> <br /> Credit </button>
 <div id=daunKanan><img src=/img/acc/kanan.png width=50px height=130px/></div>
 </div>
 
@@ -134,8 +154,19 @@
 	<div class='btIsle' id=butStar></div>
 	<div class='btIsle' id=butPvp></div>
 	<div class='btIsle' id=butCoop></div>
-	<div class='btIsle' id=butCredit></div>
+	<div class='btIsle bCredit' id=butCredit></div>
 	<div id=sailBoat></div>
+</div>
+</div>
+</section>
+
+<section id=rank>
+<div class=ui>
+<div class='board'  style='background: rgba(38, 99, 62, 0.87);color: whiteSmoke;'>
+<br />
+<center><h1> PVP Rank </h1></center>
+	<div id=rnkPVP></div>
+	<button class='btn btn-danger butHome'><i class='icon-white icon-home'></i><br /> Keluar </button>
 </div>
 </div>
 </section>
@@ -180,7 +211,7 @@
 <section id=intro>
 <div class=ui>
 <div class='board busBoard'>
-	
+	<button class='skipConv btn btn-danger btn-large'> SKIP >> </button>
 	<div class=msgBox>
 		<div class=imgBox  >
 		</div>
@@ -211,9 +242,9 @@
 		</div>
 		<button class='btn btn-info btNext tutsNext' id=textTut>Ok, Aku mengerti</button>
 	</div>
-	<div class='tree item tutsNext' id=tutsTree1></div>
-	<div class='tree item' id=tutsTree2></div>
-	<div class='tree item tutsNext' id=tutsTree3></div>
+	<div class='tree tutsNext' id=tutsTree1></div>
+	<div class='tree' id=tutsTree2></div>
+	<div class='tree tutsNext' id=tutsTree3></div>
 
 </div></div>
 </section>
@@ -221,7 +252,14 @@
 <section id=stage1>
 <div class=ui>
 <div class='board busBoard'>
-
+	<div class=prosMe>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
+		</div>
+		<div class=imgMe></div>
+	</div>
+	
 	<div class=msgBox>
 		<div class=imgBox  >
 		</div>
@@ -256,6 +294,14 @@
 <section id=stage2>
 <div class=ui>
 <div class='board busBoard'>
+	<div class=prosMe>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
+		</div>
+		<div class=imgMe></div>
+	</div>
+	
 	<div class=msgBox>
 		<div class=imgBox  >
 		</div>
@@ -290,13 +336,15 @@
 <section id=stage3>
 <div class=ui>
 <div class='board busBoard'>
-	<div class=msgBox>
-		<div class=imgBox  >
+	<div class=prosMe>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
 		</div>
-		<div class=txtBox  >
-		</div>
-		<button class='btn btn-info btNext' id=busFinish>Next</button>
+		<div class=imgMe></div>
 	</div>
+	
+	
 	
 	<div class='midUp1 trees2 trap'></div><div class='midUp2 trees3 trap'></div><div class='midUp3 trees3 trap'></div><div class='midUp4 trees2 trap'></div>
 	<div class='midBot1 trees4 trap'></div><div class='midBot2 trees4 trap'></div><div class='midBot3 trees4 trap'></div>
@@ -341,13 +389,14 @@
 <section id=stageRing>
 <div class=ui>
 <div class='board ringBoard'>
-	<div class=msgBox>
-		<div class=imgBox  >
+	<div class=prosMe>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
 		</div>
-		<div class=txtBox  >
-		</div>
-		<button class='btn btn-info btNext' id=ringFinish>Next</button>
+		<div class=imgMe></div>
 	</div>
+	
 	<div class='rTreeUp trap'></div><div class='rTreeMid trap'></div><div class='rTreeBot trap'></div><div class='rTreeLeft trap'></div><div class='rTreeRight trap'></div>
 	<div class='tree item4 item ring1' id=ring1></div><div class='tree item4 item ring2' id=ring2></div><div class='stone item4 item ring3' id=ring3></div>
 	<div class='stone item4 item ring4' id=ring4></div><div class='stone item4 item ring5' id=ring5></div><div class='bush item4 item ring6' id=ring6></div>
@@ -392,13 +441,14 @@
 <section id=stageStar>
 <div class=ui>
 <div class='board starBoard'>
-	<div class=msgBox>
-		<div class=imgBox  >
+	<div class=prosMe>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
 		</div>
-		<div class=txtBox  >
-		</div>
-		<button class='btn btn-info btNext' id=starFinish>Next</button>
+		<div class=imgMe></div>
 	</div>
+	
 	<div class='sTreeUp trap'></div><div class='sTreeBot  trap'></div><div class='sTreeLeft  trap'></div><div class='sTreeRight  trap'></div>
 	<div class='tree item5 item star1' id=star1></div><div class='tree item5 item star2' id=star2></div><div class='stone item5 item star3' id=star3></div>
 	<div class='stone item5 item star4' id=star4></div><div class='stone item5 item star5' id=star5></div><div class='bush item5 item star6' id=star6></div>
@@ -422,8 +472,18 @@
 </section>
 
 <section id=animBus>
+<div id=toolTip>
+</div>
 <div class=ui>
 <div class='board busBoard'>
+	<div class=msgBox>
+		<div class=imgBox  >
+		</div>
+		<div class=txtBox  >
+		</div>
+		<button class='btn btn-info btNext' id=busFinish>Next</button>
+	</div>
+	
 	<canvas id=busCanvas width=900px height=590px></canvas>
 	<div class='midUp1 trees2'></div><div class='midUp2 trees3'></div><div class='midUp3 trees3'></div><div class='midUp4 trees2'></div>
 	<div class='midBot1 trees4'></div><div class='midBot2 trees4'></div><div class='midBot3 trees4'></div>
@@ -435,6 +495,14 @@
 <section id=animRing>
 <div class=ui>
 <div class='board ringBoard'>
+	<div class=msgBox>
+		<div class=imgBox  >
+		</div>
+		<div class=txtBox  >
+		</div>
+		<button class='btn btn-info btNext' id=ringFinish>Next</button>
+	</div>
+	
 	<canvas id=ringCanvas width=900px height=590px></canvas>
 	<div class='rTreeUp'></div><div class='rTreeMid'></div><div class='rTreeBot'></div><div class='rTreeLeft'></div><div class='rTreeRight'></div>
 	<button class='btn btn-danger butHome'><i class='icon-white icon-home'></i><br /> Keluar </button>
@@ -445,6 +513,14 @@
 <section id=animStar>
 <div class=ui>
 <div class='board starBoard'>
+	<div class=msgBox>
+		<div class=imgBox  >
+		</div>
+		<div class=txtBox  >
+		</div>
+		<button class='btn btn-info btNext' id=starFinish>Next</button>
+	</div>
+	
 	<canvas id=starCanvas width=900px height=590px></canvas>
 	<div class='sTreeUp'></div><div class='sTreeBot'></div><div class='sTreeLeft'></div><div class='sTreeRight'></div>
 	<button class='btn btn-danger butHome'><i class='icon-white icon-home'></i><br /> Keluar </button>
@@ -549,6 +625,20 @@
 <section id=pvp1>
 <div class=ui>
 <div class='board busBoard'>
+	<div class=prosMe>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
+		</div>
+		<div class=imgMe></div>
+	</div>
+	<div class=prosEn>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
+		</div>
+		<div class=imgEn></div>
+	</div>
 	
 	<div class='midUp1 trees2 trap'></div><div class='midUp2 trees3 trap'></div><div class='midUp3 trees3 trap'></div><div class='midUp4 trees2 trap'></div>
 	<div class='midBot1 trees4 trap'></div><div class='midBot2 trees4 trap'></div><div class='midBot3 trees4 trap'></div>
@@ -572,6 +662,20 @@
 <section id=pvp2>
 <div class=ui>
 <div class='board ringBoard'>
+	<div class=prosMe>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
+		</div>
+		<div class=imgMe></div>
+	</div>
+	<div class=prosEn>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
+		</div>
+		<div class=imgEn></div>
+	</div>
 	
 	<div class='rTreeUp trap'></div><div class='rTreeMid trap'></div><div class='rTreeBot trap'></div><div class='rTreeLeft trap'></div><div class='rTreeRight trap'></div>
 	<div class='tree item7 item ring1' id=aring1></div><div class='tree item7 item ring2' id=aring2></div><div class='stone item7 item ring3' id=aring3></div>
@@ -594,6 +698,20 @@
 <section id=pvp3>
 <div class=ui>
 <div class='board starBoard'>
+	<div class=prosMe>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
+		</div>
+		<div class=imgMe></div>
+	</div>
+	<div class=prosEn>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
+		</div>
+		<div class=imgEn></div>
+	</div>
 	
 	<div class='sTreeUp trap'></div><div class='sTreeBot  trap'></div><div class='sTreeLeft  trap'></div><div class='sTreeRight  trap'></div>
 	<div class='tree item8 item star1' id=astar1></div><div class='tree item8 item star2' id=astar2></div><div class='stone item8 item star3' id=astar3></div>
@@ -616,6 +734,20 @@
 <section id=coop1>
 <div class=ui>
 <div class='board busBoard'>
+	<div class=prosMe>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
+		</div>
+		<div class=imgMe></div>
+	</div>
+	<div class=prosEn>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
+		</div>
+		<div class=imgEn></div>
+	</div>
 	
 	<div class='midUp1 trees2 trap'></div><div class='midUp2 trees3 trap'></div><div class='midUp3 trees3 trap'></div><div class='midUp4 trees2 trap'></div>
 	<div class='midBot1 trees4 trap'></div><div class='midBot2 trees4 trap'></div><div class='midBot3 trees4 trap'></div>
@@ -640,6 +772,20 @@
 <section id=coop2>
 <div class=ui>
 <div class='board ringBoard'>
+	<div class=prosMe>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
+		</div>
+		<div class=imgMe></div>
+	</div>
+	<div class=prosEn>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
+		</div>
+		<div class=imgEn></div>
+	</div>
 	
 	<div class='rTreeUp trap'></div><div class='rTreeMid trap'></div><div class='rTreeBot trap'></div><div class='rTreeLeft trap'></div><div class='rTreeRight trap'></div>
 	<div class='tree item10 item ring1' id=cring1></div><div class='tree item10 item ring2' id=cring2></div><div class='stone item10 item ring3' id=cring3></div>
@@ -663,6 +809,20 @@
 <section id=coop3>
 <div class=ui>
 <div class='board starBoard'>
+	<div class=prosMe>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
+		</div>
+		<div class=imgMe></div>
+	</div>
+	<div class=prosEn>
+		<img src=/img/acc/bubble.png width=50px height=70px />
+		<div class="progress progress-striped active" width=30px>
+			<div class="bar" style="width: 100%;"></div>
+		</div>
+		<div class=imgEn></div>
+	</div>
 	
 	<div class='sTreeUp trap'></div><div class='sTreeBot  trap'></div><div class='sTreeLeft  trap'></div><div class='sTreeRight  trap'></div>
 	<div class='tree item11 item star1' id=cstar1></div><div class='tree item11 item star2' id=cstar2></div><div class='stone item11 item star3' id=cstar3></div>

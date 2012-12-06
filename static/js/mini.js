@@ -58,6 +58,10 @@ function endCoop(){
 
 function hidePtr(id, sharpLvl){
 	if((isPlaying==true) &&(isWorking==false) && (($(id).css('border')=='1px solid rgb(255, 255, 255)') || ($(id)[0].style.border=='1px solid white')) ){
+		$(".prosMe").css('top',(parseInt($(id).css('top'),10)-55) + 'px');
+		$(".prosMe").css('left',$(id).css('left'));
+		$(".prosMe").show();
+		
 		//----- for PVP only --------
 		if(isPVP==true || isCoop==true){
 			socket.emit('destroy',$(id).attr('id'),sharpLvl);
@@ -77,6 +81,7 @@ function hidePtr(id, sharpLvl){
 					gS++;
 					$(id).fadeOut(800);	
 					isWorking=false;
+					$('.prosMe').hide();
 				},sharpLvl*1000);
 	}
 }

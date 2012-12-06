@@ -1,5 +1,8 @@
 function hideAll(){
+		$('.msgBox').hide();
+		
 		$("#credit").hide();
+		$("#rank").hide();
 		$("#map").hide();
 		$("#intro").hide();
 		$("#tutorial").hide();
@@ -58,6 +61,7 @@ function refreshNow(level, exp, axe, hammer, sickle, win, lose, score, tuts, pp)
 		$('.infoFighter').html("<img src=img/profile/" + pp + " width=180px height=200px />");
 		
 		imgP='img/profile/' + pp;
+		$('.imgMe').html('<img src=/img/profile/' + pp + ' width=30px height=35px />');
 }
 
 function Signed(){
@@ -69,6 +73,9 @@ function Signed(){
 		
 		if(tutorial<3){
 			$('#butRing').hide();
+			$('#butStar').hide();
+			$('#butPvp').hide();
+			$('#butCoop').hide();
 			switch(tutorial){
 				case 0:
 					startIntro();
@@ -84,6 +91,8 @@ function Signed(){
 			}
 		}else if(tutorial<4){
 			$('#butStar').hide();
+			$('#butPvp').hide();
+			$('#butCoop').hide();
 			$('#map').show();
 		}else if(tutorial<5){
 			$('#butPvp').hide();
@@ -96,6 +105,7 @@ function Signed(){
 	
 function startIntro(){
 	hideAll();
+	$('.msgBox').show();
 	$('#intro').fadeIn(1000);
 	fillText('Chief', intro[CC][lang]);
 }
@@ -103,6 +113,7 @@ function startIntro(){
 function doTuts(){
 	CC=0;
 	hideAll();
+	$('.msgBox').show();
 	$('#tutorial').fadeIn(1000);
 	$('#textTut').hide();
 	$('#tutsTree3').hide();
@@ -173,6 +184,7 @@ function doStage3(){
 }
 
 function preRing(){
+	animateBus();
 	$('.winBoard').hide();
 	$('.msgBox').show();
 	CC=-1;
@@ -181,8 +193,7 @@ function preRing(){
 
 function doRing(){
 	CC=-1;
-	hideAll();
-	animateBus();
+	$('.msgBox').show();
 	$('#butRing').fadeIn(500);
 }
 
@@ -202,6 +213,7 @@ function doStageRing(){
 }
 
 function ringFin(){
+	animateRing();
 	$('.winBoard').hide();
 	$('.msgBox').show();
 	CC=-1;
@@ -210,8 +222,7 @@ function ringFin(){
 
 function doStar(){
 	CC=-1;
-	hideAll();
-	animateRing();
+	$('.msgBox').hide();
 	$('#butStar').fadeIn(500);
 }
 
@@ -233,6 +244,7 @@ function doStageStar(){
 function starFin(){
 	socket.emit('reqRefresh');
 	tutorial=5;
+	animateStar();
 	$('.winBoard').hide();
 	$('.msgBox').show();
 	CC=-1;
@@ -241,14 +253,14 @@ function starFin(){
 
 function arenaTuts(){
 	socket.emit('updateScoreT',0);
-	hideAll();
-	animateStar();
+	$('.msgBox').hide();
 	$('#butPvp').fadeIn(500);
 	$('#butCoop').fadeIn(500);
 }
 
 function doPvp(){
 	socket.emit('roomReq',0);
+	socket.emit('reqLB');
 	hideAll();
 	$('#arenaLobi').fadeIn(1000);
 	$('#butTeman').attr("disabled", true);
@@ -258,6 +270,7 @@ function doPvp(){
 
 function doCoop(){
 	socket.emit('roomReq',1);
+	socket.emit('reqLB');
 	hideAll();
 	$('#coopLobi').fadeIn(1000);
 	$('#butTeman').attr("disabled", true);

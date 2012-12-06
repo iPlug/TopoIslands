@@ -7,27 +7,31 @@ Index:
 
 	var intro = [
 	[
-	"Akhirnya kau datang juga. Selamat datang di kepulauan topo. Aku adalah Chief di pulau ini.",
+	"Selamat datang di Pulau Bus. Aku adalah Chief di pulau ini. Di kepulauan ini hutannya dihuni oleh banyak hewan mematikan. ",
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
-	"Di kepulauan ini hutannya dihuni oleh banyak hewan mematikan. Jika salah menebang pohon, maka akibatnya sangat fatal. ",
+	"Kamu harus melewati jalan yang telah dibuat untuk pergi ke suatu tempat. Cara menghubungkan rumah-rumah di pulau ini disebut sebagai Topologi.",
 	""
 	],
 	[
-	"Tetapi kau tenang saja, karena jika mengikuti Rute yang harus ditebang, kau akan selamat. Rute ini dinamakan Topologi.",
+	"Setiap pulau memiliki karakteristik yang berbeda, sehingga hanya ada satu Topologi yang cocok untuk suatu pulau. Jika salah menentukan topologi, hewan buas akan menantimu disana.",
 	""
 	],
 	[
-	"Ada beberapa Rute, tetapi secara garis besar ada 3 Rute yang akan aku ajarkan padamu. Rute Bus, Rute Ring, dan Rute Star",
+	"Sebenarnya ada banyak macam Topologi, tetapi hanya tiga topologi yang akan aku ajarkan padamu yaitu Topologi Bus, Topologi Ring, dan Topologi Star",
 	""
 	],
 	[
-	"Di Pulau ini, kamu akan mendapatkan latihan dasar sebagai Pejuang Topo. Mereka adalah mantan pejuang topo yang terkenal.",
+	"Pulau ini terkenal dengan jalan besar yang menghubungkan rumah satu dengan lainnya yang sering disebut sebagai Backbone. Untuk itu, kamu harus menggunakan topologi bus di pulau ini.",
 	""
 	],
 	[
-	"Woody akan meltihmu menggunakan kapak, Thai melatihmu menggunakan palu, dan Saibara akan melatihmu menggunakan sabit. Berlatihlah dengan Semangat!",
+	"Di Pulau ini, kamu akan mendapatkan latihan dasar sebagai Pejuang Topo. Mereka adalah mantan pejuang topo yang terkenal, Woody, Thai, dan Saibara.",
+	""
+	],
+	[
+	"Aku sangat berharap kau bisa membantu kami membersihkan jalan dari penghalang dan membuat topologi Bus untuk pulau ini. Semoga berhasil.",
 	""]
 	];
 
@@ -39,11 +43,11 @@ Index:
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
-	"Kamu tidak bisa menebang pohon lain saat kamu sedang menebang pohon tertentu. Menebang pohon memakan waktu tertentu, tergantung dari Tingkat Keahlian Kapakmu.",
+	"Kamu tidak bisa menebang pohon lain saat kamu sedang proses menebang pohon tertentu. Menebang pohon membutuhkan waktu tertentu, tergantung dari Tingkat Keahlian Kapakmu. Tebanglah juga pohon ini!",
 	""
 	],
 	[
-	"Jika sudah mengerti, mari kita lihat kemampuanmu. Tebanglah pohon yang menghalangi rute Bus.",
+	"Jika sudah mengerti, mari kita lihat kemampuanmu. TEBANGLAH SEMUA POHON yang menghalangi jalan.",
 	""]
 	];
 	
@@ -81,22 +85,22 @@ Index:
 // stage 4
 	var stage4 = [
 	[
-	"Ok, dengan ini aku yakin kalau kamu siap untuk memperebutkan pulau-pulau yang ada di kepulauan topo ini dengan petarung lain.",
+	"Kerja yang sangat bagus teman, sekarang penduduk pulau bus bisa dengan bebas berkunjung ke rumah tetangganya. Ini semua karena kerja kerasmu.",
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
-	"Setelah ini aku akan mengenalkanmu dengan Rute selanjutnya yaitu Rute Ring. Pergilah ke Pulau Ring untuk latihan disana.",
+	"Oh ya, aku telah berjanji akan mengajarkanmu tentang topologi ring bukan? Sekarang pergilah ke Pulau Ring, pulau ring adalah pulau diseberang pulau ini.",
 	""
 	],
 	[
-	"Di pulau ring, kau akan disambut oleh temanku Doug. Jangan khawatir, Doug adalah orang yang baik.",
+	"Di pulau ring, kau akan disambut oleh temanku Doug. Jangan khawatir, Doug adalah orang yang baik. Selamat tinggal...",
 	""]
 	];
 	
 // stage 4
 	var ringIntro = [
 	[
-	"Oh, jadi kau orangnya, perkenalkan namaku Doug. Ini adalah Pulau Ring.",
+	"Oh, jadi kau orangnya, perkenalkan namaku Doug. Ini adalah Pulau Ring. Pulau dengan jalan yang mirip dengan cincin.",
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
@@ -104,7 +108,7 @@ Index:
 	""
 	],
 	[
-	"Aku ingin kau membersihkan jalan menurut Rute di Pulau ini. Lihatlah, jalan disini dipenuhi dengan pohon, batu, dan semak. Tolong bersihkan semua, ok?",
+	"Aku ingin kau membersihkan jalan menurut topologi yang ada di Pulau ini. Lihatlah, jalan disini dipenuhi dengan pohon, batu, dan semak. Tolong bersihkan semua, ok?",
 	""],
 	[
 	"Ingat, jika kau salah menebang pohon, maka akan berakibat fatal bagimu. Apa kamu sudah siap?",
@@ -114,52 +118,52 @@ Index:
 // stage 4
 	var ringFinish = [
 	[
-	"Bagus sekali... Rute Ring ini sebenarnya hampir sama denan Rute Bus, tetapi Rute ini Jalan besarnya menyambung sedangkan Rute Bus tidak.",
+	"Bagus sekali... Topologi Ring ini sebenarnya hampir sama dengan Topologi Bus, tetapi pada Topologi ini Jalan besarnya menyambung sedangkan Topologi Bus tidak.",
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
-	"Setelah ini akan Aku kenalkan dengan Rute yang ketiga yaitu Rute Star. Pergilah ke Pulau Star untuk berlatih disana.",
+	"Setelah ini akan Aku kenalkan dengan Topologi yang ketiga yaitu Topologi Star. Pergilah ke Pulau Star untuk berlatih disana.",
 	""
 	],
 	[
-	"Rute Star adalah rute terakhir yang akan ku ajarkan. Jadi perhatikanlah baik-baik. Temanku bernama Gourmet akan melatihmu disana.",
+	"Topologi Star adalah Topologi terakhir yang akan kau pelajari. Jadi perhatikanlah baik-baik. Temanku bernama Gourmet akan melatihmu disana.",
 	""],
 	[
-	"Pergilah kapanpun saat kau siap. Berlatihlah yang giat, semoga sukses!",
+	"Pergilah kapanpun saat kau siap. Terimakasih atas kerja kerasmu penduduk disini bebas keluar rumah. Berlatihlah yang giat, semoga sukses!",
 	""]
 	];
 	
 	var starIntro = [
 	[
-	"Selamat datang di Pulau Star. Namaku Gourmet, ini adalah latihan terakhirmu, setelah ini kamu akan berjuang sendiri demi pulaumu.",
+	"Selamat datang di Pulau Star. Namaku Gourmet, ini adalah latihan terakhirmu, setelah ini kamu akan berjuang sendiri untuk menjadi Raja PVP ataupun Raja Coop.",
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
-	"Sepintas Rute Star memiliki desain yang sama dengan Rute Ring, tapi sebenarnya sangat berbeda. Rute Star tidak memiliki Jalan Pusat (Backbone).",
+	"Sepintas Topologi Star memiliki desain yang sama dengan Topologi Ring, tapi sebenarnya sangat berbeda. Topologi Star tidak memiliki Jalan Pusat (Backbone).",
 	""
 	],
 	[
-	"Tetapi Rute ini memiliki Bangunan Pusat yang biasa disebut dengan Hub. Setiap orang yang ingin berkunjung ke rumah orang lain harus melewati Hub terebih dahulu.",
+	"Tetapi Topologi ini memiliki Bangunan Pusat yang biasa disebut dengan Hub. Setiap orang yang ingin berkunjung ke rumah orang lain harus melewati Hub terebih dahulu.",
 	""],
 	[
-	"Jadi, tugasmu adalah membersihkan jalan dari Hub ke bangunan-bangunan lain yang mengelilinginya. Itulah mengapa Rute ini dikenal sebagai Rute Star (Bintang).",
+	"Jadi, tugasmu adalah membersihkan jalan dari Hub ke bangunan-bangunan lain yang mengelilinginya. Itulah mengapa Topologi ini dikenal sebagai Topologi Bintang.",
 	""],
 	[
-	"Bersihkan jalanya secepat yang kamu bisa, karena lebih cepat kamu menyelesaikan, lebih banyak score yang kamu dapatkan.",
+	"Bersihkan jalannya secepat yang kamu bisa, karena lebih cepat kamu menyelesaikan, lebih banyak score yang kamu dapatkan.",
 	""]
 	];
 	
 	var starFinish = [
 	[
-	"Terimakasih atas bantuannya. Kini kau sudah punya semua yang kau butuhkan untuk menjadi Pejuang Topo.",
+	"Terimakasih atas bantuannya. Penduduk disini berterimakasi padamu, mereka sangat sengan jalan di pulau star kembali bersih.",
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[
-	"Akan kuberikan Point Keahlian padamu. Poin ini dapat digunakan untuk menambah Keahlian mu sehingga lebih cepat dalam membersihkan pohon, batu, atau semak.",
+	"Akan kuberikan Point Keahlian padamu. Poin ini dapat digunakan untuk menambah Keahlianmu sehingga lebih cepat dalam membersihkan pohon, batu, atau semak.",
 	""
 	],
 	[
-	"Untuk mendapatkan Poin Keahlian hanya dapat dilakukan dengan memenuhi Poin Pengalaman mu. Saat poin pengalaman penuh, kamu mendapatkan 1 Poin Keahlian.",
+	"Untuk mendapatkan Poin Keahlian hanya dapat dilakukan dengan memenuhi Poin Pengalamanmu. Saat poin pengalaman penuh, kamu mendapatkan 1 Poin Keahlian.",
 	""],
 	[
 	"Ada dua cara untuk mendapatkan Poin Pengalaman (EXP) yaitu dengan PVP (Player versus Player) di Arena atau COOP (bekerja sama dengan Player lain).",
@@ -168,6 +172,6 @@ Index:
 	"Itu adalah pilihanmu sendiri, Menang PVP mendapat EXP+150, Kalah PVP mendapat EXP+50, sedangkan COOP pasti akan memberimu EXP+100.",
 	""],
 	[
-	"Selamat Berjuang. Cobalah mengetest kemampuanmu di Arena PVP (Pulau dengan Pedang dan Tengkorak) atau mencari teman di Coop (Pulau dengan Pedang dan Hati).",
+	"Wujudkan impianmu menjadi Raja PVP dan Raja Coop. Selamat Berjuang dan terus berlatih! Selamat tinggal...",
 	""]
 	];

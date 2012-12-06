@@ -1,3 +1,10 @@
+// inisialisasi database PostgreSQL
+// format 
+// var conString = 'postgres://user:password@host';
+
+var conString = "postgres://postgres:fariqorik@localhost:5432/postgres";
+//var conString = 'postgres://nijegwbjqbuihp:my6WheKVlqtm3UHFV4NKgu5nov@ec2-54-243-247-55.compute-1.amazonaws.com:5432/d6imoto5c8i6ej';
+
 var red, blue, reset;
 red   = '\u001b[31m';
 blue  = '\u001b[36m';
@@ -13,6 +20,8 @@ var leader = new Array;
 var imgF = new Array;
 var imgL = new Array;
 
+cinfo("TopoIslands GameServer started." + reset);
+
 var express = require('express');
 var app = express()
   , http = require('http')
@@ -21,8 +30,7 @@ var app = express()
   , io = require('socket.io').listen(server);
 var sys = require('util');
 var pg = require('pg'); //native libpq bindings = `var pg = require('pg').native`
-//var conString = "postgres://postgres:fariqorik@localhost:5432/postgres";
-var conString = 'postgres://nijegwbjqbuihp:my6WheKVlqtm3UHFV4NKgu5nov@ec2-54-243-247-55.compute-1.amazonaws.com:5432/d6imoto5c8i6ej';
+
 
 var port = process.env.PORT || 5000;
 
@@ -31,7 +39,7 @@ function cinfo(print){
 }
 
 server.listen(port, function() {
-  cinfo(reset + "listening on " + port);
+  cinfo(reset + "listening on port " + port);
 });
 
 var client = new pg.Client(conString);
@@ -105,11 +113,12 @@ app.get('/library', function (req, res) {
   res.sendfile(__dirname + '/perpus.html');
 });
 
-
+/*
 io.configure(function () { 
   io.set("transports", ["xhr-polling"]); 
   io.set("polling duration", 10); 
 });
+*/
 
 io.set('log level', 1);
 
@@ -136,7 +145,8 @@ io.sockets.on('connection', function (socket) {
 		});
 		
 	});	
-
+	
+	
 	// when user sign in
 	socket.on('signin', function(name, pass){
 		var searching = client.query("SELECT * FROM player WHERE name = $1", [name]);
@@ -161,14 +171,22 @@ io.sockets.on('connection', function (socket) {
 		});
 		// update leaderboard
 		
-		var lbPVP = client.query("SELECT * FROM player ORDER BY winrate DESC LIMIT 3", function(err,result){
+		var lbPVP = client.query("SELECT name, winrate, pp FROM player ORDER BY winrate DESC LIMIT 3", function(err,result){
 			socket.emit('lbPVP', result);
 		});
 		
-		var lbCoop = client.query("SELECT * FROM player ORDER BY score DESC LIMIT 3", function(err,result){
+		var lbCoop = client.query("SELECT name, score, pp FROM player ORDER BY score DESC LIMIT 3", function(err,result){
 			socket.emit('lbCoop', result);
 		});
 		
+	});
+	
+	socket.on('reqRank', function(){
+		var lbPVP = client.query("SELECT name, win, lose, winrate, pp FROM player ORDER BY winrate DESC", function(err,result){
+			var lbCoop = client.query("SELECT name, score, pp FROM player ORDER BY score DESC", function(err2,result2){
+				socket.emit('Rank', result, result2);
+			});
+		});
 	});
 	
 	socket.on('reqRefresh', function(){
@@ -262,7 +280,7 @@ io.sockets.on('connection', function (socket) {
 			update = client.query("UPDATE player SET exp = $1 WHERE name = $2", [row.exp+expPlus,socket.username]);
 			
 			if(row.win+row.lose+1>5){
-				var winrate = row.win/row.win+row.lose+1;
+				var winrate = (row.win/(row.win+row.lose+1))*100;
 				update = client.query("UPDATE player SET winrate = $1 WHERE name = $2", [winrate,socket.username]);
 			}
 			
@@ -287,7 +305,7 @@ io.sockets.on('connection', function (socket) {
 			cinfo(red + socket.username + reset + ' has win from Arena');
 		});
 		
-		var lbPVP = client.query("SELECT * FROM player ORDER BY winrate DESC LIMIT 3", function(err,result){
+		var lbPVP = client.query("SELECT name, winrate, pp FROM player ORDER BY winrate DESC LIMIT 3", function(err,result){
 			socket.emit('lbPVP', result);
 		});
 		
@@ -306,7 +324,7 @@ io.sockets.on('connection', function (socket) {
 			update = client.query("UPDATE player SET exp = $1 WHERE name = $2", [row.exp+expPlus,socket.username]);
 			
 			if(row.win+row.lose+1>5){
-				var winrate = row.win/row.win+row.lose+1;
+				var winrate = (row.win/(row.win+row.lose+1))*100;
 				update = client.query("UPDATE player SET winrate = $1 WHERE name = $2", [winrate,socket.username]);
 			}
 			
@@ -331,7 +349,7 @@ io.sockets.on('connection', function (socket) {
 			cinfo(red + socket.username + reset + ' has lose from Arena');
 		});
 		
-		var lbPVP = client.query("SELECT * FROM player ORDER BY winrate DESC LIMIT 3", function(err,result){
+		var lbPVP = client.query("SELECT name, winrate, pp FROM player ORDER BY winrate DESC LIMIT 3", function(err,result){
 			socket.emit('lbPVP', result);
 		});
 	});
@@ -364,10 +382,10 @@ io.sockets.on('connection', function (socket) {
 			}
 				socket.emit('refreshNow', level, row.exp+expPlus, row.axe, row.hammer, row.sickle, row.win, row.lose, row.score+scr, row.tuts, row.pp);
 			});
-			
-			var lbCoop = client.query("SELECT * FROM player ORDER BY score DESC LIMIT 3", function(err,result){
-				socket.emit('lbCoop', result);
-			});
+
+		var lbCoop = client.query("SELECT name, score, pp FROM player ORDER BY score DESC LIMIT 3", function(err,result){
+			socket.emit('lbCoop', result);
+		});
 	});
 	
 	// ------- FEATURED ---------
@@ -377,7 +395,15 @@ io.sockets.on('connection', function (socket) {
 		io.sockets.emit('updatechat', socket.username, data);
 	});
 	
-	
+	socket.on('reqLB', function () {
+		var lbPVP = client.query("SELECT name, winrate, pp FROM player ORDER BY winrate DESC LIMIT 3", function(err,result){
+			socket.emit('lbPVP', result);
+		});
+		
+		var lbCoop = client.query("SELECT name, score, pp FROM player ORDER BY score DESC LIMIT 3", function(err,result){
+			socket.emit('lbCoop', result);
+		});
+	});
 	// LOBBY AREA
 	
 	socket.on('roomReq', function (type){

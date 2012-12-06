@@ -101,13 +101,12 @@
 				'img/acc/sailboat.png',
 				'img/acc/tengah.png',
 				'img/acc/topoislands.png'
-				
                 ];
         
         function handleOnload(){
             numLoad++;
             console.log(image[numLoad-1].src + ' has been Loaded...')
-            x=30*(numLoad+1);
+            x=20*(numLoad+1);
             $("#perahu").stop().animate({ width:x },3500);
             $("#moveShip").html(numLoad + "/" + list.length);
             if(numLoad==list.length){

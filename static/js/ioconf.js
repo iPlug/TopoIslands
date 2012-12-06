@@ -16,9 +16,10 @@
 	socket.on('uStat', function(i){
 		if(i==0){
 			$('#signBox').show();
-			$('#loginBox').hide();
-			$('#signName').val(uname);
-			$('#signPass').val(passw);
+			$('#signBox0').hide();
+			$('#signName1').val(uname);
+			$('#signPass1').val(passw);
+			$("#signEmail").focus();
 		}else{
 			alert('Username sudah ada, coba username yang lain.');
 		}
@@ -28,11 +29,35 @@
 		refreshNow(level, exp, axe, hammer, sickle, win, lose, score, tuts, pp);
 	});
 	
+	socket.on('Rank', function(dPVP, dCoop){
+		$('#rnkPVP').html('');
+		rnkCnt=0;
+		dbP=dPVP;dbC=dCoop;
+		var j=0;
+		while(j!=15){
+			if(rnkCnt==0){
+				$('#rnkPVP').append('<div style="border:4px solid gold;margin-bottom:5px;"> [ ' + (1+rnkCnt) + ' ] <img src=/img/profile/' + dbP.rows[rnkCnt].pp + ' width=13px height=15px /> ' + dbP.rows[rnkCnt].name + ' | Win : ' + dbP.rows[rnkCnt].win + ' | Lose : ' + dbP.rows[rnkCnt].lose +' | WinRate : ' + dbP.rows[rnkCnt].winrate + '%<br /> </div>');
+			}else if(rnkCnt==1){
+				$('#rnkPVP').append('<div style="border:3px solid silver;margin-bottom:3px;"> [ ' + (1+rnkCnt) + ' ] <img src=/img/profile/' + dbP.rows[rnkCnt].pp + ' width=13px height=15px /> ' + dbP.rows[rnkCnt].name + ' | Win : ' + dbP.rows[rnkCnt].win + ' | Lose : ' + dbP.rows[rnkCnt].lose + ' - WinRate : ' + dbP.rows[rnkCnt].winrate + '%<br /> </div>');
+			}else if(rnkCnt==2){
+				$('#rnkPVP').append('<div style="border:2px solid brown;margin-bottom:2px;"> [ ' + (1+rnkCnt) + ' ] <img src=/img/profile/' + dbP.rows[rnkCnt].pp + ' width=13px height=15px /> ' + dbP.rows[rnkCnt].name + ' | Win : ' + dbP.rows[rnkCnt].win + ' | Lose : ' + dbP.rows[rnkCnt].lose +' - WinRate : ' + dbP.rows[rnkCnt].winrate + '%<br /> </div>');
+			}else{
+				if(dbP.rows[rnkCnt].name==uname){
+					$('#rnkPVP').append('<div style="border:2px solid blue;margin-bottom:1px;"> [ ' + (1+rnkCnt) + ' ] <img src=/img/profile/' + dbP.rows[rnkCnt].pp + ' width=13px height=15px /> ' + dbP.rows[rnkCnt].name + ' | Win : ' + dbP.rows[rnkCnt].win + ' | Lose : ' + dbP.rows[rnkCnt].lose +' - WinRate : ' + dbP.rows[rnkCnt].winrate + '%<br /> </div>');
+				}else{
+					$('#rnkPVP').append('<div style="border:1px solid white;margin-bottom:1px;"> [ ' + (1+rnkCnt) + ' ] <img src=/img/profile/' + dbP.rows[rnkCnt].pp + ' width=13px height=15px /> ' + dbP.rows[rnkCnt].name + ' | Win : ' + dbP.rows[rnkCnt].win + ' | Lose : ' + dbP.rows[rnkCnt].lose +' - WinRate : ' + dbP.rows[rnkCnt].winrate + '%<br /> </div>');
+				}
+			}
+			rnkCnt++;
+			j++;
+		}
+	});
+	
 	socket.on('lbPVP', function(dPVP){
 		$('#lbPVP').html('<br /><b><center>King of PVP</b></center>');
 		
 		for(var i=0;i<dPVP.rowCount;i++){
-			$('#lbPVP').append(' [ ' + (i+1) + ' ] ' + dPVP.rows[i].name + ' - WinRate : ' + dPVP.rows[i].winrate + '%<br />');
+			$('#lbPVP').append(' [ ' + (i+1) + ' ] <img src=/img/profile/' + dPVP.rows[i].pp + ' width=13px height=15px /> ' + dPVP.rows[i].name + ' - WinRate : ' + dPVP.rows[i].winrate + '%<br />');
 		}
 	});
 
@@ -40,7 +65,7 @@
 		$('#lbCoop').html('<br /><b><center>King of Coop</b></center>');
 		
 		for(var i=0;i<dCOOP.rowCount;i++){
-			$('#lbCoop').append(' [ ' + (i+1) + ' ] ' + dCOOP.rows[i].name + ' - Score : ' + dCOOP.rows[i].score + '<br />');
+			$('#lbCoop').append(' [ ' + (i+1) + ' ] <img src=/img/profile/' + dCOOP.rows[i].pp + ' width=13px height=15px /> ' + dCOOP.rows[i].name + ' - Score : ' + dCOOP.rows[i].score + '<br />');
 		}
 	});
 	
@@ -164,6 +189,7 @@
 			}else{
 				$('.nameP1').html(p1);
 				$('.imgP1').html('<img src=/img/profile/' + imgE + ' width=180px height=200px />');
+				$('.imgEn').html('<img src=/img/profile/' + imgE + ' width=30px height=35px />');
 				$('.nameP2').html(uname);
 				$('.imgP2').html('<img src=' + imgP + ' width=180px height=200px />');
 				$('#aReadyP1').html('SIAP');
@@ -189,6 +215,7 @@
 			}else{
 				$('.nameP1').html(p1);
 				$('.imgP1').html('<img src=/img/profile/' + imgE + ' width=180px height=200px />');
+				$('.imgEn').html('<img src=/img/profile/' + imgE + ' width=30px height=35px />');
 				$('.nameP2').html(uname);
 				$('.imgP2').html('<img src=' + imgP + ' width=180px height=200px />');
 				$('#cReadyP1').html('SIAP');
@@ -231,6 +258,7 @@
 			$('#aReadyP2').attr("disabled", true);
 			$('#aExitP2').hide();
 			$('.imgP2').html('<img src=/img/profile/' + imgE + ' width=180px height=200px />');
+			$('.imgEn').html('<img src=/img/profile/' + imgE + ' width=30px height=35px />');
 	});
 	
 	socket.on('fReady', function(username){
@@ -265,6 +293,7 @@
 			$('#cReadyP2').attr("disabled", true);
 			$('#cExitP2').hide();
 			$('.imgP2').html('<img src=/img/profile/' + imgE + ' width=180px height=200px />');
+			$('.imgEn').html('<img src=/img/profile/' + imgE + ' width=30px height=35px />');
 	});
 	
 	socket.on('pReady', function(username){
@@ -284,11 +313,15 @@
 	socket.on('destroy', function(id,sharpLvl){
 		console.log(id);
 		$('#' + id).css("border","1px blue solid");
+		$(".prosEn").css('top',(parseInt($('#' + id).css('top'),10)-55) + 'px');
+		$(".prosEn").css('left',$('#' + id).css('left'));
+		$(".prosEn").show();
 		ptrTimer = setTimeout(function(){
 			bag.play();
 			eS++;
 			gS++;
 			$('#' + id).fadeOut(800);
+			$(".prosEn").hide();
 		},sharpLvl*1000);
 	});
 	

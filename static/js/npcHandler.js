@@ -1,9 +1,9 @@
 function introHandler(){
-	if(CC!=5){
+	if(CC!=6){
 		CC++;
 		cleanTxt();
 		fillText('Chief',intro[CC][lang]);
-		if(CC==5) $('#introNext').html('Mulai Tutorial!');
+		if(CC==6) $('#introNext').html('Mulai Tutorial!');
 	}else{
 		doTuts();
 	}
@@ -64,7 +64,7 @@ function ringHandler(){
 		CC++;
 		cleanTxt();
 		fillText('Chief',stage4[CC][lang]);
-		if(CC==2) $('#busFinish').html('Pindah ke Pulau RING!');
+		if(CC==2) $('#busFinish').html('Aku mengerti!');
 	}else{
 		doRing();
 	}
