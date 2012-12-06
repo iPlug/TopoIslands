@@ -90,6 +90,7 @@ $(document).ready(function() {
 		if(tutorial==3){
 			CC=-1;
 			hideAll();
+			$('.msgBox').show();
 			$('#introRing').fadeIn(1000);
 			ringHandler2();
 		}else{
@@ -102,6 +103,7 @@ $(document).ready(function() {
 		if(tutorial==4){
 			CC=-1;
 			hideAll();
+			$('.msgBox').show();
 			$('#introStar').fadeIn(1000);
 			starHandler();
 		}else{
@@ -161,6 +163,11 @@ $(document).ready(function() {
 		$("#map").fadeIn(1000);
 		stage.removeAllChildren();
 	  });
+	  $(".skipConv").click(function(event) {
+		doTuts();
+	  });
+	  
+	  
 	// SKILL BUTTON HANDLER
 	
 	$("#addAxe").click(function(event){

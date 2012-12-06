@@ -193,8 +193,7 @@ function preRing(){
 
 function doRing(){
 	CC=-1;
-	$('.msgBox').show();
-	$('#butRing').fadeIn(500);
+	$('.msgBox').hide();
 }
 
 function doStageRing(){
@@ -223,7 +222,6 @@ function ringFin(){
 function doStar(){
 	CC=-1;
 	$('.msgBox').hide();
-	$('#butStar').fadeIn(500);
 }
 
 function doStageStar(){
