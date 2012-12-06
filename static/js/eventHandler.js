@@ -354,7 +354,7 @@ $(document).ready(function() {
 				}
 				
 				//adding chat item
-				 $('#chatBoard').append('<b>' + uname + ':</b> ' + message + '<br>');
+				 $('#chatBoard').append('<img src=/' + imgP + ' width=13px height=15px /> <b>' + uname + ':</b> ' + message + '<br>');
 				 
 				//scroll down the chatBox
 				$("#chatBoard").animate({ scrollTop: $("#chatBoard").prop("scrollHeight") - $('#chatBoard').height() }, 1);  
@@ -384,7 +384,7 @@ $(document).ready(function() {
 				}
 				
 				//adding chat item
-				 $('#chatBoardG').append('<font color=purple><b>' + uname + ':</b> ' + message + '</font><br />');
+				 $('#chatBoardG').append('<img src=/' + imgP + ' width=13px height=15px /> <font color=purple><b>' + uname + ':</b> ' + message + '</font><br />');
 				 
 				//scroll down the chatBox
 				$("#chatBoardG").animate({ scrollTop: $("#chatBoardG").prop("scrollHeight") - $('#chatBoardG').height() }, 1);  
