@@ -109,7 +109,7 @@
             x=20*(numLoad+1);
             $("#perahu").stop().animate({ width:x },3500);
             $("#moveShip").html(numLoad + "/" + list.length);
-            if(numLoad==list.length){
+            if(numLoad>=list.length-7){
 				$('#playBut').show();
             }
         }
