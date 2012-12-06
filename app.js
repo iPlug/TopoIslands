@@ -124,12 +124,6 @@ io.set('log level', 1);
 
 io.sockets.on('connection', function (socket) {
 	cinfo(reset + 'someone connected with us');
-	// when the client emits 'sendchat', this listens and executes
-	socket.on('sendchatG', function (data) {
-		// we tell the client to execute 'updatechat' with 2 parameters
-		//io.sockets.emit('updatechat', socket.username, data);
-		io.sockets.in(socket.room).emit('updatechatG', socket.username, data);
-	});
 	
 	// ------- DATABASE ---------------
 	
@@ -392,7 +386,13 @@ io.sockets.on('connection', function (socket) {
 	
 	socket.on('sendchat', function (data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
-		io.sockets.emit('updatechat', socket.username, data);
+		io.sockets.emit('updatechat', socket.username, socket.pp, data);
+	});
+	
+	socket.on('sendchatG', function (data) {
+		// we tell the client to execute 'updatechat' with 2 parameters
+		//io.sockets.emit('updatechat', socket.username, data);
+		io.sockets.in(socket.room).emit('updatechatG', socket.username, socket.pp, data);
 	});
 	
 	socket.on('reqLB', function () {

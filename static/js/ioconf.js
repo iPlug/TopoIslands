@@ -70,7 +70,7 @@
 	});
 	
 	// listener, whenever the server emits 'updatechat', this updates the chat body
-	socket.on('updatechat', function (username, data) {
+	socket.on('updatechat', function (username, pprofile, data) {
 		if(username!=uname){
 			//set new message = true
 			newMsg=1;
@@ -85,7 +85,7 @@
 			
 			//adding chat item
 			 //$('#chatBoard').append('<b>'+username + ' ('+time.getHours()+':'+time.getMinutes()+')'+':</b> ' + data + '<br>');
-			 $('#chatBoard').append('<b>'+username + ':</b> ' + data + '<br>');
+			 $('#chatBoard').append('<img src=/img/profile/' + pprofile + ' width=13px height=15px /><b>'+username + ':</b> ' + data + '<br>');
 			//scroll down the chatBox
 			$("#chatBoard").animate({ scrollTop: $("#chatBoard").prop("scrollHeight") - $('#chatBoard').height() }, 1);  
 			//beepOne.play();	
@@ -93,7 +93,7 @@
 		
 	});
 	
-	socket.on('updatechatG', function (username, data) {
+	socket.on('updatechatG', function (username, pp, data) {
 		if(username!=uname){
 			//set new message = true
 			newMsg=1;
@@ -107,7 +107,7 @@
 			}
 			
 			//adding chat item
-			 $('#chatBoardG').append('<font color=purple><b>'+username + ':</b> ' + data + '</font><br>');
+			 $('#chatBoardG').append('<img src=/img/profile/' + pprofile + ' width=13px height=15px /><font color=purple><b>'+username + ':</b> ' + data + '</font><br>');
 			 
 			//scroll down the chatBox
 			$("#chatBoardG").animate({ scrollTop: $("#chatBoardG").prop("scrollHeight") - $('#chatBoardG').height() }, 1);  
