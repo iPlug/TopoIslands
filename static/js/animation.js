@@ -99,10 +99,6 @@ function animateRing(){
 
 	mcHorn.gotoAndPlay("walk");     //animate
 	mcPink.gotoAndPlay("walk");     //animate
-		
-	// set up a shadow. Note that shadows are ridiculously expensive. You could display hundreds
-	// of animated rats if you disabled the shadow.
-	//mcBoy.shadow = new createjs.Shadow("#454", 0, 5, 4);
 	
 	mcHorn.name = "myHorn";
 	mcHorn.vX = 8;
@@ -216,10 +212,6 @@ function animateStar(){
 	mcBoy.gotoAndPlay("walk");     //animate
 	mcPink.gotoAndPlay("idle");     //animate
 	mcPrincess.gotoAndPlay("idle");     //animate
-		
-	// set up a shadow. Note that shadows are ridiculously expensive. You could display hundreds
-	// of animated rats if you disabled the shadow.
-	//mcBoy.shadow = new createjs.Shadow("#454", 0, 5, 4);
 
 	mcBoy.name = "myBoy";
 	mcBoy.vX = 8;

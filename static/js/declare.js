@@ -1,5 +1,4 @@
-//	DECLARE VARIABLE AND FUNCTION
-	//	var socket = io.connect('http://10.250.214.130');
+//	DECLARE VARIABLE
 	var socket = io.connect(window.location.hostname);
 	var time= new Date();
 	var popTimer;

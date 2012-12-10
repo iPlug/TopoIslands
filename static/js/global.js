@@ -1,3 +1,5 @@
+//GLOBAL FUNCTION
+
 function hideAll(){
 		$('.msgBox').hide();
 		

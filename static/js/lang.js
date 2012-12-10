@@ -155,7 +155,7 @@ Index:
 	
 	var starFinish = [
 	[
-	"Terimakasih atas bantuannya. Penduduk disini berterimakasi padamu, mereka sangat sengan jalan di pulau star kembali bersih.",
+	"Terimakasih atas bantuannya. Penduduk disini berterimakasi padamu, mereka sangat senang jalan di pulau star kembali bersih.",
 	"Welcome to TopoIslands, now you are on Bus Islands."
 	],
 	[

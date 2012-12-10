@@ -1,16 +1,13 @@
 // inisialisasi database PostgreSQL
 // format 
-// var conString = 'postgres://user:password@host';
-
-//var conString = "postgres://postgres:fariqorik@localhost:5432/postgres";
-var conString = 'postgres://nijegwbjqbuihp:my6WheKVlqtm3UHFV4NKgu5nov@ec2-54-243-247-55.compute-1.amazonaws.com:5432/d6imoto5c8i6ej';
+var conString = 'postgres://user:password@host';
 
 var red, blue, reset;
 red   = '\u001b[31m';
 blue  = '\u001b[36m';
 reset = '\u001b[0m';
 
-// usernames which are currently connected to the chat
+// declaration for PVP function
 var arenas = ['Arena-1','Arena-2','Arena-3','Arena-4','Arena-5','Arena-6','Arena-7','Arena-8','Arena-9','Arena-10'];
 var arenaC = [0,0,0,0,0,0,0,0,0,0];
 var coops = ['Party-1','Party-2','Party-3','Party-4','Party-5','Party-6','Party-7','Party-8','Party-9','Party-10'];
@@ -163,6 +160,7 @@ io.sockets.on('connection', function (socket) {
 				if(result.rowCount==0) socket.emit('notsigned');
 			}
 		});
+		
 		// update leaderboard
 		
 		var lbPVP = client.query("SELECT name, winrate, pp FROM player ORDER BY winrate DESC LIMIT 3", function(err,result){
@@ -385,13 +383,10 @@ io.sockets.on('connection', function (socket) {
 	// ------- FEATURED ---------
 	
 	socket.on('sendchat', function (data) {
-		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.emit('updatechat', socket.username, socket.pp, data);
 	});
 	
 	socket.on('sendchatG', function (data) {
-		// we tell the client to execute 'updatechat' with 2 parameters
-		//io.sockets.emit('updatechat', socket.username, data);
 		io.sockets.in(socket.room).emit('updatechatG', socket.username, socket.pp, data);
 	});
 	
@@ -404,6 +399,7 @@ io.sockets.on('connection', function (socket) {
 			socket.emit('lbCoop', result);
 		});
 	});
+	
 	// LOBBY AREA
 	
 	socket.on('roomReq', function (type){
@@ -512,7 +508,6 @@ io.sockets.on('connection', function (socket) {
 	
 	// when the user disconnects.. perform this
 	socket.on('disconnect', function(){
-		// remove the username from global usernames list
 		if(socket.username!=undefined){
 			socket.broadcast.to(socket.room).emit('leaveRoom');
 			socket.broadcast.to(socket.room).emit('leaveParty');
@@ -527,8 +522,7 @@ io.sockets.on('connection', function (socket) {
 			}
 			cinfo(red + socket.username + reset + ' has disconnected');
 		}
-		// echo globally that this client has left
-		//socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
+		
 	});
 	
 	
